@@ -77,7 +77,8 @@ module.exports = {
 		// inferno-compat
 		alias: {
 			'react': paths.appSrc + '/inferno-compat',
-			'react-dom': paths.appSrc + '/inferno-compat'
+			'react-dom': paths.appSrc + '/inferno-compat',
+			"react-addons-css-transition-group": "inferno-compat/lib/ReactCSSTransitionGroup.js"
 		}
 	},
 	// TODO: update when inferno fixes bug
