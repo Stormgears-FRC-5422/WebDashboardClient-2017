@@ -1,6 +1,12 @@
 @import "~@blueprintjs/core/dist/blueprint.css";
 @import "~flexboxgrid/dist/flexboxgrid.css";
 
-.App {
-
+#root {
+	max-width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }

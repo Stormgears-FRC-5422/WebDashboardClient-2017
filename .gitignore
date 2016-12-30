@@ -14,7 +14,6 @@ build
 .env
 npm-debug.log
 
-
 # Created by https://www.gitignore.io/api/webstorm
 
 ### WebStorm ###
@@ -68,3 +67,5 @@ fabric.properties
 # modules.xml
 # .idea/misc.xml
 # *.ipr
+
+# End of https://www.gitignore.io/api/webstorm
