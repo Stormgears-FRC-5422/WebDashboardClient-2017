@@ -23,3 +23,4 @@ ds.login({}, () => {
 });
 
 DeepstreamMixin.setDeepstreamClient(ds);
+global.ds = ds;
