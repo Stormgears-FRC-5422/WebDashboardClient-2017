@@ -12,7 +12,14 @@ const App = React.createClass({
 	getInitialState() {
 		return {
 			local: {
-				console: []
+				console: [
+					{
+						timestamp: (new Date()).toISOString(),
+						type: "CLIENT",
+						log: "Client connected",
+						key: Math.round(Math.random() * 1000000)
+					}
+				]
 			}
 		}
 	},

@@ -8,6 +8,7 @@ export default class Console extends React.Component {
 	// 	super(props);
 	// }
 	shouldComponentUpdate(nextProps) {
+		// optimize performance for large numbers of updates and logs
 		if (nextProps.data.length !== this.props.data.length) {
 			return true;
 		} else {
@@ -18,8 +19,8 @@ export default class Console extends React.Component {
 		return <pre className="console">
 			{
 				this.props.data.map(function(row) {
-					return <div className="console-row">
-						[{row.timestamp}][{row.type}]: {row.log}
+					return <div className="console-row" key={row.key}>
+						[{row.timestamp}][{row.type}] {row.log}
 					</div>
 				})
 			}
