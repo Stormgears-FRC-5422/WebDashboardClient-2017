@@ -13,7 +13,7 @@ ReactDOM.render(<div>
 	Connecting...
 </div>, document.getElementById("root"));
 
-const ds = deepstream(location.hostname + ":6020");
+const ds = deepstream(location.hostname + ":5802");
 
 ds.login({}, () => {
 	ReactDOM.render(

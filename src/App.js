@@ -30,6 +30,8 @@ const App = React.createClass({
 						</div>
 					</div>
 				</div>
+				<h2>Logs</h2>
+
 			</div>
 		);
 	}

@@ -1,5 +1,5 @@
 import React from "react";
-import ReactFitText from "react-fittext";
+// import ReactFitText from "react-fittext";
 
 export default function(props) {
 	return props.reverse ? <div className="statistic">
