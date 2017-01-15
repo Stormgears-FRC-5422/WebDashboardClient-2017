@@ -30,6 +30,15 @@ const App = React.createClass({
 	// 		[{row.timestamp}][{row.type}]: {row.log}
 	// 	</div>
 	// },
+	componentDidMount() {
+		const ds = global.ds;
+		this.rec = ds.record.getRecord("webdashboard");
+		ds.event.subscribe("log", data => {
+			console.log(data);
+			if (data)
+				this.state.local.console.push(data);
+		});
+	},
 	render() {
 		return (
 			<div className="App">
