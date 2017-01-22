@@ -19,7 +19,8 @@ const App = React.createClass({
 						log: "Client connected",
 						key: Math.round(Math.random() * 1000000)
 					}
-				]
+				],
+				consoleLength: 1
 			}
 		}
 	},
@@ -34,9 +35,18 @@ const App = React.createClass({
 		const ds = global.ds;
 		this.rec = ds.record.getRecord("webdashboard");
 		ds.event.subscribe("log", data => {
-			console.log(data);
-			if (data)
+			// console.log(data);
+			if (data) {
 				this.state.local.console.push(data);
+				this.setState({
+					local: {
+						console: this.state.local.console,
+						consoleLength: this.state.local.console.length
+					}
+				});
+			}
+
+
 		});
 	},
 	render() {
@@ -79,7 +89,7 @@ const App = React.createClass({
 						{/*/>*/}
 					{/*)}*/}
 				{/*</CellMeasurer>*/}
-				<Console data={this.state.local.console} />
+				<Console data={this.state.local.console} dataLength={this.state.local.consoleLength} />
 			</div>
 		);
 	}

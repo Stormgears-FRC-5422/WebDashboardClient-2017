@@ -14,4 +14,9 @@
 .console {
 	width: 100%;
 	max-height: 300px;
+	overflow: scroll;
+}
+
+.console-row.err {
+	color: #FF4136;
 }
