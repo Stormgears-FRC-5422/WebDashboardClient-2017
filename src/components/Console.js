@@ -42,7 +42,7 @@ export default class Console extends React.Component {
 				let row = nextProps.data[i];
 				let el = document.createElement("div");
 				el.classList.add("console-row");
-				if (row.type.toLowerCase() == "excep" || row.type.toLowerCase() == "err") {
+				if (row.type.toLowerCase() === "excep" || row.type.toLowerCase() === "err") {
 					el.classList.add("err");
 				}
 				el.innerText = `[${row.timestamp}][${row.type}] ${row.log}`;
