@@ -52,7 +52,7 @@ const App = React.createClass({
 	render() {
 		return (
 			<div className="App">
-				<h1>WebDashboard Prototype!</h1>
+				<h1>WebDashboard!</h1><br />
 				<Slider value={this.state.motor} onChange={(n) => this.setState({ motor: n })} />
 				<hr/>
 				<div className="row">
