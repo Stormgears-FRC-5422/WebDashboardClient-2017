@@ -1,4 +1,5 @@
 {
 	"motor": 0,
-	"devices": []
+	"devices": [],
+	"talons": []
 }
