@@ -48,16 +48,17 @@ export default class Console extends React.Component {
 				el.innerText = `[${row.timestamp}][${row.type}] ${row.log}`;
 				this.node.appendChild(el);
 				// this.node.insertBefore(el, this.node.firstChild);
+				if (this.shouldScroll) {
+					this.end.scrollIntoView({
+						behavior: "smooth"
+					});
+				}
 			}
 		} else if (nextProps.dataLength < this.dLength) {
 			// TODO
 		}
 
-		if (this.shouldScroll) {
-			this.end.scrollIntoView({
-				behavior: "smooth"
-			});
-		}
+
 
 		this.dLength = nextProps.dataLength;
 	}
