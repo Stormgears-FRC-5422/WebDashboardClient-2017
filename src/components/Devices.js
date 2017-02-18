@@ -1,5 +1,5 @@
 import React from "react";
-import {Tree} from "@blueprintjs/core";
+import {Tree, NonIdealState} from "@blueprintjs/core";
 
 export default class Devices extends React.PureComponent {
 	constructor(props) {
@@ -50,6 +50,10 @@ export default class Devices extends React.PureComponent {
 	}
 	render() {
 		let devices = this.props.devices;
+
+		if (!devices || devices.length === 0) {
+			return <NonIdealState title="No devices found." visual="warning-sign" />
+		}
 
 		return <div className="row">
 			{

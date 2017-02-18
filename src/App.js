@@ -1,5 +1,5 @@
 import React from 'react';
-import DeepstreamMixin from "deepstream.io-tools-react";
+import SyncedComponent from "./lib/SyncedComponent";
 
 import { Slider, Tab, TabList, TabPanel, Tabs } from "@blueprintjs/core";
 // import {Tabs} from "@blueprintjs/core/dist/components/tabs/tabs";
@@ -17,9 +17,13 @@ import './App.css';
 // import {CellMeasurer, List} from "react-virtualized";
 import Console from "./components/Console";
 
-const App = React.createClass({
-	getInitialState() {
-		return {
+
+class App extends SyncedComponent {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			...this.state,
 			local: {
 				console: [
 					{
@@ -31,9 +35,9 @@ const App = React.createClass({
 				],
 				consoleLength: 1
 			}
-		}
-	},
-	mixins: [DeepstreamMixin],
+		};
+	}
+
 	// consoleRowRender({columnIndex, rowIndex, index}) {
 	// 	let row = this.state.local.console[index];
 	// 	return <div className="console-row">
@@ -57,7 +61,8 @@ const App = React.createClass({
 
 
 		});
-	},
+	}
+
 	render() {
 		return (
 			<div className="App">
@@ -100,6 +105,6 @@ const App = React.createClass({
 			</div>
 		);
 	}
-});
+}
 
 export default App;

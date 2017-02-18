@@ -1,5 +1,5 @@
 import React from "react";
-import {Tree} from "@blueprintjs/core";
+import {Tree, NonIdealState} from "@blueprintjs/core";
 export default class Talons extends React.PureComponent {
 	devTree(dev) {
 		return Object.keys(dev).map(prop => {
@@ -12,6 +12,10 @@ export default class Talons extends React.PureComponent {
 	}
 	render() {
 		let talons = this.props.talons;
+
+		if (!talons || talons.length === 0) {
+			return <NonIdealState title="No motors found." visual="warning-sign" />
+		}
 
 		return <div className="row">
 			{
