@@ -3,28 +3,26 @@ import Component from "inferno-component";
 import Devices from "./Devices";
 import Talons from "./Talons";
 
-import {Collapse, Button, Tab, Tabs, TabList, TabPanel} from "@blueprintjs/core";
+import {Tab, Tabs, TabList, TabPanel} from "@blueprintjs/core";
 
 export default class DiagnosticsDisplay extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			showDevices: false
+			tab: 0
 		};
 	}
 
-	toggleDevices = () => {
-		this.setState({
-			showDevices: !this.state.showDevices
-		});
+	handleTab = (n) => {
+		this.setState({ tab: n });
 	};
 
 	render() {
 		let devices = this.props.state.devices;
-		let showDevices = this.state.showDevices;
+		let currTab = this.state.tab;
 
 		return <div>
-			<Tabs className="pt-vertical">
+			<Tabs className="pt-vertical" selectedTabIndex={currTab} onChange={this.handleTab}>
 				<TabList>
 					<Tab>Motors</Tab>
 					<Tab>Devices</Tab>

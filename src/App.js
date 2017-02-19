@@ -28,7 +28,8 @@ class App extends SyncedComponent {
 						key: Math.round(Math.random() * 1000000)
 					}
 				],
-				consoleLength: 1
+				consoleLength: 1,
+				tab: 0
 			}
 		};
 	}
@@ -56,40 +57,53 @@ class App extends SyncedComponent {
 		});
 	}
 
+	handleMotorSlider = (n) => {
+		this.dsRecord.set("motor", n);
+	};
+
+	handleTab = (n) => {
+		this.setState({
+			local: {
+				tab: n
+			}
+		});
+	};
+
 	render() {
+		let currTab = this.state.local.tab;
 		return (
 			<div className="App">
 				<h1>WebDashboard</h1><br />
-				<Tabs initialSelectedTabIndex={0}>
+				<Tabs selectedTabIndex={currTab} onChange={this.handleTab}>
 					<TabList className="pt-large">
 						<Tab>Game</Tab>
 						<Tab>Diagnostics</Tab>
 					</TabList>
 					<TabPanel>
-						<div>
-							<Slider value={this.state.motor} onChange={(n) => this.dsRecord.set("motor", n)} />
-							<hr/>
-							<div className="row">
-								<div className="col-md-4">
-									<div className="box">
-										<Statistic big={this.state.motor} small="Motor" reverse={true} />
+						{ currTab === 0 ? <div>
+								<Slider value={this.state.motor} onChange={this.handleMotorSlider} />
+								<hr/>
+								<div className="row">
+									<div className="col-md-4">
+										<div className="box">
+											<Statistic big={this.state.motor} small="Motor" reverse={true} />
+										</div>
+									</div>
+									<div className="col-md-4">
+										<div className="box">
+											WOOF
+										</div>
+									</div>
+									<div className="col-md-4">
+										<div className="box">
+											QUACK
+										</div>
 									</div>
 								</div>
-								<div className="col-md-4">
-									<div className="box">
-										WOOF
-									</div>
-								</div>
-								<div className="col-md-4">
-									<div className="box">
-										QUACK
-									</div>
-								</div>
-							</div>
-						</div>
+							</div> : null}
 					</TabPanel>
 					<TabPanel>
-						<DiagnosticsDisplay state={this.state} />
+						{ currTab === 1 ? <DiagnosticsDisplay state={this.state} /> : null }
 					</TabPanel>
 				</Tabs>
 				<br />
