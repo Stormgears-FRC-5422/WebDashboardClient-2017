@@ -25,28 +25,41 @@ export default class Devices extends React.PureComponent {
 		})
 	};
 	devTree(dev) {
-		return Object.keys(dev).map(prop => {
+		const keys = Object.keys(dev);
+
+		let ret = [];
+		for (let i = 0; i < keys.length; i++) {
+			let prop = keys[i];
+
 			if (prop === "properties") {
-				return {
+				let childKeys = Object.keys(dev.properties);
+				let childNodes = [];
+				for (let i = 0; i < childKeys.length; i++) {
+					let property = childKeys[i];
+					childNodes.push({
+						label: property.toString(16) + ": " + dev.properties[property].value,
+						id: dev.id + "__properties__" + property
+					});
+				}
+
+				ret.push({
 					hasCaret: true,
 					label: "Other Properties",
 					id: dev.id + "__properties",
 					isExpanded: this.state.expandedDeviceProps[dev.id + "__properties"],
-					childNodes: Object.keys(dev.properties).map(property => {
-						return {
-							label: property.toString(16) + ": " + dev.properties[property].value,
-							id: dev.id + "__properties__" + property
-						}
-					})
-				};
+					childNodes
+				});
 			} else {
-				return {
+				ret.push({
 					hasCaret: false,
 					label: prop + ": " + dev[prop],
 					id: dev.id + "__" + prop
-				};
+				});
 			}
-		});
+
+		}
+
+		return ret;
 	}
 	render() {
 		let devices = this.props.devices;
@@ -55,17 +68,19 @@ export default class Devices extends React.PureComponent {
 			return <NonIdealState title="No devices found." visual="warning-sign" />
 		}
 
+		let devCards = [];
+		for (let i = 0; i < devices.length; i++) {
+			let dev = devices[i];
+			devCards.push(<div key={dev.id} className="col-xs-6">
+				<div className="pt-card" style={{ marginBottom: "1em" }}>
+					<h3>{ dev.id }</h3>
+					<Tree contents={this.devTree(dev)} onNodeCollapse={this.handleDevPropCollapse} onNodeExpand={this.handleDevPropExpand} />
+				</div>
+			</div>);
+		}
+
 		return <div className="row">
-			{
-				devices.map(dev => {
-					return <div key={dev.id} className="col-xs-6">
-						<div className="pt-card" style={{ marginBottom: "1em" }}>
-							<h3>{ dev.id }</h3>
-							<Tree contents={this.devTree(dev)} onNodeCollapse={this.handleDevPropCollapse} onNodeExpand={this.handleDevPropExpand} />
-						</div>
-					</div>
-				})
-			}
+			{devCards}
 		</div>
 	}
 }
