@@ -10,6 +10,18 @@ function devTree(dev) {
 	for (let i = 0; i < keys.length; i++) {
 		let prop = keys[i];
 
+		let num = dev[prop];
+		switch (prop) {
+			case "temperature":
+				num = Math.round(num * 10) / 10;
+				break;
+			case "busVoltage":
+				num = Math.round(num * 1000) / 1000;
+				break;
+			default:
+
+		}
+
 		ret.push(<li className="pt-tree-node">
 			<div className="pt-tree-node-content">
 				<span className="pt-tree-node-caret-none pt-icon-standard"/>
@@ -18,7 +30,7 @@ function devTree(dev) {
 							{ prop }
 						</span>
 						<span className="diag-num">
-							{ dev[prop] }
+							{ num }
 						</span>
 					</span>
 			</div>
