@@ -1,5 +1,4 @@
 import React from "react";
-import _ from "lodash";
 
 let dsClient;
 const LOCAL = 'local';
@@ -10,8 +9,6 @@ export default class SyncedComponent extends React.Component {
 		dsClient = global.ds;
 		this._createRecord();
 		this.state = this.dsRecord.get();
-
-		this.debouncedState = _.debounce(this.superSetState);
 	}
 
 	componentWillMount() {
@@ -35,21 +32,18 @@ export default class SyncedComponent extends React.Component {
 	}
 
 	setState = (state) => {
-		this.dsRecord.set({
-			...this._cloneState(this.state),
-			...this._cloneState(state)
-		});
-
-		if (state.local) {
-			this.superSetState({
-				local: state.local
-			});
+		if (!state.local) {
+			throw new Error("Only set local values with this.setState.");
 		}
+
+		this.superSetState({
+			local: state.local
+		});
 	};
 
 	_setState = (state) => {
 		// console.log(state);
-		this.debouncedState(this._cloneState(state));
+		this.superSetState(this._cloneState(state));
 	};
 
 	superSetState(state) {

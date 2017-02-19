@@ -58,8 +58,6 @@ class App extends SyncedComponent {
 					}
 				});
 			}
-
-
 		});
 	}
 
@@ -74,7 +72,7 @@ class App extends SyncedComponent {
 					</TabList>
 					<TabPanel>
 						<div>
-							<Slider value={this.state.motor} onChange={(n) => this.setState({ motor: n })} />
+							<Slider value={this.state.motor} onChange={(n) => this.dsRecord.set("motor", n)} />
 							<hr/>
 							<div className="row">
 								<div className="col-md-4">
