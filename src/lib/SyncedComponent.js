@@ -1,9 +1,9 @@
-import React from "react";
+import Component from "inferno-component";
 
 let dsClient;
 const LOCAL = 'local';
 
-export default class SyncedComponent extends React.Component {
+export default class SyncedComponent extends Component {
 	constructor(props) {
 		super(props);
 		dsClient = global.ds;
@@ -19,9 +19,6 @@ export default class SyncedComponent extends React.Component {
 		setTimeout(this._destroy, 0);
 	}
 
-	// componentWillUpdate( nextProps, nextState ) {
-	// 	this.dsRecord.set( this._cloneState( nextState ) );
-	// }
 	_destroy() {
 		if (this.dsRecord.isDestroyed === false) {
 			this.dsRecord.unsubscribe(this._setState);
@@ -31,7 +28,7 @@ export default class SyncedComponent extends React.Component {
 		delete this.dsRecord;
 	}
 
-	setState = (state) => {
+	setState(state) {
 		if (!state.local) {
 			throw new Error("Only set local values with this.setState.");
 		}
@@ -43,19 +40,19 @@ export default class SyncedComponent extends React.Component {
 
 	_setState = (state) => {
 		// console.log(state);
-		this.superSetState(this._cloneState(state));
+		this.superSetState(SyncedComponent._cloneState(state));
 	};
 
 	superSetState(state) {
 		super.setState(state);
 	}
 
-	_cloneState(state) {
+	static _cloneState(state) {
 		let key,
 			clonedState = {};
 
 		for (key in state) {
-			if (key !== LOCAL) {
+			if (key !== LOCAL && state.hasOwnProperty(key)) {
 				clonedState[key] = state[key];
 			}
 		}

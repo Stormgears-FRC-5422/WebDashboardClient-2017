@@ -1,22 +1,19 @@
-import React from "react";
+import Inferno from "inferno";
+import Component from "inferno-component";
 import {NonIdealState} from "@blueprintjs/core";
 import _ from "lodash";
 
-export default class Talons extends React.PureComponent {
-	constructor(props) {
-		super(props);
-	}
-	devTree(dev) {
-		const keys = Object.keys(dev);
+function devTree(dev) {
+	const keys = Object.keys(dev);
 
-		let ret = [];
-		for (let i = 0; i < keys.length; i++) {
-			let prop = keys[i];
+	let ret = [];
+	for (let i = 0; i < keys.length; i++) {
+		let prop = keys[i];
 
-			ret.push(<li className="pt-tree-node">
-				<div className="pt-tree-node-content">
-					<span className="pt-tree-node-caret-none pt-icon-standard"/>
-					<span className="pt-tree-node-label">
+		ret.push(<li className="pt-tree-node">
+			<div className="pt-tree-node-content">
+				<span className="pt-tree-node-caret-none pt-icon-standard"/>
+				<span className="pt-tree-node-label">
 						<span className="diag-label">
 							{ prop }
 						</span>
@@ -24,15 +21,17 @@ export default class Talons extends React.PureComponent {
 							{ dev[prop] }
 						</span>
 					</span>
-				</div>
-			</li>)
-		}
-		return <div className="pt-tree">
-			<ul className="pt-tree-node-list pt-tree-root">
-				{ ret }
-			</ul>
-		</div>
+			</div>
+		</li>)
 	}
+	return <div className="pt-tree">
+		<ul className="pt-tree-node-list pt-tree-root">
+			{ ret }
+		</ul>
+	</div>
+}
+
+export default class Talons extends Component {
 	render() {
 		let talons = this.props.talons;
 
@@ -45,7 +44,7 @@ export default class Talons extends React.PureComponent {
 			let dev = talons[i];
 			cards.push(<div key={i} className="col-xs-6">
 				<div className="pt-card" style={{ marginBottom: "1em" }}>
-					{this.devTree(dev)}
+					{devTree(dev)}
 				</div>
 			</div>);
 		}

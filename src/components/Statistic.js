@@ -1,5 +1,4 @@
-import React from "react";
-// import ReactFitText from "react-fittext";
+import Inferno from "inferno";
 
 export default function(props) {
 	return props.reverse ? <div className="statistic">

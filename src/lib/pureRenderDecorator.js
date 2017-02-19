@@ -3,10 +3,9 @@
  * @author Andrew Sun
  * @license MIT
  */
-'use strict';
 
-var warning = require('fbjs/lib/warning');
-var shallowEqual = require('fbjs/lib/shallowEqual');
+const warning = require('fbjs/lib/warning');
+const shallowEqual = require('fbjs/lib/shallowEqual');
 const React = require("react");
 
 
@@ -15,8 +14,8 @@ const React = require("react");
  * Tells if a component should update given it's next props
  * and state.
  *
- * @param object nextProps Next props.
- * @param object nextState Next state.
+ * @param {object} nextProps Next props.
+ * @param {object} nextState Next state.
  */
 function shouldComponentUpdate(nextProps, nextState) {
 	return !shallowEqual(this.props, nextProps) || !shallowEqual(this.state, nextState);
@@ -31,7 +30,7 @@ function shouldComponentUpdate(nextProps, nextState) {
  * @return {string} The name of the component.
  */
 function getComponentName(component) {
-	var constructor = component.prototype && component.prototype.constructor;
+	let constructor = component.prototype && component.prototype.constructor;
 
 	return (
 		component.displayName
@@ -45,7 +44,7 @@ function getComponentName(component) {
 /**
  * Makes the given component "pure".
  *
- * @param object component Component.
+ * @param {object} component Component.
  */
 function pureRenderDecorator(component) {
 	if (component.prototype.shouldComponentUpdate !== React.Component.prototype.shouldComponentUpdate) {

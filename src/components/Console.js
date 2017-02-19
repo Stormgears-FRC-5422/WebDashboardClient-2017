@@ -1,12 +1,9 @@
-/**
- * Created by andrew on 1/14/17.
- */
-import React from "react";
-import ReactDOM from "react-dom";
+import Inferno from "inferno";
+import Component from "inferno-component";
 
 import _ from "lodash";
 
-export default class Console extends React.Component {
+export default class Console extends Component {
 	constructor(props) {
 		super(props);
 		this.dLength = props.dataLength;
@@ -29,8 +26,8 @@ export default class Console extends React.Component {
 	// }
 	//
 	componentDidMount() {
-		this.node = ReactDOM.findDOMNode(this.console);
-		this.end = ReactDOM.findDOMNode(this.end);
+		this.node = Inferno.findDOMNode(this.console);
+		this.end = Inferno.findDOMNode(this.end);
 	}
 	componentWillReceiveProps(nextProps) {
 		// let willScroll = false;
@@ -68,12 +65,14 @@ export default class Console extends React.Component {
 				[{row.timestamp}][{row.type}] {row.log}
 			</div>
 		});
+
 		return <pre className="console">
 			<div className="console-logs" ref={el => { this.console = el }}>{
 				divs
 			}</div>
 			<div ref={el => { this.end = el }}></div>
-		</pre>
+		</pre>;
+
 		// return <pre className="console" ref={el => { this.console = el }}>
 		// 	<div className="console-end" ref={el => { this.end = el }}></div>
 		// </pre>

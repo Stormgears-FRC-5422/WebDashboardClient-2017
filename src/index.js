@@ -1,5 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import Inferno from "inferno";
 import App from './App';
 import './index.css';
 
@@ -8,15 +7,15 @@ import DeepstreamMixin from "deepstream.io-tools-react";
 
 import {Spinner} from "@blueprintjs/core/dist/components/spinner/spinner";
 
-ReactDOM.render(<div>
-	<Spinner></Spinner>
+Inferno.render(<div>
+	<Spinner/>
 	Connecting...
 </div>, document.getElementById("root"));
 
 const ds = deepstream(location.hostname + ":5802");
 
 ds.login({}, () => {
-	ReactDOM.render(
+	Inferno.render(
 		<App dsRecord="webdashboard" />,
 		document.getElementById('root')
 	);

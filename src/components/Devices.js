@@ -1,74 +1,10 @@
-import React from "react";
-import {Tree, NonIdealState} from "@blueprintjs/core";
+import Inferno from "inferno";
+import Component from "inferno-component";
+import {NonIdealState} from "@blueprintjs/core";
 
-export default class Devices extends React.PureComponent {
-	constructor(props) {
-		super(props);
-		this.state = {
-			expandedDeviceProps: {
+import DeviceCard from "./DeviceCard";
 
-			}
-		}
-	}
-	handleDevPropExpand = (nodeData) => {
-		this.setState({
-			expandedDeviceProps: {
-				[nodeData.id]: true
-			}
-		})
-	};
-	handleDevPropCollapse = (nodeData) => {
-		this.setState({
-			expandedDeviceProps: {
-				[nodeData.id]: false
-			}
-		})
-	};
-	devTree(dev) {
-		if (typeof dev.properties["437321728"] !== "undefined") {
-			dev.devID = dev.properties["437321728"].value;
-
-			// move properties to end
-			let properties = dev.properties;
-			delete dev.properties;
-			dev.properties = properties;
-		}
-		const keys = Object.keys(dev);
-
-		let ret = [];
-		for (let i = 0; i < keys.length; i++) {
-			let prop = keys[i];
-
-			if (prop === "properties") {
-				let childKeys = Object.keys(dev.properties);
-				let childNodes = [];
-				for (let i = 0; i < childKeys.length; i++) {
-					let property = childKeys[i];
-					childNodes.push({
-						label: property.toString(16) + ": " + dev.properties[property].value,
-						id: dev.id + "__properties__" + property
-					});
-				}
-
-				ret.push({
-					hasCaret: true,
-					label: "Other Properties",
-					id: dev.id + "__properties",
-					isExpanded: this.state.expandedDeviceProps[dev.id + "__properties"],
-					childNodes
-				});
-			} else {
-				ret.push({
-					hasCaret: false,
-					label: prop + ": " + dev[prop],
-					id: dev.id + "__" + prop
-				});
-			}
-
-		}
-
-		return ret;
-	}
+export default class Devices extends Component {
 	render() {
 		let devices = this.props.devices;
 
@@ -79,12 +15,7 @@ export default class Devices extends React.PureComponent {
 		let devCards = [];
 		for (let i = 0; i < devices.length; i++) {
 			let dev = devices[i];
-			devCards.push(<div key={dev.id} className="col-xs-6">
-				<div className="pt-card" style={{ marginBottom: "1em" }}>
-					<h3>{ dev.id }</h3>
-					<Tree contents={this.devTree(dev)} onNodeCollapse={this.handleDevPropCollapse} onNodeExpand={this.handleDevPropExpand} />
-				</div>
-			</div>);
+			devCards.push(<DeviceCard dev={dev} />);
 		}
 
 		return <div className="row">

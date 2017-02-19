@@ -1,4 +1,5 @@
-import React from 'react';
+//noinspection ES6UnusedImports,ES6UnusedImports
+import Inferno from "inferno";
 import SyncedComponent from "./lib/SyncedComponent";
 
 import { Slider, Tab, TabList, TabPanel, Tabs } from "@blueprintjs/core";
@@ -46,7 +47,7 @@ class App extends SyncedComponent {
 	// },
 	componentDidMount() {
 		const ds = global.ds;
-		this.rec = ds.record.getRecord("webdashboard");
+		// this.rec = ds.record.getRecord("webdashboard");
 		ds.event.subscribe("log", data => {
 			// console.log(data);
 			if (data) {
