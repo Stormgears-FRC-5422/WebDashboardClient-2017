@@ -5,6 +5,7 @@ Prerequisites:
 * Node.js (tested on version 7)
 * npm or yarn (yarn preferred)
 * Working C++ compiler toolchain (`build-essential`)
+* Python (2.7?)
 
 ##Development
 - Start Deepstream server:
