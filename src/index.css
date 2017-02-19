@@ -24,3 +24,10 @@
 .console-row.err {
 	color: #FF4136;
 }
+
+.diag-label {
+	font-weight: bold;
+}
+.diag-num {
+	float: right;
+}
