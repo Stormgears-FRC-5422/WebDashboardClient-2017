@@ -1,0 +1,2119 @@
+{
+	"motor": 2,
+	"devices": [
+		{
+			"path": "//localhost/frccan/can0",
+			"manufacturer": "National Instruments",
+			"type": "CAN Interface",
+			"id": "can0",
+			"idType": "frccan",
+			"description": "can0",
+			"properties": {
+				"16777216": {
+					"type": 6,
+					"value": "//localhost/frccan/can0"
+				},
+				"16781312": {
+					"type": 1,
+					"value": "1"
+				},
+				"16785408": {
+					"type": 3,
+					"value": "0"
+				},
+				"16793600": {
+					"type": 6,
+					"value": "National Instruments"
+				},
+				"16801792": {
+					"type": 6,
+					"value": "CAN Interface"
+				},
+				"16805888": {
+					"type": 6,
+					"value": ""
+				},
+				"16809984": {
+					"type": 1,
+					"value": "1"
+				},
+				"16814080": {
+					"type": 1,
+					"value": "0"
+				},
+				"16830464": {
+					"type": 3,
+					"value": "0"
+				},
+				"16891904": {
+					"type": 2,
+					"value": "1"
+				},
+				"16896000": {
+					"type": 6,
+					"value": "can0"
+				},
+				"16900096": {
+					"type": 6,
+					"value": "frccan"
+				},
+				"16904192": {
+					"type": 6,
+					"value": "can0"
+				},
+				"16908288": {
+					"type": 1,
+					"value": "0"
+				},
+				"16916480": {
+					"type": 5,
+					"value": "{00000000-0000-0000-0000-000000000000}"
+				},
+				"16924672": {
+					"type": 2,
+					"value": "1"
+				},
+				"16932864": {
+					"type": 3,
+					"value": "14"
+				},
+				"16936960": {
+					"type": 6,
+					"value": "can0"
+				},
+				"16941056": {
+					"type": 1,
+					"value": "0"
+				},
+				"16949248": {
+					"type": 2,
+					"value": "536870911"
+				},
+				"16969728": {
+					"type": 6,
+					"value": ""
+				},
+				"17002496": {
+					"type": 3,
+					"value": "1048576"
+				},
+				"17006592": {
+					"type": 1,
+					"value": "0"
+				},
+				"17080320": {
+					"type": 1,
+					"value": "0"
+				},
+				"17121280": {
+					"type": 1,
+					"value": "0"
+				}
+			}
+		},
+		{
+			"path": "//localhost/frccan/frccan1",
+			"manufacturer": "Cross The Road Electronics",
+			"type": "PDP",
+			"id": "frccan1",
+			"idType": "frccan",
+			"description": "PDP (Device ID 2)",
+			"properties": {
+				"16777216": {
+					"type": 6,
+					"value": "//localhost/frccan/frccan1"
+				},
+				"16781312": {
+					"type": 1,
+					"value": "1"
+				},
+				"16785408": {
+					"type": 3,
+					"value": "14"
+				},
+				"16793600": {
+					"type": 6,
+					"value": "Cross The Road Electronics"
+				},
+				"16801792": {
+					"type": 6,
+					"value": "PDP"
+				},
+				"16805888": {
+					"type": 6,
+					"value": ""
+				},
+				"16809984": {
+					"type": 1,
+					"value": "0"
+				},
+				"16814080": {
+					"type": 1,
+					"value": "0"
+				},
+				"16818176": {
+					"type": 6,
+					"value": "can0"
+				},
+				"16830464": {
+					"type": 3,
+					"value": "0"
+				},
+				"16891904": {
+					"type": 2,
+					"value": "1"
+				},
+				"16896000": {
+					"type": 6,
+					"value": "frccan1"
+				},
+				"16900096": {
+					"type": 6,
+					"value": "frccan"
+				},
+				"16904192": {
+					"type": 6,
+					"value": "PDP (Device ID 2)"
+				},
+				"16908288": {
+					"type": 1,
+					"value": "0"
+				},
+				"16916480": {
+					"type": 5,
+					"value": "{00000000-0000-0000-0000-000000000000}"
+				},
+				"16924672": {
+					"type": 2,
+					"value": "1"
+				},
+				"16941056": {
+					"type": 1,
+					"value": "0"
+				},
+				"16949248": {
+					"type": 2,
+					"value": "536870911"
+				},
+				"16969728": {
+					"type": 6,
+					"value": "1.40"
+				},
+				"17002496": {
+					"type": 3,
+					"value": "1048576"
+				},
+				"17006592": {
+					"type": 1,
+					"value": "0"
+				},
+				"17080320": {
+					"type": 1,
+					"value": "1"
+				},
+				"17084416": {
+					"type": 6,
+					"value": "*.crf"
+				},
+				"17088512": {
+					"type": 2,
+					"value": "0"
+				},
+				"17121280": {
+					"type": 1,
+					"value": "0"
+				},
+				"17129472": {
+					"type": 1,
+					"value": "1"
+				},
+				"17305600": {
+					"type": 6,
+					"value": "PDP"
+				},
+				"437321728": {
+					"type": 3,
+					"value": "2"
+				},
+				"437325824": {
+					"type": 6,
+					"value": "1.1"
+				},
+				"437329920": {
+					"type": 6,
+					"value": "3.0"
+				},
+				"437334016": {
+					"type": 6,
+					"value": "Aug 14, 2014"
+				},
+				"437338112": {
+					"type": 6,
+					"value": "Running Application."
+				},
+				"437342208": {
+					"type": 1,
+					"value": "0"
+				}
+			}
+		},
+		{
+			"path": "//localhost/frccan/frccan2",
+			"manufacturer": "Cross The Road Electronics",
+			"type": "Talon SRX",
+			"id": "frccan2",
+			"idType": "frccan",
+			"description": "Talon SRX (Device ID 3)",
+			"properties": {
+				"16777216": {
+					"type": 6,
+					"value": "//localhost/frccan/frccan2"
+				},
+				"16781312": {
+					"type": 1,
+					"value": "1"
+				},
+				"16785408": {
+					"type": 3,
+					"value": "14"
+				},
+				"16793600": {
+					"type": 6,
+					"value": "Cross The Road Electronics"
+				},
+				"16801792": {
+					"type": 6,
+					"value": "Talon SRX"
+				},
+				"16805888": {
+					"type": 6,
+					"value": ""
+				},
+				"16809984": {
+					"type": 1,
+					"value": "0"
+				},
+				"16814080": {
+					"type": 1,
+					"value": "0"
+				},
+				"16818176": {
+					"type": 6,
+					"value": "can0"
+				},
+				"16830464": {
+					"type": 3,
+					"value": "0"
+				},
+				"16891904": {
+					"type": 2,
+					"value": "1"
+				},
+				"16896000": {
+					"type": 6,
+					"value": "frccan2"
+				},
+				"16900096": {
+					"type": 6,
+					"value": "frccan"
+				},
+				"16904192": {
+					"type": 6,
+					"value": "Talon SRX (Device ID 3)"
+				},
+				"16908288": {
+					"type": 1,
+					"value": "0"
+				},
+				"16916480": {
+					"type": 5,
+					"value": "{00000000-0000-0000-0000-000000000000}"
+				},
+				"16924672": {
+					"type": 2,
+					"value": "1"
+				},
+				"16941056": {
+					"type": 1,
+					"value": "0"
+				},
+				"16949248": {
+					"type": 2,
+					"value": "536870911"
+				},
+				"16969728": {
+					"type": 6,
+					"value": "2.20"
+				},
+				"17002496": {
+					"type": 3,
+					"value": "1048576"
+				},
+				"17006592": {
+					"type": 1,
+					"value": "0"
+				},
+				"17080320": {
+					"type": 1,
+					"value": "1"
+				},
+				"17084416": {
+					"type": 6,
+					"value": "*.crf"
+				},
+				"17088512": {
+					"type": 2,
+					"value": "0"
+				},
+				"17121280": {
+					"type": 1,
+					"value": "1"
+				},
+				"17129472": {
+					"type": 1,
+					"value": "1"
+				},
+				"17305600": {
+					"type": 6,
+					"value": "Talon SRX"
+				},
+				"437321728": {
+					"type": 3,
+					"value": "3"
+				},
+				"437325824": {
+					"type": 6,
+					"value": "1.7"
+				},
+				"437329920": {
+					"type": 6,
+					"value": "3.2"
+				},
+				"437334016": {
+					"type": 6,
+					"value": "Aug 14, 2015"
+				},
+				"437338112": {
+					"type": 6,
+					"value": "Running Application."
+				},
+				"437342208": {
+					"type": 1,
+					"value": "0"
+				},
+				"437346304": {
+					"type": 3,
+					"value": "1"
+				},
+				"437350400": {
+					"type": 3,
+					"value": "2"
+				},
+				"437350401": {
+					"type": 3,
+					"value": "2"
+				},
+				"437354496": {
+					"type": 1,
+					"value": "0"
+				},
+				"437354497": {
+					"type": 1,
+					"value": "0"
+				},
+				"437354498": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437354499": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437358592": {
+					"type": 4,
+					"value": "0.160000"
+				},
+				"437358593": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437362688": {
+					"type": 4,
+					"value": "0.000200"
+				},
+				"437362689": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437366784": {
+					"type": 4,
+					"value": "10.240000"
+				},
+				"437366785": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437370880": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437370881": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437374976": {
+					"type": 4,
+					"value": "1500.000000"
+				},
+				"437374977": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437379072": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437379073": {
+					"type": 4,
+					"value": "0.000000"
+				}
+			}
+		},
+		{
+			"path": "//localhost/frccan/frccan4",
+			"manufacturer": "Cross The Road Electronics",
+			"type": "Talon SRX",
+			"id": "frccan4",
+			"idType": "frccan",
+			"description": "Talon SRX (Device ID 2)",
+			"properties": {
+				"16777216": {
+					"type": 6,
+					"value": "//localhost/frccan/frccan4"
+				},
+				"16781312": {
+					"type": 1,
+					"value": "1"
+				},
+				"16785408": {
+					"type": 3,
+					"value": "14"
+				},
+				"16793600": {
+					"type": 6,
+					"value": "Cross The Road Electronics"
+				},
+				"16801792": {
+					"type": 6,
+					"value": "Talon SRX"
+				},
+				"16805888": {
+					"type": 6,
+					"value": ""
+				},
+				"16809984": {
+					"type": 1,
+					"value": "0"
+				},
+				"16814080": {
+					"type": 1,
+					"value": "0"
+				},
+				"16818176": {
+					"type": 6,
+					"value": "can0"
+				},
+				"16830464": {
+					"type": 3,
+					"value": "0"
+				},
+				"16891904": {
+					"type": 2,
+					"value": "1"
+				},
+				"16896000": {
+					"type": 6,
+					"value": "frccan4"
+				},
+				"16900096": {
+					"type": 6,
+					"value": "frccan"
+				},
+				"16904192": {
+					"type": 6,
+					"value": "Talon SRX (Device ID 2)"
+				},
+				"16908288": {
+					"type": 1,
+					"value": "0"
+				},
+				"16916480": {
+					"type": 5,
+					"value": "{00000000-0000-0000-0000-000000000000}"
+				},
+				"16924672": {
+					"type": 2,
+					"value": "1"
+				},
+				"16941056": {
+					"type": 1,
+					"value": "0"
+				},
+				"16949248": {
+					"type": 2,
+					"value": "536870911"
+				},
+				"16969728": {
+					"type": 6,
+					"value": "2.20"
+				},
+				"17002496": {
+					"type": 3,
+					"value": "1048576"
+				},
+				"17006592": {
+					"type": 1,
+					"value": "0"
+				},
+				"17080320": {
+					"type": 1,
+					"value": "1"
+				},
+				"17084416": {
+					"type": 6,
+					"value": "*.crf"
+				},
+				"17088512": {
+					"type": 2,
+					"value": "0"
+				},
+				"17121280": {
+					"type": 1,
+					"value": "1"
+				},
+				"17129472": {
+					"type": 1,
+					"value": "1"
+				},
+				"17305600": {
+					"type": 6,
+					"value": "Talon SRX"
+				},
+				"437321728": {
+					"type": 3,
+					"value": "2"
+				},
+				"437325824": {
+					"type": 6,
+					"value": "1.4"
+				},
+				"437329920": {
+					"type": 6,
+					"value": "2.6"
+				},
+				"437334016": {
+					"type": 6,
+					"value": "Nov 3, 2014"
+				},
+				"437338112": {
+					"type": 6,
+					"value": "Running Application."
+				},
+				"437342208": {
+					"type": 1,
+					"value": "0"
+				},
+				"437346304": {
+					"type": 3,
+					"value": "1"
+				},
+				"437350400": {
+					"type": 3,
+					"value": "2"
+				},
+				"437350401": {
+					"type": 3,
+					"value": "2"
+				},
+				"437354496": {
+					"type": 1,
+					"value": "0"
+				},
+				"437354497": {
+					"type": 1,
+					"value": "0"
+				},
+				"437354498": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437354499": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437358592": {
+					"type": 4,
+					"value": "0.160000"
+				},
+				"437358593": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437362688": {
+					"type": 4,
+					"value": "0.000200"
+				},
+				"437362689": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437366784": {
+					"type": 4,
+					"value": "10.240000"
+				},
+				"437366785": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437370880": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437370881": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437374976": {
+					"type": 4,
+					"value": "1500.000000"
+				},
+				"437374977": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437379072": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437379073": {
+					"type": 4,
+					"value": "0.000000"
+				}
+			}
+		},
+		{
+			"path": "//localhost/frccan/frccan5",
+			"manufacturer": "Cross The Road Electronics",
+			"type": "Talon SRX",
+			"id": "frccan5",
+			"idType": "frccan",
+			"description": "Talon SRX (Device ID 1)",
+			"properties": {
+				"16777216": {
+					"type": 6,
+					"value": "//localhost/frccan/frccan5"
+				},
+				"16781312": {
+					"type": 1,
+					"value": "1"
+				},
+				"16785408": {
+					"type": 3,
+					"value": "14"
+				},
+				"16793600": {
+					"type": 6,
+					"value": "Cross The Road Electronics"
+				},
+				"16801792": {
+					"type": 6,
+					"value": "Talon SRX"
+				},
+				"16805888": {
+					"type": 6,
+					"value": ""
+				},
+				"16809984": {
+					"type": 1,
+					"value": "0"
+				},
+				"16814080": {
+					"type": 1,
+					"value": "0"
+				},
+				"16818176": {
+					"type": 6,
+					"value": "can0"
+				},
+				"16830464": {
+					"type": 3,
+					"value": "0"
+				},
+				"16891904": {
+					"type": 2,
+					"value": "1"
+				},
+				"16896000": {
+					"type": 6,
+					"value": "frccan5"
+				},
+				"16900096": {
+					"type": 6,
+					"value": "frccan"
+				},
+				"16904192": {
+					"type": 6,
+					"value": "Talon SRX (Device ID 1)"
+				},
+				"16908288": {
+					"type": 1,
+					"value": "0"
+				},
+				"16916480": {
+					"type": 5,
+					"value": "{00000000-0000-0000-0000-000000000000}"
+				},
+				"16924672": {
+					"type": 2,
+					"value": "1"
+				},
+				"16941056": {
+					"type": 1,
+					"value": "0"
+				},
+				"16949248": {
+					"type": 2,
+					"value": "536870911"
+				},
+				"16969728": {
+					"type": 6,
+					"value": "2.20"
+				},
+				"17002496": {
+					"type": 3,
+					"value": "1048576"
+				},
+				"17006592": {
+					"type": 1,
+					"value": "0"
+				},
+				"17080320": {
+					"type": 1,
+					"value": "1"
+				},
+				"17084416": {
+					"type": 6,
+					"value": "*.crf"
+				},
+				"17088512": {
+					"type": 2,
+					"value": "0"
+				},
+				"17121280": {
+					"type": 1,
+					"value": "1"
+				},
+				"17129472": {
+					"type": 1,
+					"value": "1"
+				},
+				"17305600": {
+					"type": 6,
+					"value": "Talon SRX"
+				},
+				"437321728": {
+					"type": 3,
+					"value": "1"
+				},
+				"437325824": {
+					"type": 6,
+					"value": "1.4"
+				},
+				"437329920": {
+					"type": 6,
+					"value": "2.6"
+				},
+				"437334016": {
+					"type": 6,
+					"value": "Nov 3, 2014"
+				},
+				"437338112": {
+					"type": 6,
+					"value": "Running Application."
+				},
+				"437342208": {
+					"type": 1,
+					"value": "0"
+				},
+				"437346304": {
+					"type": 3,
+					"value": "1"
+				},
+				"437350400": {
+					"type": 3,
+					"value": "2"
+				},
+				"437350401": {
+					"type": 3,
+					"value": "2"
+				},
+				"437354496": {
+					"type": 1,
+					"value": "0"
+				},
+				"437354497": {
+					"type": 1,
+					"value": "0"
+				},
+				"437354498": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437354499": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437358592": {
+					"type": 4,
+					"value": "0.160000"
+				},
+				"437358593": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437362688": {
+					"type": 4,
+					"value": "0.000200"
+				},
+				"437362689": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437366784": {
+					"type": 4,
+					"value": "10.240000"
+				},
+				"437366785": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437370880": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437370881": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437374976": {
+					"type": 4,
+					"value": "1500.000000"
+				},
+				"437374977": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437379072": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437379073": {
+					"type": 4,
+					"value": "0.000000"
+				}
+			}
+		},
+		{
+			"path": "//localhost/frccan/frccan3",
+			"manufacturer": "Cross The Road Electronics",
+			"type": "Talon SRX",
+			"id": "frccan3",
+			"idType": "frccan",
+			"description": "Talon SRX (Device ID 0)",
+			"properties": {
+				"16777216": {
+					"type": 6,
+					"value": "//localhost/frccan/frccan3"
+				},
+				"16781312": {
+					"type": 1,
+					"value": "1"
+				},
+				"16785408": {
+					"type": 3,
+					"value": "14"
+				},
+				"16793600": {
+					"type": 6,
+					"value": "Cross The Road Electronics"
+				},
+				"16801792": {
+					"type": 6,
+					"value": "Talon SRX"
+				},
+				"16805888": {
+					"type": 6,
+					"value": ""
+				},
+				"16809984": {
+					"type": 1,
+					"value": "0"
+				},
+				"16814080": {
+					"type": 1,
+					"value": "0"
+				},
+				"16818176": {
+					"type": 6,
+					"value": "can0"
+				},
+				"16830464": {
+					"type": 3,
+					"value": "0"
+				},
+				"16891904": {
+					"type": 2,
+					"value": "1"
+				},
+				"16896000": {
+					"type": 6,
+					"value": "frccan3"
+				},
+				"16900096": {
+					"type": 6,
+					"value": "frccan"
+				},
+				"16904192": {
+					"type": 6,
+					"value": "Talon SRX (Device ID 0)"
+				},
+				"16908288": {
+					"type": 1,
+					"value": "0"
+				},
+				"16916480": {
+					"type": 5,
+					"value": "{00000000-0000-0000-0000-000000000000}"
+				},
+				"16924672": {
+					"type": 2,
+					"value": "1"
+				},
+				"16941056": {
+					"type": 1,
+					"value": "0"
+				},
+				"16949248": {
+					"type": 2,
+					"value": "536870911"
+				},
+				"16969728": {
+					"type": 6,
+					"value": "2.20"
+				},
+				"17002496": {
+					"type": 3,
+					"value": "1048576"
+				},
+				"17006592": {
+					"type": 1,
+					"value": "0"
+				},
+				"17080320": {
+					"type": 1,
+					"value": "1"
+				},
+				"17084416": {
+					"type": 6,
+					"value": "*.crf"
+				},
+				"17088512": {
+					"type": 2,
+					"value": "0"
+				},
+				"17121280": {
+					"type": 1,
+					"value": "1"
+				},
+				"17129472": {
+					"type": 1,
+					"value": "1"
+				},
+				"17305600": {
+					"type": 6,
+					"value": "Talon SRX"
+				},
+				"437321728": {
+					"type": 3,
+					"value": "0"
+				},
+				"437325824": {
+					"type": 6,
+					"value": "1.4"
+				},
+				"437329920": {
+					"type": 6,
+					"value": "2.6"
+				},
+				"437334016": {
+					"type": 6,
+					"value": "Nov 3, 2014"
+				},
+				"437338112": {
+					"type": 6,
+					"value": "Running Application."
+				},
+				"437342208": {
+					"type": 1,
+					"value": "0"
+				},
+				"437346304": {
+					"type": 3,
+					"value": "1"
+				},
+				"437350400": {
+					"type": 3,
+					"value": "2"
+				},
+				"437350401": {
+					"type": 3,
+					"value": "2"
+				},
+				"437354496": {
+					"type": 1,
+					"value": "0"
+				},
+				"437354497": {
+					"type": 1,
+					"value": "0"
+				},
+				"437354498": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437354499": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437358592": {
+					"type": 4,
+					"value": "0.160000"
+				},
+				"437358593": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437362688": {
+					"type": 4,
+					"value": "0.000200"
+				},
+				"437362689": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437366784": {
+					"type": 4,
+					"value": "10.240000"
+				},
+				"437366785": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437370880": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437370881": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437374976": {
+					"type": 4,
+					"value": "1500.000000"
+				},
+				"437374977": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437379072": {
+					"type": 4,
+					"value": "0.000000"
+				},
+				"437379073": {
+					"type": 4,
+					"value": "0.000000"
+				}
+			}
+		},
+		{
+			"path": "//localhost/ni-rio/RIO0",
+			"manufacturer": "National Instruments",
+			"type": "NI roboRIO",
+			"id": "RIO0",
+			"idType": "ni-rio",
+			"description": "RIO0",
+			"properties": {
+				"16777216": {
+					"type": 6,
+					"value": "//localhost/ni-rio/RIO0"
+				},
+				"16781312": {
+					"type": 1,
+					"value": "1"
+				},
+				"16785408": {
+					"type": 3,
+					"value": "0"
+				},
+				"16793600": {
+					"type": 6,
+					"value": "National Instruments"
+				},
+				"16797696": {
+					"type": 3,
+					"value": "30633"
+				},
+				"16801792": {
+					"type": 6,
+					"value": "NI roboRIO"
+				},
+				"16805888": {
+					"type": 6,
+					"value": "03063CAA"
+				},
+				"16809984": {
+					"type": 1,
+					"value": "1"
+				},
+				"16814080": {
+					"type": 1,
+					"value": "0"
+				},
+				"16830464": {
+					"type": 3,
+					"value": "0"
+				},
+				"16891904": {
+					"type": 2,
+					"value": "1"
+				},
+				"16896000": {
+					"type": 6,
+					"value": "RIO0"
+				},
+				"16900096": {
+					"type": 6,
+					"value": "ni-rio"
+				},
+				"16904192": {
+					"type": 6,
+					"value": "RIO0"
+				},
+				"16908288": {
+					"type": 1,
+					"value": "0"
+				},
+				"16916480": {
+					"type": 5,
+					"value": "{D537C03F-478E-4C84-B7D4-8BB0D0EB71AE}"
+				},
+				"16924672": {
+					"type": 2,
+					"value": "1"
+				},
+				"16941056": {
+					"type": 1,
+					"value": "0"
+				},
+				"16949248": {
+					"type": 2,
+					"value": "1073741823"
+				},
+				"16969728": {
+					"type": 6,
+					"value": ""
+				},
+				"17002496": {
+					"type": 3,
+					"value": "65536"
+				},
+				"17006592": {
+					"type": 1,
+					"value": "1"
+				},
+				"17010688": {
+					"type": 2,
+					"value": "1"
+				},
+				"17014784": {
+					"type": 3,
+					"value": "9"
+				},
+				"17031168": {
+					"type": 3,
+					"value": "30633"
+				},
+				"17080320": {
+					"type": 1,
+					"value": "1"
+				},
+				"17084416": {
+					"type": 6,
+					"value": "*.lvbitx"
+				},
+				"17088512": {
+					"type": 2,
+					"value": "0"
+				},
+				"17121280": {
+					"type": 1,
+					"value": "1"
+				},
+				"17256448": {
+					"type": 6,
+					"value": ""
+				},
+				"83890176": {
+					"type": 3,
+					"value": "1"
+				}
+			}
+		},
+		{
+			"path": "//localhost/ni-visa/ASRL1::INSTR",
+			"manufacturer": "",
+			"type": "",
+			"id": "ASRL1::INSTR",
+			"idType": "ni-visa",
+			"description": "",
+			"properties": {
+				"16777216": {
+					"type": 6,
+					"value": "//localhost/ni-visa/ASRL1::INSTR"
+				},
+				"16781312": {
+					"type": 1,
+					"value": "1"
+				},
+				"16785408": {
+					"type": 3,
+					"value": "5"
+				},
+				"16793600": {
+					"type": 6,
+					"value": ""
+				},
+				"16801792": {
+					"type": 6,
+					"value": ""
+				},
+				"16805888": {
+					"type": 6,
+					"value": ""
+				},
+				"16809984": {
+					"type": 1,
+					"value": "0"
+				},
+				"16814080": {
+					"type": 1,
+					"value": "0"
+				},
+				"16830464": {
+					"type": 3,
+					"value": "0"
+				},
+				"16891904": {
+					"type": 2,
+					"value": "1"
+				},
+				"16896000": {
+					"type": 6,
+					"value": "ASRL1::INSTR"
+				},
+				"16900096": {
+					"type": 6,
+					"value": "ni-visa"
+				},
+				"16904192": {
+					"type": 6,
+					"value": ""
+				},
+				"16908288": {
+					"type": 1,
+					"value": "0"
+				},
+				"16916480": {
+					"type": 5,
+					"value": "{00000000-0000-0000-0000-000000000000}"
+				},
+				"16924672": {
+					"type": 2,
+					"value": "1"
+				},
+				"16941056": {
+					"type": 1,
+					"value": "0"
+				},
+				"16949248": {
+					"type": 2,
+					"value": "1"
+				},
+				"17002496": {
+					"type": 3,
+					"value": "1048576"
+				},
+				"17006592": {
+					"type": 1,
+					"value": "0"
+				},
+				"17076224": {
+					"type": 6,
+					"value": "/dev/ttyS0"
+				},
+				"17121280": {
+					"type": 1,
+					"value": "1"
+				},
+				"17244160": {
+					"type": 1,
+					"value": "0"
+				},
+				"67117056": {
+					"type": 3,
+					"value": "9600"
+				},
+				"67121152": {
+					"type": 3,
+					"value": "8"
+				},
+				"67125248": {
+					"type": 3,
+					"value": "0"
+				},
+				"67129344": {
+					"type": 3,
+					"value": "10"
+				},
+				"67133440": {
+					"type": 3,
+					"value": "0"
+				}
+			}
+		},
+		{
+			"path": "//localhost/ni-visa/ASRL2::INSTR",
+			"manufacturer": "",
+			"type": "",
+			"id": "ASRL2::INSTR",
+			"idType": "ni-visa",
+			"description": "",
+			"properties": {
+				"16777216": {
+					"type": 6,
+					"value": "//localhost/ni-visa/ASRL2::INSTR"
+				},
+				"16781312": {
+					"type": 1,
+					"value": "1"
+				},
+				"16785408": {
+					"type": 3,
+					"value": "5"
+				},
+				"16793600": {
+					"type": 6,
+					"value": ""
+				},
+				"16801792": {
+					"type": 6,
+					"value": ""
+				},
+				"16805888": {
+					"type": 6,
+					"value": ""
+				},
+				"16809984": {
+					"type": 1,
+					"value": "0"
+				},
+				"16814080": {
+					"type": 1,
+					"value": "0"
+				},
+				"16830464": {
+					"type": 3,
+					"value": "0"
+				},
+				"16891904": {
+					"type": 2,
+					"value": "1"
+				},
+				"16896000": {
+					"type": 6,
+					"value": "ASRL2::INSTR"
+				},
+				"16900096": {
+					"type": 6,
+					"value": "ni-visa"
+				},
+				"16904192": {
+					"type": 6,
+					"value": ""
+				},
+				"16908288": {
+					"type": 1,
+					"value": "0"
+				},
+				"16916480": {
+					"type": 5,
+					"value": "{00000000-0000-0000-0000-000000000000}"
+				},
+				"16924672": {
+					"type": 2,
+					"value": "1"
+				},
+				"16941056": {
+					"type": 1,
+					"value": "0"
+				},
+				"16949248": {
+					"type": 2,
+					"value": "1"
+				},
+				"17002496": {
+					"type": 3,
+					"value": "1048576"
+				},
+				"17006592": {
+					"type": 1,
+					"value": "0"
+				},
+				"17076224": {
+					"type": 6,
+					"value": "/dev/ttyS1"
+				},
+				"17121280": {
+					"type": 1,
+					"value": "1"
+				},
+				"17244160": {
+					"type": 1,
+					"value": "0"
+				},
+				"67112960": {
+					"type": 6,
+					"value": "ASRL2  (/dev/ttyS1)"
+				},
+				"67117056": {
+					"type": 3,
+					"value": "9600"
+				},
+				"67121152": {
+					"type": 3,
+					"value": "8"
+				},
+				"67125248": {
+					"type": 3,
+					"value": "0"
+				},
+				"67129344": {
+					"type": 3,
+					"value": "10"
+				},
+				"67133440": {
+					"type": 3,
+					"value": "0"
+				}
+			}
+		},
+		{
+			"path": "//localhost/nisyscfg/eth0",
+			"manufacturer": "",
+			"type": "",
+			"id": "eth0",
+			"idType": "nisyscfg",
+			"description": "Ethernet Adapter eth0",
+			"properties": {
+				"16777216": {
+					"type": 6,
+					"value": "//localhost/nisyscfg/eth0"
+				},
+				"16781312": {
+					"type": 1,
+					"value": "0"
+				},
+				"16814080": {
+					"type": 1,
+					"value": "0"
+				},
+				"16830464": {
+					"type": 3,
+					"value": "0"
+				},
+				"16891904": {
+					"type": 2,
+					"value": "1"
+				},
+				"16896000": {
+					"type": 6,
+					"value": "eth0"
+				},
+				"16900096": {
+					"type": 6,
+					"value": "nisyscfg"
+				},
+				"16904192": {
+					"type": 6,
+					"value": "Ethernet Adapter eth0"
+				},
+				"16908288": {
+					"type": 1,
+					"value": "0"
+				},
+				"16916480": {
+					"type": 5,
+					"value": "{00000000-0000-0000-0000-000000000000}"
+				},
+				"16941056": {
+					"type": 1,
+					"value": "0"
+				},
+				"16949248": {
+					"type": 2,
+					"value": "1000"
+				},
+				"17002496": {
+					"type": 3,
+					"value": "1048576"
+				},
+				"17006592": {
+					"type": 1,
+					"value": "1"
+				},
+				"17010688": {
+					"type": 2,
+					"value": "1"
+				},
+				"17014784": {
+					"type": 3,
+					"value": "5"
+				},
+				"17121280": {
+					"type": 1,
+					"value": "0"
+				},
+				"219160576": {
+					"type": 3,
+					"value": "2"
+				},
+				"219164672": {
+					"type": 3,
+					"value": "2"
+				},
+				"219168768": {
+					"type": 6,
+					"value": "00:80:2F:17:DB:6B"
+				},
+				"219172864": {
+					"type": 3,
+					"value": "1"
+				},
+				"219176960": {
+					"type": 3,
+					"value": "15"
+				},
+				"219181056": {
+					"type": 6,
+					"value": "10.54.22.2"
+				},
+				"219185152": {
+					"type": 3,
+					"value": "1"
+				},
+				"219189248": {
+					"type": 6,
+					"value": "255.255.255.0"
+				},
+				"219193344": {
+					"type": 6,
+					"value": "10.54.22.1"
+				},
+				"219197440": {
+					"type": 6,
+					"value": "10.54.22.1"
+				},
+				"219213824": {
+					"type": 3,
+					"value": "1"
+				},
+				"219217920": {
+					"type": 3,
+					"value": "31"
+				},
+				"219222016": {
+					"type": 3,
+					"value": "16"
+				},
+				"219254784": {
+					"type": 3,
+					"value": "3"
+				},
+				"219258880": {
+					"type": 3,
+					"value": "1"
+				},
+				"219308032": {
+					"type": 1,
+					"value": "1"
+				},
+				"219332608": {
+					"type": 3,
+					"value": "1"
+				}
+			}
+		},
+		{
+			"path": "//localhost/nisyscfg/usb0",
+			"manufacturer": "",
+			"type": "",
+			"id": "usb0",
+			"idType": "nisyscfg",
+			"description": "Ethernet Adapter usb0",
+			"properties": {
+				"16777216": {
+					"type": 6,
+					"value": "//localhost/nisyscfg/usb0"
+				},
+				"16781312": {
+					"type": 1,
+					"value": "0"
+				},
+				"16814080": {
+					"type": 1,
+					"value": "0"
+				},
+				"16830464": {
+					"type": 3,
+					"value": "0"
+				},
+				"16891904": {
+					"type": 2,
+					"value": "1"
+				},
+				"16896000": {
+					"type": 6,
+					"value": "usb0"
+				},
+				"16900096": {
+					"type": 6,
+					"value": "nisyscfg"
+				},
+				"16904192": {
+					"type": 6,
+					"value": "Ethernet Adapter usb0"
+				},
+				"16908288": {
+					"type": 1,
+					"value": "0"
+				},
+				"16916480": {
+					"type": 5,
+					"value": "{00000000-0000-0000-0000-000000000000}"
+				},
+				"16941056": {
+					"type": 1,
+					"value": "0"
+				},
+				"16949248": {
+					"type": 2,
+					"value": "1000"
+				},
+				"17002496": {
+					"type": 3,
+					"value": "1048576"
+				},
+				"17006592": {
+					"type": 1,
+					"value": "1"
+				},
+				"17010688": {
+					"type": 2,
+					"value": "1"
+				},
+				"17014784": {
+					"type": 3,
+					"value": "5"
+				},
+				"17121280": {
+					"type": 1,
+					"value": "0"
+				},
+				"219160576": {
+					"type": 3,
+					"value": "2"
+				},
+				"219164672": {
+					"type": 3,
+					"value": "2"
+				},
+				"219168768": {
+					"type": 6,
+					"value": "00:80:2F:17:DB:6C"
+				},
+				"219172864": {
+					"type": 3,
+					"value": "8"
+				},
+				"219176960": {
+					"type": 3,
+					"value": "8"
+				},
+				"219181056": {
+					"type": 6,
+					"value": "0.0.0.0"
+				},
+				"219185152": {
+					"type": 3,
+					"value": "1"
+				},
+				"219189248": {
+					"type": 6,
+					"value": "0.0.0.0"
+				},
+				"219193344": {
+					"type": 6,
+					"value": "0.0.0.0"
+				},
+				"219197440": {
+					"type": 6,
+					"value": "0.0.0.0"
+				},
+				"219213824": {
+					"type": 3,
+					"value": "1"
+				},
+				"219217920": {
+					"type": 3,
+					"value": "1"
+				},
+				"219222016": {
+					"type": 3,
+					"value": "1"
+				},
+				"219254784": {
+					"type": 3,
+					"value": "1"
+				},
+				"219258880": {
+					"type": 3,
+					"value": "1"
+				},
+				"219308032": {
+					"type": 1,
+					"value": "0"
+				},
+				"219332608": {
+					"type": 3,
+					"value": "1"
+				}
+			}
+		},
+		{
+			"path": "//localhost/nisyscfg/system",
+			"manufacturer": "National Instruments",
+			"type": "roboRIO",
+			"id": "system",
+			"idType": "nisyscfg",
+			"description": "roboRIO-5422-FRC",
+			"properties": {
+				"16777216": {
+					"type": 6,
+					"value": "//localhost/nisyscfg/system"
+				},
+				"16781312": {
+					"type": 1,
+					"value": "1"
+				},
+				"16785408": {
+					"type": 3,
+					"value": "0"
+				},
+				"16793600": {
+					"type": 6,
+					"value": "National Instruments"
+				},
+				"16797696": {
+					"type": 3,
+					"value": "30450"
+				},
+				"16801792": {
+					"type": 6,
+					"value": "roboRIO"
+				},
+				"16805888": {
+					"type": 6,
+					"value": "03063CAA"
+				},
+				"16809984": {
+					"type": 1,
+					"value": "1"
+				},
+				"16814080": {
+					"type": 1,
+					"value": "0"
+				},
+				"16830464": {
+					"type": 3,
+					"value": "0"
+				},
+				"16891904": {
+					"type": 2,
+					"value": "1"
+				},
+				"16896000": {
+					"type": 6,
+					"value": "system"
+				},
+				"16900096": {
+					"type": 6,
+					"value": "nisyscfg"
+				},
+				"16904192": {
+					"type": 6,
+					"value": "roboRIO-5422-FRC"
+				},
+				"16908288": {
+					"type": 1,
+					"value": "0"
+				},
+				"16916480": {
+					"type": 5,
+					"value": "{00000000-0000-0000-0000-000000000000}"
+				},
+				"16924672": {
+					"type": 2,
+					"value": "1"
+				},
+				"16941056": {
+					"type": 1,
+					"value": "0"
+				},
+				"16949248": {
+					"type": 2,
+					"value": "1000"
+				},
+				"16969728": {
+					"type": 6,
+					"value": "2.1.0f3"
+				},
+				"16986112": {
+					"type": 6,
+					"value": "00:80:2F:17:DB:6B"
+				},
+				"17002496": {
+					"type": 3,
+					"value": "1048576"
+				},
+				"17006592": {
+					"type": 1,
+					"value": "1"
+				},
+				"17010688": {
+					"type": 2,
+					"value": "1"
+				},
+				"17014784": {
+					"type": 3,
+					"value": "4"
+				},
+				"17022976": {
+					"type": 6,
+					"value": "cRIO"
+				},
+				"17027072": {
+					"type": 6,
+					"value": ""
+				},
+				"17080320": {
+					"type": 1,
+					"value": "1"
+				},
+				"17084416": {
+					"type": 6,
+					"value": "*.cfg"
+				},
+				"17088512": {
+					"type": 2,
+					"value": "0"
+				},
+				"17096704": {
+					"type": 6,
+					"value": "Linux-ARMv7-A"
+				},
+				"17100800": {
+					"type": 6,
+					"value": "4.1.15-rt17-ni-4.0.0f1"
+				},
+				"17104896": {
+					"type": 6,
+					"value": "NI Linux Real-Time ARMv7-A 4.1.15-rt17-ni-4.0.0f1"
+				},
+				"17108992": {
+					"type": 7,
+					"value": "852DF000 16104DF D4A0539E 0"
+				},
+				"17113088": {
+					"type": 1,
+					"value": "0"
+				},
+				"17117184": {
+					"type": 6,
+					"value": "Running"
+				},
+				"17121280": {
+					"type": 1,
+					"value": "0"
+				},
+				"17137664": {
+					"type": 2,
+					"value": "2"
+				},
+				"17256448": {
+					"type": 6,
+					"value": ""
+				},
+				"84955136": {
+					"type": 1,
+					"value": "0"
+				},
+				"219271168": {
+					"type": 6,
+					"value": "en"
+				},
+				"219275264": {
+					"type": 6,
+					"value": "en"
+				},
+				"219283456": {
+					"type": 6,
+					"value": "CUT0"
+				},
+				"219291648": {
+					"type": 4,
+					"value": "395700.000000"
+				},
+				"219295744": {
+					"type": 4,
+					"value": "230916.000000"
+				},
+				"219320320": {
+					"type": 1,
+					"value": "1"
+				},
+				"219328512": {
+					"type": 2,
+					"value": "-18000"
+				},
+				"219471872": {
+					"type": 6,
+					"value": "UTC"
+				},
+				"219516928": {
+					"type": 6,
+					"value": ""
+				},
+				"219521024": {
+					"type": 6,
+					"value": "{279DCDEC-3DB9-4C2E-9E18-9887FD4B5CF5}"
+				},
+				"219525120": {
+					"type": 6,
+					"value": "roboRIO Image"
+				},
+				"219529216": {
+					"type": 6,
+					"value": "FRC_roboRIO_2017_v8"
+				},
+				"219533312": {
+					"type": 1,
+					"value": "1"
+				},
+				"219537408": {
+					"type": 1,
+					"value": "0"
+				},
+				"219541504": {
+					"type": 1,
+					"value": "1"
+				},
+				"318767104": {
+					"type": 1,
+					"value": "1"
+				},
+				"335544320": {
+					"type": 1,
+					"value": "1"
+				},
+				"335552512": {
+					"type": 1,
+					"value": "0"
+				}
+			}
+		}
+	],
+	"talons": [
+		{
+			"deviceID": 3,
+			"controlMode": "PercentVbus",
+			"getValue": 0,
+			"busVoltage": 11.850000000000001,
+			"encPosition": -57650,
+			"encVelocity": 0,
+			"outputCurrent": 0,
+			"outputVoltage": 0,
+			"position": -57650,
+			"speed": 0,
+			"temperature": 23.54838709420001
+		},
+		{
+			"deviceID": 2,
+			"controlMode": "PercentVbus",
+			"getValue": 0,
+			"busVoltage": 11.850000000000001,
+			"encPosition": -57424,
+			"encVelocity": 0,
+			"outputCurrent": 0.125,
+			"outputVoltage": 0,
+			"position": -57424,
+			"speed": 0,
+			"temperature": 24.8387096748
+		},
+		{
+			"deviceID": 1,
+			"controlMode": "PercentVbus",
+			"getValue": 0,
+			"busVoltage": 11.850000000000001,
+			"encPosition": 57617,
+			"encVelocity": 0,
+			"outputCurrent": 0,
+			"outputVoltage": 0,
+			"position": 57617,
+			"speed": 0,
+			"temperature": 24.193548384500005
+		},
+		{
+			"deviceID": 0,
+			"controlMode": "PercentVbus",
+			"getValue": 0,
+			"busVoltage": 11.8,
+			"encPosition": 57607,
+			"encVelocity": 0,
+			"outputCurrent": 0,
+			"outputVoltage": 0,
+			"position": 57607,
+			"speed": 0,
+			"temperature": 22.258064513600004
+		}
+	]
+}
