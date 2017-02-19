@@ -27,6 +27,7 @@
 
 .diag-label {
 	font-weight: bold;
+	float: left;
 }
 .diag-num {
 	float: right;
