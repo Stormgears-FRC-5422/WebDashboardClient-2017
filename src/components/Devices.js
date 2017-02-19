@@ -25,6 +25,14 @@ export default class Devices extends React.PureComponent {
 		})
 	};
 	devTree(dev) {
+		if (typeof dev.properties["437321728"] !== "undefined") {
+			dev.devID = dev.properties["437321728"].value;
+
+			// move properties to end
+			let properties = dev.properties;
+			delete dev.properties;
+			dev.properties = properties;
+		}
 		const keys = Object.keys(dev);
 
 		let ret = [];
