@@ -3,11 +3,6 @@ import Inferno from "inferno";
 import SyncedComponent from "./lib/SyncedComponent";
 
 import { Slider, Tab, TabList, TabPanel, Tabs } from "@blueprintjs/core";
-// import {Tabs} from "@blueprintjs/core/dist/components/tabs/tabs";
-// import {Tab} from "@blueprintjs/core/dist/components/tabs/tab";
-// import {TabList} from "@blueprintjs/core/dist/components/tabs/tabList";
-// import {TabPanel} from "@blueprintjs/core/dist/components/tabs/tabPanel";
-// import {Slider} from "@blueprintjs/core/dist/components/slider/slider";
 
 import DiagnosticsDisplay from "./components/DiagnosticsDisplay";
 
@@ -15,7 +10,6 @@ import Statistic from "./components/Statistic";
 
 import './App.css';
 
-// import {CellMeasurer, List} from "react-virtualized";
 import Console from "./components/Console";
 
 
@@ -67,7 +61,7 @@ class App extends SyncedComponent {
 			<div className="App">
 				<h1>WebDashboard</h1><br />
 				<Tabs initialSelectedTabIndex={0}>
-					<TabList>
+					<TabList className="pt-large">
 						<Tab>Game</Tab>
 						<Tab>Diagnostics</Tab>
 					</TabList>

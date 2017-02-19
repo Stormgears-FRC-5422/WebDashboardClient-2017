@@ -3,7 +3,7 @@ import Component from "inferno-component";
 import Devices from "./Devices";
 import Talons from "./Talons";
 
-import {Collapse, Button} from "@blueprintjs/core";
+import {Collapse, Button, Tab, Tabs, TabList, TabPanel} from "@blueprintjs/core";
 
 export default class DiagnosticsDisplay extends Component {
 	constructor(props) {
@@ -24,15 +24,18 @@ export default class DiagnosticsDisplay extends Component {
 		let showDevices = this.state.showDevices;
 
 		return <div>
-			<h2>Motors</h2>
-			<Talons talons={this.props.state.talons} />
-
-			<h2>Devices</h2>
-			<Button onClick={this.toggleDevices} className="pt-minimal" iconName={showDevices ? "chevron-down" : "chevron-right"}>{showDevices ? "Hide" : "Show"} Devices</Button>
-			<Collapse isOpen={showDevices}>
-				<br/>
-				<Devices devices={devices} />
-			</Collapse>
+			<Tabs className="pt-vertical">
+				<TabList>
+					<Tab>Motors</Tab>
+					<Tab>Devices</Tab>
+				</TabList>
+				<TabPanel>
+					<Talons talons={this.props.state.talons} />
+				</TabPanel>
+				<TabPanel>
+					<Devices devices={devices} />
+				</TabPanel>
+			</Tabs>
 		</div>
 	}
 }
