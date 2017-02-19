@@ -26,12 +26,22 @@ export default class deviceCard extends Component {
 			let prop = keys[i];
 
 			if (prop === "properties") {
+				if (!this.state.propsExpanded) {
+					ret.push({
+						hasCaret: true,
+						label: "Other Properties",
+						id: dev.id + "__properties",
+						isExpanded: false,
+						childNodes: []
+					});
+					continue;
+				}
 				let childKeys = Object.keys(dev.properties);
 				let childNodes = [];
 				for (let i = 0; i < childKeys.length; i++) {
 					let property = childKeys[i];
 					childNodes.push({
-						label: property.toString(16) + ": " + dev.properties[property].value,
+						label: <span><span className="diag-label">{(+property).toString(16)}</span><span className="diag-num">{dev.properties[property].value}</span></span>,
 						id: dev.id + "__properties__" + property
 					});
 				}
@@ -46,7 +56,7 @@ export default class deviceCard extends Component {
 			} else {
 				ret.push({
 					hasCaret: false,
-					label: prop + ": " + dev[prop],
+					label: <span><span className="diag-label">{prop}</span><span className="diag-num">{dev[prop]}</span></span>,
 					id: dev.id + "__" + prop
 				});
 			}
