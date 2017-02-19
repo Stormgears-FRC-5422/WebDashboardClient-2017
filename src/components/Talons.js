@@ -5,16 +5,6 @@ import _ from "lodash";
 export default class Talons extends React.PureComponent {
 	constructor(props) {
 		super(props);
-		this.state = props;
-
-		this.debouncedState = _.debounce((state) => {
-			this.setState(state);
-		});
-	}
-	componentWillReceiveProps(nextProps) {
-		if (nextProps.talons !== this.props.talons) {
-			this.debouncedState(nextProps);
-		}
 	}
 	devTree(dev) {
 		const keys = Object.keys(dev);
@@ -44,7 +34,7 @@ export default class Talons extends React.PureComponent {
 		</div>
 	}
 	render() {
-		let talons = this.state.talons;
+		let talons = this.props.talons;
 
 		if (!talons || talons.length === 0) {
 			return <NonIdealState title="No motors found." visual="warning-sign" />
