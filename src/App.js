@@ -5,13 +5,11 @@ import SyncedComponent from "./lib/SyncedComponent";
 import { Slider, Tab, TabList, TabPanel, Tabs } from "@blueprintjs/core";
 
 import DiagnosticsDisplay from "./components/DiagnosticsDisplay";
-
 import Statistic from "./components/Statistic";
+import Console from "./components/Console";
+import RawData from "./components/RawData";
 
 import './App.css';
-
-import Console from "./components/Console";
-
 
 class App extends SyncedComponent {
 	constructor(props) {
@@ -81,6 +79,7 @@ class App extends SyncedComponent {
 					<TabList className="pt-large">
 						<Tab>Game</Tab>
 						<Tab>Diagnostics</Tab>
+						<Tab>Raw Data</Tab>
 					</TabList>
 					<TabPanel>
 						{ currTab === 0 ? <div>
@@ -107,6 +106,9 @@ class App extends SyncedComponent {
 					</TabPanel>
 					<TabPanel>
 						{ currTab === 1 ? <DiagnosticsDisplay state={this.state} /> : null }
+					</TabPanel>
+					<TabPanel>
+						{ currTab === 2 ? <RawData data={this.state} /> : null}
 					</TabPanel>
 				</Tabs>
 				<br />

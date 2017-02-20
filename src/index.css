@@ -32,3 +32,6 @@
 .diag-num {
 	float: right;
 }
+.bold {
+	font-weight: bold;
+}

@@ -22,7 +22,7 @@ function devTree(dev) {
 
 		}
 
-		ret.push(<li className="pt-tree-node">
+		ret.push(<li key={prop} className="pt-tree-node">
 			<div className="pt-tree-node-content">
 				<span className="pt-tree-node-caret-none pt-icon-standard"/>
 				<span className="pt-tree-node-label">

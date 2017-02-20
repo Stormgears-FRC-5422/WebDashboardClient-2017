@@ -7,10 +7,14 @@ import DeepstreamMixin from "deepstream.io-tools-react";
 
 import {Spinner} from "@blueprintjs/core/dist/components/spinner/spinner";
 
-Inferno.render(<div>
-	<Spinner/>
-	Connecting...
-</div>, document.getElementById("root"));
+if (process.env.NODE_ENV !== "production") {
+	require('inferno-devtools');
+}
+
+// Inferno.render(<div>
+// 	<Spinner/>
+// 	Connecting...
+// </div>, document.getElementById("root"));
 
 const ds = deepstream(location.hostname + ":5802");
 
