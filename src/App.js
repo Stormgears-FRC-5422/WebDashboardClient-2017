@@ -94,12 +94,12 @@ class App extends SyncedComponent {
 									</div>
 									<div className="col-md-4">
 										<div className="box">
-											WOOF
+											(placeholder)
 										</div>
 									</div>
 									<div className="col-md-4">
 										<div className="box">
-											QUACK
+											(placeholder)
 										</div>
 									</div>
 								</div>
