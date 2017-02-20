@@ -27,7 +27,7 @@ class App extends SyncedComponent {
 					}
 				],
 				consoleLength: 1,
-				tab: 0
+				tab: 1
 			}
 		};
 	}
@@ -62,55 +62,59 @@ class App extends SyncedComponent {
 	};
 
 	handleTab = (n) => {
-		this.setState({
-			local: {
-				...this.state.local,
-				tab: n
-			}
-		});
+		const _this = this;
+		return function() {
+			_this.setState({
+				local: {
+					..._this.state.local,
+					tab: n
+				}
+			});
+		};
 	};
 
 	render() {
 		let currTab = this.state.local.tab;
 		return (
 			<div className="App">
-				<h1>WebDashboard</h1><br />
-				<Tabs selectedTabIndex={currTab} onChange={this.handleTab}>
-					<TabList className="pt-large">
-						<Tab>Game</Tab>
-						<Tab>Diagnostics</Tab>
-						<Tab>Raw Data</Tab>
-					</TabList>
-					<TabPanel>
-						{ currTab === 0 ? <div>
-								<Slider value={this.state.motor} onChange={this.handleMotorSlider} />
-								<hr/>
-								<div className="row">
-									<div className="col-md-4">
-										<div className="box">
-											<Statistic big={this.state.motor} small="Motor" reverse={true} />
-										</div>
-									</div>
-									<div className="col-md-4">
-										<div className="box">
-											(placeholder)
-										</div>
-									</div>
-									<div className="col-md-4">
-										<div className="box">
-											(placeholder)
-										</div>
-									</div>
+				<nav className="pt-navbar pt-fixed-top">
+					<div className="pt-navbar-group pt-align-left">
+						<div className="pt-navbar-heading">
+							WebDashboard
+						</div>
+						<div className="pt-button-group pt-minimal">
+							<button onClick={this.handleTab(1)} className={"pt-button pt-icon-dashboard" + (currTab === 1 ? " pt-active" : "")}>Game</button>
+							<button onClick={this.handleTab(2)} className={"pt-button pt-icon-pulse" + (currTab === 2 ? " pt-active" : "")}>Diagnostics</button>
+							<button onClick={this.handleTab(3)} className={"pt-button pt-icon-database" + (currTab === 3 ? " pt-active" : "")}>Raw Data</button>
+						</div>
+					</div>
+				</nav>
+				<div style={{ marginBottom: "75px" }}></div>
+
+				{ currTab === 1 ? <div>
+						<Slider value={this.state.motor} onChange={this.handleMotorSlider} />
+						<hr/>
+						<div className="row">
+							<div className="col-md-4">
+								<div className="box">
+									<Statistic big={this.state.motor} small="Motor" reverse={true} />
 								</div>
-							</div> : null}
-					</TabPanel>
-					<TabPanel>
-						{ currTab === 1 ? <DiagnosticsDisplay state={this.state} /> : null }
-					</TabPanel>
-					<TabPanel>
-						{ currTab === 2 ? <RawData data={this.state} /> : null}
-					</TabPanel>
-				</Tabs>
+							</div>
+							<div className="col-md-4">
+								<div className="box">
+									(placeholder)
+								</div>
+							</div>
+							<div className="col-md-4">
+								<div className="box">
+									(placeholder)
+								</div>
+							</div>
+						</div>
+					</div> : null}
+				{ currTab === 2 ? <DiagnosticsDisplay state={this.state} /> : null }
+				{ currTab === 3 ? <RawData data={this.state} /> : null}
+
 				<br />
 				<h2>Logs</h2>
 				<Console data={this.state.local.console} dataLength={this.state.local.consoleLength} />
