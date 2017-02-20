@@ -10,30 +10,14 @@ export default class Console extends Component {
 		this.shouldScroll = true;
 	}
 	shouldComponentUpdate(nextProps) {
-		// optimize performance for large numbers of updates and logs
-		// if (nextProps.dataLength !== this.props.dataLength) {
-		// 	return true;
-		// } else {
-		// 	return false;
-		// }
+		// console updates manually for performance
 		return false;
 	}
-	// componentDidUpdate() {
-	// 	let node = ReactDOM.findDOMNode(this.end);
-	// 	node.scrollIntoView({
-	// 		behavior: "smooth"
-	// 	});
-	// }
-	//
+
 	componentDidMount() {
 		this.node = Inferno.findDOMNode(this.console);
-		this.end = Inferno.findDOMNode(this.end);
 	}
 	componentWillReceiveProps(nextProps) {
-		// let willScroll = false;
-		// if (this.node.scrollTop === (this.node.scrollHeight - this.node.offsetHeight)) {
-		// 	willScroll = true;
-		// }
 		if (nextProps.dataLength > this.dLength) {
 			for (let i = this.dLength; i < nextProps.dataLength; i++) {
 				let row = nextProps.data[i];
@@ -46,16 +30,12 @@ export default class Console extends Component {
 				this.node.appendChild(el);
 				// this.node.insertBefore(el, this.node.firstChild);
 				if (this.shouldScroll) {
-					this.end.scrollIntoView({
-						behavior: "smooth"
-					});
+					this.node.parentElement.scrollTop = this.node.parentElement.scrollHeight
 				}
 			}
 		} else if (nextProps.dataLength < this.dLength) {
 			// TODO
 		}
-
-
 
 		this.dLength = nextProps.dataLength;
 	}
@@ -70,11 +50,6 @@ export default class Console extends Component {
 			<div className="console-logs" ref={el => { this.console = el }}>{
 				divs
 			}</div>
-			<div ref={el => { this.end = el }}></div>
 		</pre>;
-
-		// return <pre className="console" ref={el => { this.console = el }}>
-		// 	<div className="console-end" ref={el => { this.end = el }}></div>
-		// </pre>
 	}
 }
