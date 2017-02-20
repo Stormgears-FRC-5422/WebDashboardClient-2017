@@ -43,12 +43,14 @@ class App extends SyncedComponent {
 	componentDidMount() {
 		const ds = global.ds;
 		// this.rec = ds.record.getRecord("webdashboard");
+
 		ds.event.subscribe("log", data => {
 			// console.log(data);
 			if (data) {
 				this.state.local.console.push(data);
 				this.setState({
 					local: {
+						...this.state.local,
 						console: this.state.local.console,
 						consoleLength: this.state.local.console.length
 					}
@@ -64,6 +66,7 @@ class App extends SyncedComponent {
 	handleTab = (n) => {
 		this.setState({
 			local: {
+				...this.state.local,
 				tab: n
 			}
 		});
