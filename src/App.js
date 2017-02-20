@@ -4,10 +4,12 @@ import SyncedComponent from "./lib/SyncedComponent";
 
 import { Slider, Tab, TabList, TabPanel, Tabs } from "@blueprintjs/core";
 
-import DiagnosticsDisplay from "./components/DiagnosticsDisplay";
+import DiagnosticsDisplay from "./components/Diagnostics/DiagnosticsDisplay";
 import Statistic from "./components/Statistic";
 import Console from "./components/Console";
 import RawData from "./components/RawData";
+
+import Graphs from "./components/Graphs/Graphs";
 
 import './App.css';
 
@@ -118,6 +120,7 @@ class App extends SyncedComponent {
 				<br />
 				<h2>Logs</h2>
 				<Console data={this.state.local.console} dataLength={this.state.local.consoleLength} />
+				<Graphs/>
 			</div>
 		);
 	}

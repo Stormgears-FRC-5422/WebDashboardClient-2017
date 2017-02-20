@@ -7,7 +7,4 @@
     <exe-path>/usr/local/bin/bower</exe-path>
     <config-path />
   </component>
-  <component name="SvnConfiguration">
-    <configuration>$USER_HOME$/.subversion</configuration>
-  </component>
 </project>
