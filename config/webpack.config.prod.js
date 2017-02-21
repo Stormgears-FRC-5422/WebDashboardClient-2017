@@ -107,7 +107,7 @@ module.exports = {
 				exclude: [
 					/\.html$/,
 					/\.(js|jsx)$/,
-					/\.css$/,
+					/\.s?css$/,
 					/\.json$/,
 					/\.svg$/
 				],
@@ -141,6 +141,15 @@ module.exports = {
 				loader: ExtractTextPlugin.extract(
 					'style',
 					'css?importLoaders=1!postcss',
+					extractTextPluginOptions
+				)
+				// Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+			},
+			{
+				test: /\.scss$/,
+				loader: ExtractTextPlugin.extract(
+					'style',
+					'css?importLoaders=1!postcss!sass',
 					extractTextPluginOptions
 				)
 				// Note: this won't work without `new ExtractTextPlugin()` in `plugins`.

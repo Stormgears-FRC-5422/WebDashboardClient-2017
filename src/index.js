@@ -1,14 +1,14 @@
 import Inferno from "inferno";
 import App from './App';
-import './index.css';
+import './index.scss';
 
 import deepstream from "deepstream.io-client-js";
 import DeepstreamMixin from "deepstream.io-tools-react";
 
-import {Spinner} from "@blueprintjs/core/dist/components/spinner/spinner";
+// import {Spinner} from "@blueprintjs/core/dist/components/spinner/spinner";
 
 if (process.env.NODE_ENV !== "production") {
-	require('inferno-devtools');
+	// require('inferno-devtools');
 }
 
 // Inferno.render(<div>

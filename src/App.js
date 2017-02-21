@@ -2,7 +2,7 @@
 import Inferno from "inferno";
 import SyncedComponent from "./lib/SyncedComponent";
 
-import { Slider, Tab, TabList, TabPanel, Tabs } from "@blueprintjs/core";
+import { Slider } from "@blueprintjs/core";
 
 import DiagnosticsDisplay from "./components/Diagnostics/DiagnosticsDisplay";
 import Statistic from "./components/Statistic";
@@ -12,6 +12,23 @@ import RawData from "./components/RawData";
 import Graphs from "./components/Graphs/Graphs";
 
 import './App.css';
+
+global.dragging = false;
+document.onselectstart = function(e) {
+	if (global.dragging) {
+		e.preventDefault();
+		return false;
+	}
+};
+
+function startDrag() {
+	document.body.style.userSelect = "none";
+	global.dragging = true;
+}
+function stopDrag() {
+	document.body.style.userSelect = "";
+	global.dragging = false;
+}
 
 class App extends SyncedComponent {
 	constructor(props) {
@@ -34,12 +51,6 @@ class App extends SyncedComponent {
 		};
 	}
 
-	// consoleRowRender({columnIndex, rowIndex, index}) {
-	// 	let row = this.state.local.console[index];
-	// 	return <div className="console-row">
-	// 		[{row.timestamp}][{row.type}]: {row.log}
-	// 	</div>
-	// },
 	componentDidMount() {
 		const ds = global.ds;
 		// this.rec = ds.record.getRecord("webdashboard");
@@ -60,6 +71,7 @@ class App extends SyncedComponent {
 	}
 
 	handleMotorSlider = (n) => {
+		startDrag();
 		this.dsRecord.set("motor", n);
 	};
 
@@ -94,7 +106,7 @@ class App extends SyncedComponent {
 				<div style={{ marginBottom: "75px" }}></div>
 
 				{ currTab === 1 ? <div>
-						<Slider value={this.state.motor} onChange={this.handleMotorSlider} />
+						<Slider value={this.state.motor} onChange={this.handleMotorSlider} onRelease={stopDrag} />
 						<hr/>
 						<div className="row">
 							<div className="col-md-4">
