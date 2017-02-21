@@ -3,6 +3,7 @@ import {NonIdealState} from "@blueprintjs/core";
 
 import RecordEditor from "./RecordEditor";
 import SyncedComponent from "../lib/SyncedComponent";
+import GraphButton from "./GraphButton";
 
 const blacklist = {
 	"local": true,
@@ -32,6 +33,7 @@ export default class RawData extends SyncedComponent {
 			}
 
 			rows.push(<tr key={key}>
+				<td><GraphButton path={key}/></td>
 				<td className="bold">{key}</td>
 				<td><RecordEditor path={key}/></td>
 			</tr>);
@@ -42,7 +44,7 @@ export default class RawData extends SyncedComponent {
 		}
 
 		return <div>
-			<table className="pt-table">
+			<table className="pt-table rawdata">
 				{rows}
 			</table>
 			<br/>

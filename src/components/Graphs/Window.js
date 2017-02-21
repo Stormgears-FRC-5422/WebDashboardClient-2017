@@ -61,6 +61,7 @@ export default class Window extends Component {
 
 	componentWillUnmount() {
 		this.record.unsubscribe(this.handleData);
+		this.record.discard();
 	}
 
 	handleData = (data) => {
