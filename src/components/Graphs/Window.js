@@ -6,8 +6,6 @@ import Draggable from "react-draggable";
 import {ResizableBox} from "react-resizable";
 import {XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalGridLines, LineSeries, Hint} from "react-vis";
 
-import {Tooltip} from "@blueprintjs/core";
-
 
 function zeroPad(n) {
 	if (n < 10) {
@@ -17,7 +15,7 @@ function zeroPad(n) {
 	}
 }
 function graphDate(date) {
-	if (date.getMilliseconds() != 0) {
+	if (date.getMilliseconds() !== 0) {
 		return `:${zeroPad(date.getMinutes())}:${zeroPad(date.getSeconds())}.${date.getMilliseconds()}`;
 	}
 	return `${zeroPad(date.getHours())}:${zeroPad(date.getMinutes())}:${zeroPad(date.getSeconds())}`;

@@ -1,9 +1,6 @@
 import Component from "inferno-component";
 import _ from "lodash";
 
-let dsClient;
-const LOCAL = 'local';
-
 export default class SyncedComponent extends Component {
 	path;
 	stateKey;
