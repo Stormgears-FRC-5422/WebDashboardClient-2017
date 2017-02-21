@@ -18,7 +18,6 @@ export default class DiagnosticsDisplay extends Component {
 	};
 
 	render() {
-		let devices = this.props.state.devices;
 		let currTab = this.state.tab;
 
 		return <div>
@@ -28,10 +27,10 @@ export default class DiagnosticsDisplay extends Component {
 					<Tab>Devices</Tab>
 				</TabList>
 				<TabPanel>
-					<Talons talons={this.props.state.talons} />
+					<Talons />
 				</TabPanel>
 				<TabPanel>
-					<Devices devices={devices} />
+					<Devices />
 				</TabPanel>
 			</Tabs>
 		</div>

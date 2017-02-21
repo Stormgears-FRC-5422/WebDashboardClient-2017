@@ -1,5 +1,5 @@
 import Inferno from "inferno";
-import Component from "inferno-component";
+import SyncedComponent from "../../lib/SyncedComponent";
 import {NonIdealState} from "@blueprintjs/core";
 import _ from "lodash";
 
@@ -48,9 +48,16 @@ function devTree(dev, talonPath) {
 	</div>
 }
 
-export default class Talons extends Component {
+export default class Talons extends SyncedComponent {
+	constructor(props) {
+		super(props, "talons", "talons");
+		this.state = {
+			talons: []
+		};
+	}
+
 	render() {
-		let talons = this.props.talons;
+		let talons = this.state.talons;
 
 		if (!talons || talons.length === 0) {
 			return <NonIdealState title="No motors found." visual="warning-sign" />

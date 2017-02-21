@@ -1,94 +1,47 @@
 import Component from "inferno-component";
+import _ from "lodash";
 
 let dsClient;
 const LOCAL = 'local';
 
 export default class SyncedComponent extends Component {
-	constructor(props) {
+	path;
+	stateKey;
+	dsRecord;
+
+	constructor(props, path, stateKey) {
 		super(props);
-		dsClient = global.ds;
-		this._createRecord();
-		this.state = this.dsRecord.get();
+
+		this.path = path;
+		this.stateKey = stateKey;
+
+		this.dsRecord = global.ds.record.getRecord("webdashboard");
 	}
 
 	componentWillMount() {
-		this._createRecord();
-	}
-
-	componentWillUnmount() {
-		setTimeout(this._destroy, 0);
-	}
-
-	_destroy() {
-		if (this.dsRecord.isDestroyed === false) {
-			this.dsRecord.unsubscribe(this._setState);
-			this.dsRecord.discard();
-		}
-
-		delete this.dsRecord;
-	}
-
-	setState(state) {
-		if (!state.local) {
-			throw new Error("Only set local values with this.setState.");
-		}
-
-		this.superSetState({
-			local: state.local
-		});
-	};
-
-	_setState = (state) => {
-		// console.log(state);
-		this.superSetState(SyncedComponent._cloneState(state));
-	};
-
-	superSetState(state) {
-		super.setState(state);
-	}
-
-	static _cloneState(state) {
-		let key,
-			clonedState = {};
-
-		for (key in state) {
-			if (key !== LOCAL && state.hasOwnProperty(key)) {
-				clonedState[key] = state[key];
-			}
-		}
-
-		return clonedState;
-	}
-
-	_setInitialState() {
-		if (this.dsRecord && this.dsRecord.isReady && Object.keys(this.dsRecord.get()).length === 0 && this.state) {
-			this.dsRecord.set(this.state);
-		}
-	}
-
-	_createRecord() {
-		if (this.dsRecord) {
-			return;
-		}
-
-		if (dsClient === null) {
-			throw new Error('no deepstream client set. Please call setDeepstreamClient( ds ) before using the deepstream react mixin');
-		}
-
-		if (typeof this.props.dsRecord !== 'string') {
-			throw new Error('deepstream react mixin requires prop \'dsRecord\'');
-		}
-
-		this.dsRecord = dsClient.record.getRecord(this.props.dsRecord);
-		this.dsRecord.subscribe(this._setState);
-
-		/*
-		 * We can't use record.whenReady here since react complains about its internal usage of `bind`
-		 */
-		if (this.dsRecord.isReady) {
-			setTimeout(this._setInitialState, 0);
+		if (this.path) {
+			this.dsRecord.subscribe(this.path, this._handleDsUpdate, true);
 		} else {
-			this.dsRecord.once('ready', this._setInitialState);
+			this.dsRecord.subscribe(this._handleDsUpdate, true);
 		}
 	}
+
+	componentDidUnmount() {
+		this.dsRecord.unsubscribe(this._setState);
+		this.dsRecord.discard();
+		this.dsRecord = null;
+	}
+
+	_handleDsUpdate = _.debounce((data) => {
+		this.setState({
+			[this.stateKey]: data
+		});
+	}, 16.666666667, {
+		leading: true,
+		trailing: true
+	});
+
+	setRecord = (data, path = this.path) => {
+		this.dsRecord.set(path, data);
+	};
 }

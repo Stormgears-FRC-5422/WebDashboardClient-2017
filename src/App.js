@@ -1,4 +1,3 @@
-//noinspection ES6UnusedImports,ES6UnusedImports
 import Inferno from "inferno";
 import SyncedComponent from "./lib/SyncedComponent";
 
@@ -32,63 +31,63 @@ function stopDrag() {
 
 class App extends SyncedComponent {
 	constructor(props) {
-		super(props);
+		super(props, "motor", "motor");
 
 		this.state = {
-			...this.state,
-			local: {
-				console: [
-					{
-						timestamp: (new Date()).toISOString(),
-						type: "CLIENT",
-						log: "Client connected",
-						key: Math.round(Math.random() * 1000000)
-					}
-				],
-				consoleLength: 1,
-				tab: 1
-			}
+			console: [
+				{
+					timestamp: (new Date()).toISOString(),
+					type: "CLIENT",
+					log: "Client connected",
+					key: Math.round(Math.random() * 1000000)
+				}
+			],
+			consoleLength: 1,
+			tab: 1
 		};
 	}
 
-	componentDidMount() {
-		const ds = global.ds;
-		// this.rec = ds.record.getRecord("webdashboard");
+	componentWillMount() {
+		super.componentWillMount();
 
-		ds.event.subscribe("log", data => {
-			// console.log(data);
-			if (data) {
-				this.state.local.console.push(data);
-				this.setState({
-					local: {
-						...this.state.local,
-						console: this.state.local.console,
-						consoleLength: this.state.local.console.length
-					}
-				});
-			}
-		});
+		const ds = global.ds;
+
+		ds.event.subscribe("log", this.handleLog);
+	}
+
+	handleLog = data => {
+		// console.log(data);
+		if (data) {
+			this.state.console.push(data);
+			this.setState({
+				console: this.state.local.console,
+				consoleLength: this.state.local.console.length
+			});
+		}
+	};
+
+	componentDidUnmount() {
+		super.componentDidUnmount();
+
+		global.ds.event.unsubscribe(this.handleLog);
 	}
 
 	handleMotorSlider = (n) => {
 		startDrag();
-		this.dsRecord.set("motor", n);
+		this.setRecord(n);
 	};
 
 	handleTab = (n) => {
 		const _this = this;
 		return function() {
 			_this.setState({
-				local: {
-					..._this.state.local,
-					tab: n
-				}
+				tab: n
 			});
 		};
 	};
 
 	render() {
-		let currTab = this.state.local.tab;
+		let currTab = this.state.tab;
 		return (
 			<div className="App">
 				<nav className="pt-navbar pt-fixed-top">
@@ -126,12 +125,12 @@ class App extends SyncedComponent {
 							</div>
 						</div>
 					</div> : null}
-				{ currTab === 2 ? <DiagnosticsDisplay state={this.state} /> : null }
-				{ currTab === 3 ? <RawData data={this.state} /> : null}
+				{ currTab === 2 ? <DiagnosticsDisplay /> : null }
+				{ currTab === 3 ? <RawData /> : null}
 
 				<br />
 				<h2>Logs</h2>
-				<Console data={this.state.local.console} dataLength={this.state.local.consoleLength} />
+				<Console data={this.state.console} dataLength={this.state.consoleLength} />
 				<Graphs/>
 			</div>
 		);

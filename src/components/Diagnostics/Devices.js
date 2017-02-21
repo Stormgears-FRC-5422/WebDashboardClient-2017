@@ -1,12 +1,19 @@
 import Inferno from "inferno";
-import Component from "inferno-component";
+import SyncedComponent from "../../lib/SyncedComponent";
 import {NonIdealState} from "@blueprintjs/core";
 
 import DeviceCard from "./DeviceCard";
 
-export default class Devices extends Component {
+export default class Devices extends SyncedComponent {
+	constructor(props) {
+		super(props, "devices", "devices");
+		this.state = {
+			devices: []
+		};
+	}
+
 	render() {
-		let devices = this.props.devices;
+		let devices = this.state.devices;
 
 		if (!devices || devices.length === 0) {
 			return <NonIdealState title="No devices found." visual="warning-sign" />
