@@ -4,11 +4,9 @@ import Component from "inferno-component";
 import Portal from "react-portal";
 import Draggable from "react-draggable";
 import {ResizableBox} from "react-resizable";
-import {XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalGridLines, LineSeries} from "react-vis";
+import {XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalGridLines, LineSeries, Hint} from "react-vis";
 
-function handleClose(instance) {
-	global.Graphs.delGraph(instance.props.path);
-}
+import {Tooltip} from "@blueprintjs/core";
 
 
 function zeroPad(n) {
@@ -24,13 +22,33 @@ function graphDate(date) {
 	}
 	return `${zeroPad(date.getHours())}:${zeroPad(date.getMinutes())}:${zeroPad(date.getSeconds())}`;
 }
+function hintDate(d) {
+	return `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}.${d.getMilliseconds()}`
+}
 
+// Ugly hack for Inferno compatibility
+Object.defineProperty(MouseEvent.prototype, "nativeEvent", {
+	get: function() {
+		return this;
+	}
+});
+
+function handleClose(instance) {
+	global.Graphs.delGraph(instance.props.path);
+}
+function handleClear(instance) {
+	instance.state.data.length = 0;
+	instance.setState({
+		data: []
+	});
+}
 export default class Window extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
 			data: [],
+			hover: null,
 			width: 400,
 			height: 280
 		};
@@ -53,10 +71,59 @@ export default class Window extends Component {
 	handleResize = (e, {element, size}) => {
 		const {width, height} = size;
 
-		this.setState({ width, height });
+		this.setState({width, height});
+	};
+
+	handleHoverNear = (v, i) => {
+		if (!this.state.hover || v.x.getTime() !== this.state.hover.x.getTime()) {
+			this.setState({
+				hover: v
+			});
+		}
+	};
+
+	handleHoverOut = () => {
+		console.log();
+		this.setState({
+			hover: null
+		});
 	};
 
 	render() {
+		let plot = (<XYPlot
+			width={this.state.width - 10}
+			height={this.state.height - 50}
+			xType="time"
+			onMouseLeave={this.handleHoverOut}
+		>
+			<VerticalGridLines />
+			<HorizontalGridLines />
+			<LineSeries
+				data={this.state.data}
+				onNearestX={this.handleHoverNear}
+			/>
+			<XAxis title="Time" tickFormat={graphDate} tickLabelAngle={30} height={80}/>
+			<YAxis title={this.props.path}/>
+		</XYPlot>);
+
+		let hov = this.state.hover;
+		if (hov) {
+			plot.props.children.push(<Hint value={hov}>
+				<div className="rv-hint__content">
+					<div>
+						<span className="rv-hint__title">Time</span>
+						{': '}
+						<span className="rv-hint__value">{hintDate(hov.x)}</span>
+					</div>
+					<div>
+						<span className="rv-hint__title">{this.props.path}</span>
+						{': '}
+						<span className="rv-hint__value">{hov.y}</span>
+					</div>
+				</div>
+			</Hint>)
+		}
+
 		return <Portal isOpened={true}>
 			<Draggable handle=".pt-dialog-header">
 				<div className="graphwindow">
@@ -64,21 +131,12 @@ export default class Window extends Component {
 						<div className="pt-dialog">
 							<div className="pt-dialog-header graphwindow-handle">
 								<h5>{this.props.path}</h5>
-								<button aria-label="Close" class="pt-dialog-close-button pt-icon-small-cross" onClick={linkEvent(this, handleClose)}/>
+								<button title="Clear data" className="pt-button pt-minimal pt-icon-trash" onClick={linkEvent(this, handleClear)}/>
+								<button aria-label="Close" class="pt-dialog-close-button pt-icon-small-cross"
+								        onClick={linkEvent(this, handleClose)}/>
 							</div>
 							<div className="pt-dialog-body">
-								<XYPlot
-									width={this.state.width - 10}
-									height={this.state.height - 50}
-								    xType="time"
-								>
-									<VerticalGridLines />
-									<HorizontalGridLines />
-									<LineSeries
-										data={this.state.data}/>
-									<XAxis title="Time" tickFormat={graphDate} tickLabelAngle={30} height={80} />
-									<YAxis title={this.props.path} />
-								</XYPlot>
+								{plot}
 							</div>
 						</div>
 					</ResizableBox>
