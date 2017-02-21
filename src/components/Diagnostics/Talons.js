@@ -3,7 +3,9 @@ import Component from "inferno-component";
 import {NonIdealState} from "@blueprintjs/core";
 import _ from "lodash";
 
-function devTree(dev) {
+import GraphButton from "../GraphButton";
+
+function devTree(dev, talonPath) {
 	const keys = Object.keys(dev);
 
 	let ret = [];
@@ -26,13 +28,16 @@ function devTree(dev) {
 			<div className="pt-tree-node-content">
 				<span className="pt-tree-node-caret-none pt-icon-standard"/>
 				<span className="pt-tree-node-label">
-						<span className="diag-label">
+						<div className="diag-wrap">
+							<span className="diag-label">
 							{ prop }
-						</span>
-						<span className="diag-num">
-							{ num }
-						</span>
-					</span>
+							</span>
+							<span className="diag-num">
+								{ num }
+								<GraphButton path={talonPath + "." + prop}/>
+							</span>
+						</div>
+				</span>
 			</div>
 		</li>)
 	}
@@ -56,7 +61,7 @@ export default class Talons extends Component {
 			let dev = talons[i];
 			cards.push(<div key={i} className="col-xs-6">
 				<div className="pt-card" style={{ marginBottom: "1em" }}>
-					{devTree(dev)}
+					{devTree(dev, `talons[${i}]`)}
 				</div>
 			</div>);
 		}

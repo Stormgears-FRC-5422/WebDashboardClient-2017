@@ -18,7 +18,12 @@ if (process.env.NODE_ENV !== "production") {
 
 const ds = deepstream(location.hostname + ":5802");
 
+let rendered = false;
 ds.login({}, () => {
+	if (rendered) {
+		return;
+	}
+	rendered = true;
 	Inferno.render(
 		<App dsRecord="webdashboard" />,
 		document.getElementById('root')

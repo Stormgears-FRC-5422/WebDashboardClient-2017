@@ -59,6 +59,10 @@ export default class Window extends Component {
 		this.record.subscribe(this.props.path, this.handleData, true);
 	}
 
+	componentWillUnmount() {
+		this.record.unsubscribe(this.handleData);
+	}
+
 	handleData = (data) => {
 		let d = new Date();
 		this.state.data.push({

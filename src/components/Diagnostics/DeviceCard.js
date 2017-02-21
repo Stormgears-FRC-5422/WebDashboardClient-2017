@@ -41,7 +41,12 @@ export default class deviceCard extends Component {
 				for (let i = 0; i < childKeys.length; i++) {
 					let property = childKeys[i];
 					childNodes.push({
-						label: <span><span className="diag-label">{(+property).toString(16)}</span><span className="diag-num">{dev.properties[property].value}</span></span>,
+						label: <span>
+							<div className="diag-wrap">
+								<span className="diag-label">{(+property).toString(16)}</span>
+								<span className="diag-num">{dev.properties[property].value}</span>
+							</div>
+						</span>,
 						id: dev.id + "__properties__" + property
 					});
 				}
@@ -56,7 +61,12 @@ export default class deviceCard extends Component {
 			} else {
 				ret.push({
 					hasCaret: false,
-					label: <span><span className="diag-label">{prop}</span><span className="diag-num">{dev[prop]}</span></span>,
+					label: <span>
+						<div className="diag-wrap">
+							<span className="diag-label">{prop}</span>
+							<span className="diag-num">{dev[prop]}</span>
+						</div>
+					</span>,
 					id: dev.id + "__" + prop
 				});
 			}

@@ -18,6 +18,13 @@
 	color: #FF4136;
 }
 
+.diag-wrap {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
 .diag-label {
 	font-weight: bold;
 	float: left;
