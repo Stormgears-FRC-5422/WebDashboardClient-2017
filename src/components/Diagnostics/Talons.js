@@ -34,7 +34,7 @@ function devTree(dev, talonPath) {
 							</span>
 							<span className="diag-num">
 								{ num }
-								<GraphButton path={talonPath + "." + prop}/>
+								<GraphButton disabled={typeof num !== "number"} path={talonPath + "." + prop}/>
 							</span>
 						</div>
 				</span>
