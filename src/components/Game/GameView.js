@@ -1,10 +1,8 @@
 import Inferno from "inferno";
-import Component from "inferno-component";
 
 import {Radio} from "@blueprintjs/core";
 
 import SyncedSlider from "./SyncedSlider";
-import SyncedDropdown from "./SyncedDropdown";
 import SyncedRadio from "./SyncedRadio";
 
 export default function GameView(props) {

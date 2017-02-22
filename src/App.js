@@ -1,10 +1,7 @@
 import Inferno from "inferno";
 import SyncedComponent from "./lib/SyncedComponent";
 
-import { Slider } from "@blueprintjs/core";
-
 import DiagnosticsDisplay from "./components/Diagnostics/DiagnosticsDisplay";
-import Statistic from "./components/Statistic";
 import Console from "./components/Console";
 import RawData from "./components/RawData";
 import GameView from "./components/Game/GameView";
@@ -20,15 +17,6 @@ document.onselectstart = function(e) {
 		return false;
 	}
 };
-
-function startDrag() {
-	document.body.style.userSelect = "none";
-	global.dragging = true;
-}
-function stopDrag() {
-	document.body.style.userSelect = "";
-	global.dragging = false;
-}
 
 class App extends SyncedComponent {
 	constructor(props) {
@@ -73,10 +61,6 @@ class App extends SyncedComponent {
 		global.ds.event.unsubscribe(this.handleLog);
 	}
 
-	handleMotorSlider = (n) => {
-		startDrag();
-		this.setRecord(n);
-	};
 
 	handleTab = (n) => {
 		const _this = this;
