@@ -5,6 +5,21 @@ import _ from "lodash";
 
 import GraphButton from "../GraphButton";
 
+// yes I know these are terrible icons
+const icons = {
+	deviceID: "numerical",
+	controlMode: "repeat",
+	getValue: "circle",
+	busVoltage: "offline",
+	outputVoltage: "offline",
+	outputCurrent: "flash",
+	encPosition: "arrow-down",
+	position: "arrow-down",
+	encVelocity: "double-chevron-right",
+	speed: "double-chevron-right",
+	temperature: "heatmap"
+};
+
 function devTree(dev, talonPath) {
 	const keys = Object.keys(dev);
 
@@ -24,9 +39,11 @@ function devTree(dev, talonPath) {
 
 		}
 
+		let icon = icons[prop] || "standard";
+
 		ret.push(<li key={prop} className="pt-tree-node">
 			<div className="pt-tree-node-content">
-				<span className="pt-tree-node-caret-none pt-icon-standard"/>
+				<span className={"pt-tree-node-caret-none pt-icon-" + icon}/>
 				<span className="pt-tree-node-label">
 						<div className="diag-wrap">
 							<span className="diag-label">

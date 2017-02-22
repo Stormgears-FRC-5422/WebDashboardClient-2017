@@ -1640,7 +1640,7 @@ configstore@^2.0.0:
     write-file-atomic "^1.1.2"
     xdg-basedir "^2.0.0"
 
-connect-history-api-fallback@^1.3.0:
+connect-history-api-fallback@^1.3.0, connect-history-api-fallback@latest:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/connect-history-api-fallback/-/connect-history-api-fallback-1.3.0.tgz#e51d17f8f0ef0db90a64fdb47de3051556e9f169"
 
@@ -2724,6 +2724,17 @@ fb-watchman@^1.8.0, fb-watchman@^1.9.0:
   resolved "https://registry.yarnpkg.com/fb-watchman/-/fb-watchman-1.9.0.tgz#6f268f1f347a6b3c875d1e89da7e1ed79adfc0ec"
   dependencies:
     bser "^1.0.2"
+
+fbjs@0.8.6:
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.6.tgz#7eb67d6986b2d5007a9b6e92e0e7cb6f75cad290"
+  dependencies:
+    core-js "^1.0.0"
+    isomorphic-fetch "^2.1.1"
+    loose-envify "^1.0.0"
+    object-assign "^4.1.0"
+    promise "^7.1.1"
+    ua-parser-js "^0.7.9"
 
 fbjs@^0.8.0, fbjs@^0.8.4:
   version "0.8.8"
@@ -5392,6 +5403,19 @@ react-resizable@^1.6.0:
   dependencies:
     react-draggable "^2.1.0"
 
+react-three-renderer@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/react-three-renderer/-/react-three-renderer-3.0.2.tgz#57951fc0cd41308f3289699abddeb6b07f92be3f"
+  dependencies:
+    fbjs "0.8.6"
+
+react-three@^0.9.7:
+  version "0.9.7"
+  resolved "https://registry.yarnpkg.com/react-three/-/react-three-0.9.7.tgz#d20d09d589089af733151f8baa12b191689d589b"
+  dependencies:
+    fbjs "^0.8.0"
+    object-assign "^4.0.1"
+
 react-virtualized@^8.9.0:
   version "8.9.0"
   resolved "https://registry.yarnpkg.com/react-virtualized/-/react-virtualized-8.9.0.tgz#b53d8dfdb43624036e3e11148bac8be4b56c21fa"
@@ -6234,6 +6258,10 @@ tether@^1.4:
 text-table@~0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
+
+three@~0.82.1:
+  version "0.82.1"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.82.1.tgz#f63c3730971520c54479e3627d370d764a4a8383"
 
 throat@^3.0.0:
   version "3.0.0"

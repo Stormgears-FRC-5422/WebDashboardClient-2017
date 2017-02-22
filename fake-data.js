@@ -14,4 +14,7 @@ setInterval(function() {
 		record.set("talons[" + i + "].speed", Math.round(Math.random() * 10000 - 5000));
 	}
 	record.set("fakeTest", Math.random());
+
+	record.set("ahrs.pitch", Math.random() * 15);
+	record.set("ahrs.yaw", Math.random() * 15);
 }, 250);

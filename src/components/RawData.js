@@ -33,7 +33,7 @@ export default class RawData extends SyncedComponent {
 			}
 
 			rows.push(<tr key={key}>
-				<td><GraphButton path={key}/></td>
+				<td><GraphButton disabled={typeof data[key] !== "number"} path={key}/></td>
 				<td className="bold">{key}</td>
 				<td><RecordEditor path={key}/></td>
 			</tr>);

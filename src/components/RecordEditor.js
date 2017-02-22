@@ -1,5 +1,6 @@
 import Inferno from "inferno";
 import Component from "inferno-component";
+import _ from "lodash";
 import {EditableText} from "@blueprintjs/core";
 
 function isNumber(o) {
@@ -32,13 +33,16 @@ export default class RecordEditor extends Component {
 		this.record.unsubscribe(this.handleRecordChange);
 	}
 
-	handleRecordChange = (data) => {
+	handleRecordChange = _.debounce((data) => {
 		if (!this.state.editing) {
 			this.setState({
 				contents: data
 			});
 		}
-	};
+	}, 1000 / 60, {
+		leading: true,
+		trailing: true
+	});
 
 	handleConfirm = (value) => {
 		let a;

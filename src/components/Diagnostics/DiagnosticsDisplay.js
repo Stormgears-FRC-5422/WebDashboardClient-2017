@@ -1,7 +1,9 @@
 import Inferno from "inferno";
 import Component from "inferno-component";
+
 import Devices from "./Devices";
 import Talons from "./Talons";
+import AHRS from "./AHRS";
 
 import {Tab, Tabs, TabList, TabPanel} from "@blueprintjs/core";
 
@@ -24,10 +26,14 @@ export default class DiagnosticsDisplay extends Component {
 			<Tabs className="pt-vertical" selectedTabIndex={currTab} onChange={this.handleTab}>
 				<TabList>
 					<Tab>Motors</Tab>
+					<Tab>NavX MXP</Tab>
 					<Tab>Devices</Tab>
 				</TabList>
 				<TabPanel>
 					<Talons />
+				</TabPanel>
+				<TabPanel>
+					<AHRS />
 				</TabPanel>
 				<TabPanel>
 					<Devices />

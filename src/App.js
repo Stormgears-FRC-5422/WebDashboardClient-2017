@@ -7,6 +7,7 @@ import DiagnosticsDisplay from "./components/Diagnostics/DiagnosticsDisplay";
 import Statistic from "./components/Statistic";
 import Console from "./components/Console";
 import RawData from "./components/RawData";
+import GameView from "./components/Game/GameView";
 
 import Graphs from "./components/Graphs/Graphs";
 
@@ -60,8 +61,8 @@ class App extends SyncedComponent {
 		if (data) {
 			this.state.console.push(data);
 			this.setState({
-				console: this.state.local.console,
-				consoleLength: this.state.local.console.length
+				console: this.state.console,
+				consoleLength: this.state.console.length
 			});
 		}
 	};
@@ -104,27 +105,7 @@ class App extends SyncedComponent {
 				</nav>
 				<div style={{ marginBottom: "75px" }}></div>
 
-				{ currTab === 1 ? <div>
-						<Slider value={this.state.motor} onChange={this.handleMotorSlider} onRelease={stopDrag} />
-						<hr/>
-						<div className="row">
-							<div className="col-md-4">
-								<div className="box">
-									<Statistic big={this.state.motor} small="Motor" reverse={true} />
-								</div>
-							</div>
-							<div className="col-md-4">
-								<div className="box">
-									(placeholder)
-								</div>
-							</div>
-							<div className="col-md-4">
-								<div className="box">
-									(placeholder)
-								</div>
-							</div>
-						</div>
-					</div> : null}
+				{ currTab === 1 ? <GameView /> : null}
 				{ currTab === 2 ? <DiagnosticsDisplay /> : null }
 				{ currTab === 3 ? <RawData /> : null}
 

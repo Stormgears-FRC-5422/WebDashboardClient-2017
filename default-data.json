@@ -1,5 +1,7 @@
 {
 	"motor": 0,
+	"alliance": "red",
 	"devices": [],
-	"talons": []
+	"talons": [],
+	"ahrs": {}
 }

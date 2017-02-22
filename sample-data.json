@@ -1,5 +1,5 @@
 {
-	"motor": 2,
+	"motor": 5,
 	"devices": [
 		{
 			"path": "//localhost/frccan/can0",
@@ -258,16 +258,16 @@
 			}
 		},
 		{
-			"path": "//localhost/frccan/frccan2",
+			"path": "//localhost/frccan/frccan3",
 			"manufacturer": "Cross The Road Electronics",
 			"type": "Talon SRX",
-			"id": "frccan2",
+			"id": "frccan3",
 			"idType": "frccan",
 			"description": "Talon SRX (Device ID 3)",
 			"properties": {
 				"16777216": {
 					"type": 6,
-					"value": "//localhost/frccan/frccan2"
+					"value": "//localhost/frccan/frccan3"
 				},
 				"16781312": {
 					"type": 1,
@@ -311,7 +311,7 @@
 				},
 				"16896000": {
 					"type": 6,
-					"value": "frccan2"
+					"value": "frccan3"
 				},
 				"16900096": {
 					"type": 6,
@@ -439,7 +439,7 @@
 				},
 				"437362688": {
 					"type": 4,
-					"value": "0.000200"
+					"value": "0.000100"
 				},
 				"437362689": {
 					"type": 4,
@@ -463,7 +463,7 @@
 				},
 				"437374976": {
 					"type": 4,
-					"value": "1500.000000"
+					"value": "0.000000"
 				},
 				"437374977": {
 					"type": 4,
@@ -480,16 +480,16 @@
 			}
 		},
 		{
-			"path": "//localhost/frccan/frccan4",
+			"path": "//localhost/frccan/frccan2",
 			"manufacturer": "Cross The Road Electronics",
 			"type": "Talon SRX",
-			"id": "frccan4",
+			"id": "frccan2",
 			"idType": "frccan",
 			"description": "Talon SRX (Device ID 2)",
 			"properties": {
 				"16777216": {
 					"type": 6,
-					"value": "//localhost/frccan/frccan4"
+					"value": "//localhost/frccan/frccan2"
 				},
 				"16781312": {
 					"type": 1,
@@ -533,7 +533,7 @@
 				},
 				"16896000": {
 					"type": 6,
-					"value": "frccan4"
+					"value": "frccan2"
 				},
 				"16900096": {
 					"type": 6,
@@ -661,7 +661,7 @@
 				},
 				"437362688": {
 					"type": 4,
-					"value": "0.000200"
+					"value": "0.000100"
 				},
 				"437362689": {
 					"type": 4,
@@ -685,7 +685,7 @@
 				},
 				"437374976": {
 					"type": 4,
-					"value": "1500.000000"
+					"value": "0.000000"
 				},
 				"437374977": {
 					"type": 4,
@@ -883,7 +883,7 @@
 				},
 				"437362688": {
 					"type": 4,
-					"value": "0.000200"
+					"value": "0.000100"
 				},
 				"437362689": {
 					"type": 4,
@@ -907,7 +907,7 @@
 				},
 				"437374976": {
 					"type": 4,
-					"value": "1500.000000"
+					"value": "0.000000"
 				},
 				"437374977": {
 					"type": 4,
@@ -924,16 +924,16 @@
 			}
 		},
 		{
-			"path": "//localhost/frccan/frccan3",
+			"path": "//localhost/frccan/frccan4",
 			"manufacturer": "Cross The Road Electronics",
 			"type": "Talon SRX",
-			"id": "frccan3",
+			"id": "frccan4",
 			"idType": "frccan",
 			"description": "Talon SRX (Device ID 0)",
 			"properties": {
 				"16777216": {
 					"type": 6,
-					"value": "//localhost/frccan/frccan3"
+					"value": "//localhost/frccan/frccan4"
 				},
 				"16781312": {
 					"type": 1,
@@ -977,7 +977,7 @@
 				},
 				"16896000": {
 					"type": 6,
-					"value": "frccan3"
+					"value": "frccan4"
 				},
 				"16900096": {
 					"type": 6,
@@ -1105,7 +1105,7 @@
 				},
 				"437362688": {
 					"type": 4,
-					"value": "0.000200"
+					"value": "0.000100"
 				},
 				"437362689": {
 					"type": 4,
@@ -1129,7 +1129,7 @@
 				},
 				"437374976": {
 					"type": 4,
-					"value": "1500.000000"
+					"value": "0.000000"
 				},
 				"437374977": {
 					"type": 4,
@@ -1142,6 +1142,144 @@
 				"437379073": {
 					"type": 4,
 					"value": "0.000000"
+				}
+			}
+		},
+		{
+			"path": "//localhost/niimaqdx/cam1",
+			"manufacturer": "Axis",
+			"type": "Axis IP Camera",
+			"id": "cam1",
+			"idType": "niimaqdx",
+			"description": "cam1",
+			"properties": {
+				"16777216": {
+					"type": 6,
+					"value": "//localhost/niimaqdx/cam1"
+				},
+				"16781312": {
+					"type": 1,
+					"value": "1"
+				},
+				"16785408": {
+					"type": 3,
+					"value": "6"
+				},
+				"16793600": {
+					"type": 6,
+					"value": "Axis"
+				},
+				"16801792": {
+					"type": 6,
+					"value": "Axis IP Camera"
+				},
+				"16805888": {
+					"type": 6,
+					"value": "ACCC8E2030A7"
+				},
+				"16809984": {
+					"type": 1,
+					"value": "0"
+				},
+				"16814080": {
+					"type": 1,
+					"value": "0"
+				},
+				"16830464": {
+					"type": 3,
+					"value": "0"
+				},
+				"16891904": {
+					"type": 2,
+					"value": "1"
+				},
+				"16896000": {
+					"type": 6,
+					"value": "cam1"
+				},
+				"16900096": {
+					"type": 6,
+					"value": "niimaqdx"
+				},
+				"16904192": {
+					"type": 6,
+					"value": "cam1"
+				},
+				"16908288": {
+					"type": 1,
+					"value": "0"
+				},
+				"16916480": {
+					"type": 5,
+					"value": "{00000000-0000-0000-0000-000000000000}"
+				},
+				"16924672": {
+					"type": 2,
+					"value": "1"
+				},
+				"16928768": {
+					"type": 6,
+					"value": "10.54.22.11"
+				},
+				"16941056": {
+					"type": 1,
+					"value": "0"
+				},
+				"16949248": {
+					"type": 2,
+					"value": "100"
+				},
+				"16953344": {
+					"type": 2,
+					"value": "1"
+				},
+				"16957440": {
+					"type": 6,
+					"value": "10.54.22.11"
+				},
+				"16986112": {
+					"type": 6,
+					"value": ""
+				},
+				"16990208": {
+					"type": 1,
+					"value": "0"
+				},
+				"17002496": {
+					"type": 3,
+					"value": "65536"
+				},
+				"17006592": {
+					"type": 1,
+					"value": "0"
+				},
+				"17121280": {
+					"type": 1,
+					"value": "0"
+				},
+				"117465088": {
+					"type": 3,
+					"value": "3"
+				},
+				"117469184": {
+					"type": 3,
+					"value": "2"
+				},
+				"117473280": {
+					"type": 3,
+					"value": "1"
+				},
+				"117477376": {
+					"type": 2,
+					"value": "1230005101"
+				},
+				"117489664": {
+					"type": 3,
+					"value": "256950273"
+				},
+				"117493760": {
+					"type": 6,
+					"value": ""
 				}
 			}
 		},
@@ -1961,7 +2099,7 @@
 				},
 				"17108992": {
 					"type": 7,
-					"value": "852DF000 16104DF D4A0539E 0"
+					"value": "4B7F2800 D407EF89 D4CFD7C9 0"
 				},
 				"17113088": {
 					"type": 1,
@@ -2005,7 +2143,7 @@
 				},
 				"219295744": {
 					"type": 4,
-					"value": "230916.000000"
+					"value": "230424.000000"
 				},
 				"219320320": {
 					"type": 1,
@@ -2067,53 +2205,93 @@
 			"deviceID": 3,
 			"controlMode": "PercentVbus",
 			"getValue": 0,
-			"busVoltage": 11.850000000000001,
-			"encPosition": -57650,
+			"busVoltage": 12.55,
+			"encPosition": 5477,
 			"encVelocity": 0,
 			"outputCurrent": 0,
 			"outputVoltage": 0,
-			"position": -57650,
+			"position": 5477,
 			"speed": 0,
-			"temperature": 23.54838709420001
+			"temperature": 24.193548384500005
 		},
 		{
 			"deviceID": 2,
 			"controlMode": "PercentVbus",
 			"getValue": 0,
-			"busVoltage": 11.850000000000001,
-			"encPosition": -57424,
+			"busVoltage": 12.6,
+			"encPosition": 5634,
 			"encVelocity": 0,
 			"outputCurrent": 0.125,
 			"outputVoltage": 0,
-			"position": -57424,
+			"position": 5634,
 			"speed": 0,
-			"temperature": 24.8387096748
+			"temperature": 25.483870965099996
 		},
 		{
 			"deviceID": 1,
 			"controlMode": "PercentVbus",
 			"getValue": 0,
-			"busVoltage": 11.850000000000001,
-			"encPosition": 57617,
+			"busVoltage": 12.6,
+			"encPosition": -5515,
 			"encVelocity": 0,
 			"outputCurrent": 0,
 			"outputVoltage": 0,
-			"position": 57617,
+			"position": -5515,
 			"speed": 0,
-			"temperature": 24.193548384500005
+			"temperature": 24.8387096748
 		},
 		{
 			"deviceID": 0,
 			"controlMode": "PercentVbus",
 			"getValue": 0,
-			"busVoltage": 11.8,
-			"encPosition": 57607,
+			"busVoltage": 12.5,
+			"encPosition": -5675,
 			"encVelocity": 0,
 			"outputCurrent": 0,
 			"outputVoltage": 0,
-			"position": 57607,
+			"position": -5675,
 			"speed": 0,
-			"temperature": 22.258064513600004
+			"temperature": 23.54838709420001
 		}
-	]
+	],
+	"fakeTest": 0.28993412204286506,
+	"alliance": "red",
+	"ahrs": {
+		"pitch": 0.53,
+		"roll": 1.75,
+		"yaw": 49.22,
+		"rate": 0,
+		"angle": 49.220001220703125,
+		"angleAdjustment": 0,
+		"byteCount": 1652400,
+		"compassHeading": 225.62,
+		"fusedHeading": 49.22,
+		"rawAccelX": 0.030517578,
+		"rawAccelY": 0.010314941,
+		"rawAccelZ": 0.99816895,
+		"rawGyroX": 0,
+		"rawGyroY": 0,
+		"rawGyroZ": 0,
+		"rawMagX": -6.6666665,
+		"rawMagY": -6.6666665,
+		"rawMagZ": -6.6666665,
+		"displacementX": 0.48139954,
+		"displacementY": -0.1794281,
+		"displacementZ": 0,
+		"velocityX": 0,
+		"velocityY": 0,
+		"velocityZ": 0,
+		"tempC": 36.2,
+		"worldLinearAccelX": 0,
+		"worldLinearAccelY": 0,
+		"worldLinearAccelZ": -0.001,
+		"altitudeValid": false,
+		"calibrating": false,
+		"connected": true,
+		"magneticDisturbance": true,
+		"magnetometerCalibrated": false,
+		"moving": false,
+		"rotating": false,
+		"firmwareVersion": "0.0"
+	}
 }
