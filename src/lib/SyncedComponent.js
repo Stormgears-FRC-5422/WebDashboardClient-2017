@@ -30,6 +30,7 @@ export default class SyncedComponent extends Component {
 	}
 
 	_handleDsUpdate = _.debounce((data) => {
+		console.log(data);
 		this.setState({
 			[this.stateKey]: data
 		});

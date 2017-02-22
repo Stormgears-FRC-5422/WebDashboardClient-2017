@@ -28,7 +28,7 @@ export default class RawData extends SyncedComponent {
 		for (let i = 0; i < keys.length; i++) {
 			let key = keys[i];
 
-			if (blacklist[key] !== undefined) {
+			if (blacklist[key] !== undefined || typeof data[key] === "object") {
 				continue;
 			}
 

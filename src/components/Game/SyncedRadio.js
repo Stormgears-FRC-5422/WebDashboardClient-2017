@@ -1,14 +1,12 @@
 import Inferno, {linkEvent} from "inferno";
 import SyncedComponent from "../../lib/SyncedComponent";
 
-import {RadioGroup} from "@blueprintjs/core";
-
 function handleChange(instance, event) {
 	instance.setRecord(event.target.value);
 }
 
 export default class SyncedRadio extends SyncedComponent {
-	name = "SyncedRadio_" + (Math.round(Math.random() * 10000) / 1000);
+	name = "SyncedRadio_" + (Math.round(Math.random() * 100000));
 
 	constructor(props) {
 		super(props, props.path, "data");
@@ -18,6 +16,21 @@ export default class SyncedRadio extends SyncedComponent {
 		};
 	}
 
+	componentDidUpdate() {
+		// FIXME: This appears to be a bug in Inferno's reconciler
+		for (let i = 0; i < this.inputs.length; i++) {
+			this.inputs[i].checked = this.state.data === this.inputs[i].value;
+		}
+	}
+
+	inputs = [];
+
+	inputRef = (i) => {
+		return (e) => {
+			this.inputs[i] = e;
+		}
+	};
+
 	render() {
 		let buttons = [];
 		// TODO: Figure out a cleaner way
@@ -25,15 +38,15 @@ export default class SyncedRadio extends SyncedComponent {
 			let child = this.props.children[i];
 
 			buttons.push(<label htmlFor={this.name + "_" + i} className="pt-control pt-radio" key={child.props.value}>
-				<input checked={this.state.data === child.props.value} id={this.name + "_" + i} type="radio"
-				       value={child.props.value} label={child.props.label} name={this.name} onClick={linkEvent(this, handleChange)}/>
+				<input ref={this.inputRef(i)} checked={this.state.data === child.props.value} id={this.name + "_" + i} type="radio"
+				       value={child.props.value} label={child.props.label} name={this.name} onClick={linkEvent(this, handleChange)} />
 				<span className="pt-control-indicator"/>
 				{child.props.label}
 			</label>);
 		}
 
 		return <div>
-			<label className="pt-label">{this.props.label}</label>
+			<label className="pt-label bold">{this.props.label}</label>
 			{buttons}
 		</div>;
 	}

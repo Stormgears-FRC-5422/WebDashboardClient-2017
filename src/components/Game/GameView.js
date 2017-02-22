@@ -29,12 +29,20 @@ export default function GameView(props) {
 			</div>
 			<div className="col-md-4">
 				<div className="box">
-					(placeholder)
+					<SyncedRadio label="Gear Placement" path="gearPlacement">
+						<Radio label="Place Gear Left" value="left"/>
+						<Radio label="Place Gear Center" value="center"/>
+						<Radio label="Place Gear Right" value="right"/>
+						<Radio label="Not Moving in Autonomous" value="none"/>
+					</SyncedRadio>
 				</div>
 			</div>
 			<div className="col-md-4">
 				<div className="box">
-					(placeholder)
+					<SyncedRadio label="Drop-Off Location" path="gearDropOff">
+						<Radio label="Drop Off at Gear Pickup" value="gearPickup"/>
+						<Radio label="Drop Off at Baseline" value="baseline"/>
+					</SyncedRadio>
 				</div>
 			</div>
 		</div>
