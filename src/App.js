@@ -5,6 +5,7 @@ import DiagnosticsDisplay from "./components/Diagnostics/DiagnosticsDisplay";
 import Console from "./components/Console";
 import RawData from "./components/RawData";
 import GameView from "./components/Game/GameView";
+import ConnectionIndicator from "./components/ConnectionIndicator";
 
 import Graphs from "./components/Graphs/Graphs";
 
@@ -93,6 +94,9 @@ class App extends SyncedComponent {
 							<button onClick={this.handleTab(2)} className={"pt-button pt-icon-pulse" + (currTab === 2 ? " pt-active" : "")}>Diagnostics</button>
 							<button onClick={this.handleTab(3)} className={"pt-button pt-icon-database" + (currTab === 3 ? " pt-active" : "")}>Raw Data</button>
 						</div>
+					</div>
+					<div className="pt-navbar-group pt-align-right">
+						<ConnectionIndicator/>
 					</div>
 				</nav>
 				<div style={{ marginBottom: "75px" }}></div>
