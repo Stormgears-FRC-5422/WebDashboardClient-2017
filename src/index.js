@@ -19,7 +19,7 @@ if (process.env.NODE_ENV !== "production") {
 const ds = deepstream(location.hostname + ":5802");
 
 let rendered = false;
-ds.login({}, () => {
+ds.login({username: "client"}, () => {
 	if (rendered) {
 		return;
 	}
