@@ -27,7 +27,7 @@ class App extends SyncedComponent {
 				{
 					timestamp: (new Date()).toISOString(),
 					type: "CLIENT",
-					log: "Client connected",
+					log: "Client loaded",
 					key: Math.round(Math.random() * 1000000)
 				}
 			],
@@ -42,6 +42,14 @@ class App extends SyncedComponent {
 		const ds = global.ds;
 
 		ds.event.subscribe("log", this.handleLog);
+
+		ds.presence.subscribe((user, loggedIn) => {
+			this.handleLog({
+				timestamp: (new Date()).toISOString(),
+				type: "PRESENCE",
+				log: user + " " + (loggedIn ? "connected" : "disconnected")
+			});
+		});
 	}
 
 	handleLog = data => {
