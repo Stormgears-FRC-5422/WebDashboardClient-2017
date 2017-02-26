@@ -52,23 +52,37 @@ export default class Window extends Component {
 		};
 	}
 
+	lastUpdate = new Date();
+
 	componentWillMount() {
 		this.record = global.ds.record.getRecord("webdashboard");
 		this.record.subscribe(this.props.path, this.handleData, true);
+
+		this.poller = setInterval(() => {
+			if (Date.now() - this.lastUpdate.getTime() < 500) {
+				return;
+			}
+			this.handleData(this.record.get(this.props.path), true);
+		}, 500);
 	}
 
 	componentWillUnmount() {
+		clearInterval(this.poller);
 		this.record.unsubscribe(this.handleData);
 		this.record.discard();
 	}
 
-	handleData = (data) => {
+	handleData = (data, fake) => {
 		let d = new Date();
 		this.state.data.push({
 			x: d,
 			y: data
 		});
 		this.setState(data);
+
+		if (!fake) {
+			this.lastUpdate = d;
+		}
 	};
 
 	handleResize = (e, {element, size}) => {
