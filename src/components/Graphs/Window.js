@@ -48,7 +48,8 @@ export default class Window extends Component {
 			data: [],
 			hover: null,
 			width: 400,
-			height: 280
+			height: 280,
+			lineHue: Math.floor(Math.random() * 360)
 		};
 	}
 
@@ -116,6 +117,7 @@ export default class Window extends Component {
 			<VerticalGridLines />
 			<HorizontalGridLines />
 			<LineSeries
+				color={"hsl(" + this.state.lineHue + ",75%,50%)"}
 				data={this.state.data}
 				onNearestX={this.handleHoverNear}
 			/>
