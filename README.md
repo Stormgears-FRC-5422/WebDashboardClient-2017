@@ -1,6 +1,8 @@
 WebDashboardClient
 ===
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Stormgears-FRC-5422/WebDashboardClient.svg?token=932855aef27dffff1355e1c464ebc7c7d95e8c1f09885f127c27b3462a23fa92)](https://greenkeeper.io/)
+
 Prerequisites:
 * Node.js (tested on version 7)
 * npm or yarn (yarn preferred)
