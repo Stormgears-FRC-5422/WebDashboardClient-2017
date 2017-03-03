@@ -1,6 +1,7 @@
 import Inferno, {linkEvent} from "inferno";
 import Component from "inferno-component";
 
+import {Tooltip, Position} from "@blueprintjs/core";
 import Portal from "react-portal";
 import Draggable from "react-draggable";
 import {ResizableBox} from "react-resizable";
@@ -40,6 +41,11 @@ function handleClear(instance) {
 		data: []
 	});
 }
+function handleDomain(instance) {
+	instance.setState({
+		limitDomain: !instance.state.limitDomain
+	});
+}
 export default class Window extends Component {
 	constructor(props) {
 		super(props);
@@ -49,7 +55,8 @@ export default class Window extends Component {
 			hover: null,
 			width: 400,
 			height: 280,
-			lineHue: Math.floor(Math.random() * 360)
+			lineHue: Math.floor(Math.random() * 360),
+			limitDomain: false
 		};
 	}
 
@@ -108,11 +115,13 @@ export default class Window extends Component {
 	};
 
 	render() {
+		let lastPointX = (this.state.data[this.state.data.length - 1] || {x: new Date()}).x.getTime();
 		let plot = (<XYPlot
 			width={this.state.width - 10}
 			height={this.state.height - 50}
 			xType="time"
 			onMouseLeave={this.handleHoverOut}
+		    xDomain={this.state.limitDomain ? [lastPointX - 10000, lastPointX] : undefined}
 		>
 			<VerticalGridLines />
 			<HorizontalGridLines />
@@ -150,7 +159,12 @@ export default class Window extends Component {
 						<div className="pt-dialog">
 							<div className="pt-dialog-header graphwindow-handle">
 								<h5>{this.props.path}</h5>
-								<button title="Clear data" className="pt-button pt-minimal pt-icon-trash" onClick={linkEvent(this, handleClear)}/>
+								<Tooltip inline={true} position={Position.BOTTOM} content={this.state.limitDomain ? "Displaying last 10 seconds of data" : "Displaying all data"}>
+									<button className={"pt-button pt-minimal pt-icon-arrows-horizontal" + (this.state.limitDomain ? " pt-active" : "")} onClick={linkEvent(this, handleDomain)}/>
+								</Tooltip>
+								<Tooltip inline={true} position={Position.BOTTOM} content="Clear Data">
+									<button className="pt-button pt-minimal pt-icon-trash" onClick={linkEvent(this, handleClear)}/>
+								</Tooltip>
 								<button aria-label="Close" class="pt-dialog-close-button pt-icon-small-cross"
 								        onClick={linkEvent(this, handleClose)}/>
 							</div>
