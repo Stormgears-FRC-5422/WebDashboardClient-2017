@@ -113,7 +113,7 @@ module.exports = {
 				exclude: [
 					/\.html$/,
 					/\.(js|jsx)$/,
-					/\.css$/,
+					/\.s?css$/,
 					/\.json$/,
 					/\.bmp$/,
 					/\.gif$/,
@@ -184,7 +184,32 @@ module.exports = {
 			},
 			{
 				test: /\.scss$/,
-				loader: 'style!css?importLoaders=1!postcss!sass'
+				use: [
+					'style-loader',
+					{
+						loader: 'css-loader',
+						options: {
+							importLoaders: 1,
+						},
+					},
+					{
+						loader: 'postcss-loader',
+						options: {
+							ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
+							plugins: () => [
+								autoprefixer({
+									browsers: [
+										'>1%',
+										'last 4 versions',
+										'Firefox ESR',
+										'not ie < 9', // Inferno doesn't support IE8 anyway
+									],
+								}),
+							],
+						},
+					},
+					'sass-loader'
+				],
 			},
 			// JSON is not enabled by default in Webpack but both Node and Browserify
 			// allow it implicitly so we also enable it.
@@ -197,19 +222,6 @@ module.exports = {
 		]
 	},
 
-	// We use PostCSS for autoprefixing only.
-	postcss: function () {
-		return [
-			autoprefixer({
-				browsers: [
-					'>1%',
-					'last 4 versions',
-					'Firefox ESR',
-					'not ie < 9', // React doesn't support IE8 anyway
-				]
-			}),
-		];
-	},
 	plugins: [
 		// Makes some environment variables available in index.html.
 		// The public URL is available as %PUBLIC_URL% in index.html, e.g.:

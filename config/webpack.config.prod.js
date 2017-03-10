@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const InterpolateHtmlPlugin = require('inferno-dev-utils/InterpolateHtmlPlugin');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
@@ -74,7 +75,7 @@ module.exports = {
 		// We also include JSX as a common component filename extension to support
 		// some tools, although we do not recommend using it, see:
 		// https://github.com/facebookincubator/create-react-app/issues/290
-		extensions: ['.js', '.json', '.jsx', ''],
+		extensions: ['.js', '.json', '.jsx'],
 		alias: {
 			'react': 'inferno-compat',
 			'react-dom': 'inferno-compat',
@@ -111,7 +112,7 @@ module.exports = {
 				exclude: [
 					/\.html$/,
 					/\.(js|jsx)$/,
-					/\.css$/,
+					/\.s?css$/,
 					/\.json$/,
 					/\.bmp$/,
 					/\.gif$/,
@@ -163,7 +164,7 @@ module.exports = {
 								{
 									loader: 'css-loader',
 									options: {
-										importLoaders: 1,
+										importLoaders: 1
 									},
 								},
 								{
@@ -182,6 +183,43 @@ module.exports = {
 										],
 									},
 								},
+							],
+						},
+						extractTextPluginOptions
+					)
+				),
+				// Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+			},
+			{
+				test: /\.scss$/,
+				loader: ExtractTextPlugin.extract(
+					Object.assign(
+						{
+							fallback: 'style-loader',
+							use: [
+								{
+									loader: 'css-loader',
+									options: {
+										importLoaders: 1
+									},
+								},
+								{
+									loader: 'postcss-loader',
+									options: {
+										ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
+										plugins: () => [
+											autoprefixer({
+												browsers: [
+													'>1%',
+													'last 4 versions',
+													'Firefox ESR',
+													'not ie < 9', // Inferno doesn't support IE8 anyway
+												],
+											}),
+										],
+									},
+								},
+								"sass-loader"
 							],
 						},
 						extractTextPluginOptions
@@ -240,6 +278,12 @@ module.exports = {
 		// Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
 		new ExtractTextPlugin({
 			filename: cssFilename,
+		}),
+		new OptimizeCssAssetsPlugin({
+			assetNameRegExp: /\.css$/g,
+			cssProcessor: require('cssnano'),
+			cssProcessorOptions: { discardComments: { removeAll: true } },
+			canPrint: true
 		}),
 		// Generate a manifest file which contains a mapping of all asset filenames
 		// to their corresponding output file so that tools can pick it up without
