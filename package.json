@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "@blueprintjs/core": "^1.11.0",
+    "@blueprintjs/core": "^1.12.0",
     "autoprefixer": "~6.7.6",
     "babel-core": "~6.23.1",
     "babel-eslint": "~7.1.1",
@@ -29,6 +29,7 @@
     "deepstream.io-tools-react": "^0.1.5",
     "detect-port": "~1.1.0",
     "dotenv": "~4.0.0",
+    "duplicate-package-checker-webpack-plugin": "^1.2.0",
     "eslint": "~3.17.1",
     "eslint-config-inferno-app": "^1.0.0",
     "eslint-loader": "~1.6.3",
