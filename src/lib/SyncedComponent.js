@@ -6,13 +6,13 @@ export default class SyncedComponent extends Component {
 	stateKey;
 	dsRecord;
 
-	constructor(props, path, stateKey) {
+	constructor(props, path, stateKey, subRecord) {
 		super(props);
 
 		this.path = path;
 		this.stateKey = stateKey;
 
-		this.dsRecord = global.ds.record.getRecord("webdashboard");
+		this.dsRecord = global.ds.record.getRecord(subRecord ? "webdashboard/" + subRecord : "webdashboard");
 	}
 
 	componentWillMount() {
