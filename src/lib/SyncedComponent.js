@@ -33,7 +33,7 @@ export default class SyncedComponent extends Component {
 		this.setState({
 			[this.stateKey]: data
 		});
-	}, 16.666666667, {
+	}, 1000 / 60, {
 		leading: true,
 		trailing: true
 	});
