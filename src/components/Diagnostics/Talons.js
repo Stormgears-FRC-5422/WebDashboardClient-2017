@@ -51,7 +51,7 @@ function devTree(dev, talonPath) {
 							</span>
 							<span className="diag-num">
 								{ num }
-								<GraphButton disabled={typeof num !== "number"} path={talonPath + "." + prop}/>
+								<GraphButton disabled={typeof num !== "number"} path={"diagnostics/" + talonPath + "." + prop}/>
 							</span>
 						</div>
 				</span>
@@ -67,7 +67,7 @@ function devTree(dev, talonPath) {
 
 export default class Talons extends SyncedComponent {
 	constructor(props) {
-		super(props, "talons", "talons");
+		super(props, "talons", "talons", "diagnostics");
 		this.state = {
 			talons: []
 		};

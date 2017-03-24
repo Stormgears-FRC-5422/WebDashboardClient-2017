@@ -6,7 +6,7 @@ import DeviceCard from "./DeviceCard";
 
 export default class Devices extends SyncedComponent {
 	constructor(props) {
-		super(props, "devices", "devices");
+		super(props, "devices", "devices", "diagnostics");
 		this.state = {
 			devices: []
 		};

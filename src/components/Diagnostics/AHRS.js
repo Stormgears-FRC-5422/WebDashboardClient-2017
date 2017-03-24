@@ -7,7 +7,7 @@ import GraphButton from "../GraphButton";
 
 export default class AHRS extends SyncedComponent {
 	constructor(props) {
-		super(props, "ahrs", "ahrs");
+		super(props, "ahrs", "ahrs", "diagnostics");
 	}
 
 	render() {
@@ -37,7 +37,7 @@ export default class AHRS extends SyncedComponent {
 							</span>
 							<span className="diag-num">
 								{ val.toString() }
-								<GraphButton disabled={typeof val !== "number"} path={"ahrs." + key}/>
+								<GraphButton disabled={typeof val !== "number"} path={"diagnostics/ahrs." + key}/>
 							</span>
 						</div>
 				</span>
