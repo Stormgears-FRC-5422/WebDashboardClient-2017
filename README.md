@@ -8,7 +8,7 @@ Prerequisites:
 * Python (?)
 * Sane UNIX environment
 
-##Development
+## Development
 - Start Deepstream server:
 ```bash
 $ node server.js
@@ -20,7 +20,7 @@ $ [npm|yarn] run start
 
 Dashboard will be available on port 3000.
 
-##Production (Unix-like system)
+## Production (Unix-like system)
 If you are using a pre-built package, jump directly to "copy code."
 
 - Build the JS:
@@ -47,10 +47,10 @@ $ npm run prod
 
 Dashboard will be available on port 5803.
 
-##Running on Windows
+## Running on Windows
 See [Releases](https://github.com/Stormgears-FRC-5422/WebDashboardClient/releases) for the latest pre-built package. To run, extract the files from the ZIP, then double-click windows-install.bat. This will automagically download the necessary dependencies for a 64-bit Windows system and set things up.
 
 To run, double-click windows-run.bat. This will start the server and open a browser window. If the server does not start in time and the browser displays an error, refresh the page.
 
-##Tips
+## Tips
 - Use the WebDashboardBridge - download the "fat" jar, add to classpath/dependencies
