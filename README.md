@@ -1,6 +1,8 @@
 WebDashboardClient
 ===
 
+Please see [the wiki](https://github.com/Stormgears-FRC-5422/WebDashboardClient/wiki) for general documentation.
+
 Prerequisites:
 * Node.js (tested on version 7)
 * npm or yarn (yarn preferred)
