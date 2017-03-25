@@ -23,7 +23,8 @@ export default class Console extends Component {
 				let row = nextProps.data[i];
 				let el = document.createElement("div");
 				el.classList.add("console-row");
-				if (row.type.toLowerCase() === "excep" || row.type.toLowerCase() === "err") {
+				let rowType = row.type.toLowerCase();
+				if (rowType === "excep" || rowType === "err" || rowType === "stderr") {
 					el.classList.add("err");
 				}
 				el.innerText = `[${row.timestamp}][${row.type}] ${row.log}`;
