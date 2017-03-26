@@ -1,4 +1,4 @@
-import Inferno, {linkEvent} from "inferno";
+import {linkEvent} from "inferno";
 
 function handleClick(props) {
 	global.Graphs.addGraph(props.path);

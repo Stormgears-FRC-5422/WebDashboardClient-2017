@@ -1,5 +1,3 @@
-import Inferno from "inferno";
-
 import {Radio} from "@blueprintjs/core";
 
 import SyncedSlider from "./SyncedSlider";

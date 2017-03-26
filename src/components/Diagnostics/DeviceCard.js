@@ -1,4 +1,3 @@
-import Inferno from "inferno";
 import Component from "inferno-component";
 import {Tree} from "@blueprintjs/core";
 

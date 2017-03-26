@@ -1,7 +1,5 @@
-import Inferno from "inferno";
 import SyncedComponent from "../../lib/SyncedComponent";
 import {NonIdealState} from "@blueprintjs/core";
-import _ from "lodash";
 
 import GraphButton from "../GraphButton";
 

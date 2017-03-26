@@ -1,12 +1,18 @@
-import Inferno, {linkEvent} from "inferno";
+import {linkEvent} from "inferno";
 import Component from "inferno-component";
 
 import {Tooltip, Position} from "@blueprintjs/core";
 import Portal from "react-portal";
 import Draggable from "react-draggable";
 import {ResizableBox} from "react-resizable";
-import {XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalGridLines, LineSeries, Hint} from "react-vis";
 
+import XYPlot from "react-vis/dist/plot/xy-plot";
+import XAxis from "react-vis/dist/plot/axis/x-axis";
+import YAxis from "react-vis/dist/plot/axis/y-axis";
+import HorizontalGridLines from "react-vis/dist/plot/horizontal-grid-lines";
+import VerticalGridLines from "react-vis/dist/plot/vertical-grid-lines";
+import LineSeries from "react-vis/dist/plot/series/line-series";
+import Hint from "react-vis/dist/plot/hint";
 
 function zeroPad(n) {
     if (n < 10) {

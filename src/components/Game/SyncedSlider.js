@@ -1,4 +1,3 @@
-import Inferno from "inferno";
 import SyncedComponent from "../../lib/SyncedComponent";
 
 import { Slider } from "@blueprintjs/core";

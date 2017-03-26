@@ -1,4 +1,3 @@
-import Inferno from "inferno";
 import {NonIdealState} from "@blueprintjs/core";
 
 import RecordEditor from "./RecordEditor";

@@ -1,7 +1,5 @@
-import Inferno from "inferno";
+import {findDOMNode} from "inferno";
 import Component from "inferno-component";
-
-import _ from "lodash";
 
 export default class Console extends Component {
 	constructor(props) {
@@ -15,7 +13,7 @@ export default class Console extends Component {
 	}
 
 	componentDidMount() {
-		this.node = Inferno.findDOMNode(this.console);
+		this.node = findDOMNode(this.console);
 	}
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.dataLength > this.dLength) {

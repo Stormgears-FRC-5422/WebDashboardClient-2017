@@ -1,4 +1,4 @@
-import Inferno, {linkEvent} from "inferno";
+import {linkEvent} from "inferno";
 import SyncedComponent from "../../lib/SyncedComponent";
 
 function handleChange(instance, event) {

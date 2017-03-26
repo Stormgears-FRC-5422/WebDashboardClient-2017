@@ -1,4 +1,3 @@
-import Inferno from "inferno";
 import Component from "inferno-component";
 
 import {Tooltip, Position} from "@blueprintjs/core";
