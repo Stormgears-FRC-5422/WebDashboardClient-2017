@@ -177,13 +177,13 @@ export default class Window extends Component {
                         <div className="pt-dialog">
                             <div className="pt-dialog-header graphwindow-handle">
                                 <h5>{this.props.path}</h5>
-                                <Tooltip inline={true} position={Position.BOTTOM}
+                                <Tooltip inline position={Position.BOTTOM}
                                          content={this.state.limitDomain ? "Displaying last 10 seconds of data" : "Displaying all data"}>
                                     <button
                                         className={"pt-button pt-minimal pt-icon-arrows-horizontal" + (this.state.limitDomain ? " pt-active" : "")}
                                         onClick={linkEvent(this, handleDomain)}/>
                                 </Tooltip>
-                                <Tooltip inline={true} position={Position.BOTTOM} content="Clear Data">
+                                <Tooltip inline position={Position.BOTTOM} content="Clear Data">
                                     <button className="pt-button pt-minimal pt-icon-trash"
                                             onClick={linkEvent(this, handleClear)}/>
                                 </Tooltip>
