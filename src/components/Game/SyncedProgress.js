@@ -1,6 +1,6 @@
 import SyncedComponent from "../../lib/SyncedComponent";
 
-import {Slider} from "@blueprintjs/core";
+import {ProgressBar, Intent} from "@blueprintjs/core";
 
 function startDrag() {
 	document.body.style.userSelect = "none";
@@ -11,8 +11,8 @@ function stopDrag() {
 	global.dragging = false;
 }
 
-export default class SyncedSlider extends SyncedComponent {
-	name = "SyncedSlider_" + (Math.round(Math.random() * 100000));
+export default class SyncedProgress extends SyncedComponent {
+	name = "SyncedProgress_" + (Math.round(Math.random() * 100000));
 
 	constructor(props) {
 		super(props, props.path, "data");
@@ -22,15 +22,10 @@ export default class SyncedSlider extends SyncedComponent {
 		};
 	}
 
-	handleSlider = (n) => {
-		startDrag();
-		this.setRecord(n);
-	};
-
 	render(props, state) {
 		return <div>
 			<label htmlFor={this.name} className="pt-label bold">{props.label}</label>
-			<Slider {...props} disabled={!props.enabled} id={this.name} value={state.data} onChange={this.handleSlider} onRelease={stopDrag}/>
+			<ProgressBar value={state.data} intent={Intent[props.intent]} className={props.large ? "pt-large" : ""} />
 		</div>;
 	}
 }

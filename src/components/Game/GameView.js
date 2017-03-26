@@ -1,46 +1,51 @@
-import {Radio} from "@blueprintjs/core";
+import {Radio, NonIdealState} from "@blueprintjs/core";
 
+import SyncedComponent from "../../lib/SyncedComponent";
 import SyncedSlider from "./SyncedSlider";
 import SyncedRadio from "./SyncedRadio";
+import {Spinner} from "@blueprintjs/core/dist/components/spinner/spinner";
+import SyncedProgress from "./SyncedProgress";
 
-export default function GameView(props) {
-	return <div>
-		<SyncedSlider path="motor"/>
-		<hr/>
-		<div className="row">
-			<div className="col-md-4">
-				<div className="box">
-					{/*<label htmlFor="alliance-select" className="pt-label">*/}
-						{/*Alliance*/}
-						{/*<SyncedDropdown id="alliance-select" path="alliance">*/}
-							{/*<option value="red">Red (boiler right of airship)</option>*/}
-							{/*<option value="blue">Blue (boiler left)</option>*/}
-						{/*</SyncedDropdown>*/}
-					{/*</label>*/}
-					<SyncedRadio label="Alliance" path="alliance">
-						<Radio label="Red (boiler right of airship)" value="red"/>
-						<Radio label="Blue (boiler left of airship)" value="blue"/>
-					</SyncedRadio>
+export default class GameView extends SyncedComponent {
+	constructor(props) {
+		super(props, "game", "controls", "config");
+	}
+
+	render(props, {controls}) {
+        if (!controls || controls.length === 0) {
+            return <NonIdealState title="No controls set." description="TODO: Write documentation for this." visual="help" />
+        }
+
+        let components = [];
+        for (let i = 0; i < controls.length; i++) {
+        	let c = controls[i];
+        	let a;
+        	switch (c.type) {
+				case "SLIDER":
+					a = <SyncedSlider {...c} />;
+					break;
+				case "RADIOS":
+					a = <SyncedRadio {...c} />;
+					break;
+				case "PROGRESS":
+					a = <SyncedProgress {...c} />;
+					break;
+				default:
+					a = <div>Unknown component type</div>;
+					break;
+
+			}
+			components.push(<div className={`col-md-${c.width}`}>
+				<div className="box game-control-box">
+					{a}
 				</div>
+			</div>)
+		}
+
+        return <div>
+			<div className="row">
+				{ components }
 			</div>
-			<div className="col-md-4">
-				<div className="box">
-					<SyncedRadio label="Gear Placement" path="gearPlacement">
-						<Radio label="Place Gear Left" value="left"/>
-						<Radio label="Place Gear Center" value="center"/>
-						<Radio label="Place Gear Right" value="right"/>
-						<Radio label="Not Moving in Autonomous" value="none"/>
-					</SyncedRadio>
-				</div>
-			</div>
-			<div className="col-md-4">
-				<div className="box">
-					<SyncedRadio label="Drop-Off Location" path="gearDropOff">
-						<Radio label="Drop Off at Gear Pickup" value="gearPickup"/>
-						<Radio label="Drop Off at Baseline" value="baseline"/>
-					</SyncedRadio>
-				</div>
-			</div>
-		</div>
-	</div>;
+		</div>;
+	}
 }

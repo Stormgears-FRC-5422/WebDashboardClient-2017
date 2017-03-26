@@ -31,22 +31,23 @@ export default class SyncedRadio extends SyncedComponent {
 		}
 	};
 
-	render() {
+	render(props, state) {
+		let {name, inputRef} = this;
 		let buttons = [];
-		// TODO: Figure out a cleaner way
-		for (let i = 0; i < this.props.children.length; i++) {
-			let child = this.props.children[i];
 
-			buttons.push(<label htmlFor={this.name + "_" + i} className="pt-control pt-radio" key={child.props.value}>
-				<input ref={this.inputRef(i)} checked={this.state.data === child.props.value} id={this.name + "_" + i} type="radio"
-				       value={child.props.value} label={child.props.label} name={this.name} onClick={linkEvent(this, handleChange)} />
+		for (let i = 0; i < props.entries.length; i++) {
+			let child = props.entries[i];
+
+			buttons.push(<label htmlFor={name + "_" + i} className={"pt-control" + (props.large ? " pt-large" : "") + (props.toggleType === "SWITCH" ? " pt-switch" : " pt-radio")} key={child.value}>
+				<input ref={inputRef(i)} checked={state.data === child.value} id={name + "_" + i} type="radio"
+				       value={child.value} label={child.label} name={name} onClick={linkEvent(this, handleChange)} disabled={!props.enabled || !child.enabled} />
 				<span className="pt-control-indicator"/>
-				{child.props.label}
+				{child.label}
 			</label>);
 		}
 
 		return <div>
-			<label className="pt-label bold">{this.props.label}</label>
+			<label className="pt-label bold">{props.label}</label>
 			{buttons}
 		</div>;
 	}
