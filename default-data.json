@@ -1,6 +1,8 @@
 {
 	"motor": 0,
 	"alliance": "red",
+	"gearDropOff": "baseline",
+	"gearPlacement": "center",
 	"devices": [],
 	"talons": [],
 	"ahrs": {}
