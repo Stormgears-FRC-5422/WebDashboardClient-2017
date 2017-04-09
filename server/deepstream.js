@@ -1,6 +1,7 @@
 const DeepstreamServer = require('deepstream.io');
 const DeepstreamClient = require("deepstream.io-client-js");
 const fs = require("fs");
+require("./discovery");
 const C = DeepstreamServer.constants;
 
 const server = new DeepstreamServer({
