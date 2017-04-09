@@ -1,6 +1,6 @@
 import SyncedComponent from "../../lib/SyncedComponent";
 
-import {Slider} from "@blueprintjs/core";
+import {Slider} from "@blueprintjs/core/dist/components/slider/slider";
 
 function startDrag() {
 	document.body.style.userSelect = "none";

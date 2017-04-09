@@ -1,5 +1,5 @@
 import SyncedComponent from "../../lib/SyncedComponent";
-import {NonIdealState} from "@blueprintjs/core";
+import {NonIdealState} from "@blueprintjs/core/dist/components/non-ideal-state/nonIdealState";
 
 import DeviceCard from "./DeviceCard";
 

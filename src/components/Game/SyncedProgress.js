@@ -1,6 +1,7 @@
 import SyncedComponent from "../../lib/SyncedComponent";
 
-import {ProgressBar, Intent} from "@blueprintjs/core";
+import {ProgressBar} from "@blueprintjs/core/dist/components/progress/progressBar";
+import {Intent} from "@blueprintjs/core/dist/common/intent";
 
 export default class SyncedProgress extends SyncedComponent {
 	name = "SyncedProgress_" + (Math.round(Math.random() * 100000));

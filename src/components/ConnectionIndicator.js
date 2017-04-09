@@ -1,6 +1,7 @@
 import Component from "inferno-component";
 
-import {Tooltip, Position} from "@blueprintjs/core";
+import {Tooltip} from "@blueprintjs/core/dist/components/tooltip/tooltip";
+import {Position} from "@blueprintjs/core/dist/common/position";
 
 export default class ConnectionIndicator extends Component {
 	constructor(props) {

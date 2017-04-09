@@ -98,7 +98,7 @@ class App extends SyncedComponent {
 						<ConnectionIndicator/>
 					</div>
 				</nav>
-				<div style={{ marginBottom: "75px" }}></div>
+				<div className="navbar-spacer"/>
 
 				{ currTab === 1 ? <GameView /> : null}
 				{ currTab === 2 ? <DiagnosticsDisplay /> : null }

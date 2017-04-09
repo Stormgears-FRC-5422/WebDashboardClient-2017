@@ -1,5 +1,5 @@
 import Component from "inferno-component";
-import {Tree} from "@blueprintjs/core";
+import {Tree} from "@blueprintjs/core/dist/components/tree/tree";
 
 export default class deviceCard extends Component {
 	constructor(props) {

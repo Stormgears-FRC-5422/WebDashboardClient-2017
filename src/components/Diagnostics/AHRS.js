@@ -1,5 +1,5 @@
 import SyncedComponent from "../../lib/SyncedComponent";
-import {NonIdealState} from "@blueprintjs/core";
+import {NonIdealState} from "@blueprintjs/core/dist/components/non-ideal-state/nonIdealState";
 
 import GraphButton from "../GraphButton";
 // import AHRS3D from "./AHRS3D";
@@ -7,6 +7,8 @@ import GraphButton from "../GraphButton";
 export default class AHRS extends SyncedComponent {
 	constructor(props) {
 		super(props, "ahrs", "ahrs", "diagnostics");
+
+		this.state = {};
 	}
 
 	render() {

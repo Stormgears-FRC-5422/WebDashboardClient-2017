@@ -1,4 +1,4 @@
-import {NonIdealState} from "@blueprintjs/core";
+import {NonIdealState} from "@blueprintjs/core/dist/components/non-ideal-state/nonIdealState";
 
 import RecordEditor from "./RecordEditor";
 import SyncedComponent from "../lib/SyncedComponent";

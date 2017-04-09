@@ -4,40 +4,17 @@ import Devices from "./Devices";
 import Talons from "./Talons";
 import AHRS from "./AHRS";
 
-import {Tab, Tabs, TabList, TabPanel} from "@blueprintjs/core";
+import {Tab2} from "@blueprintjs/core/dist/components/tabs2/tab2";
+import {Tabs2} from "@blueprintjs/core/dist/components/tabs2/tabs2";
 
 export default class DiagnosticsDisplay extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			tab: 0
-		};
-	}
-
-	handleTab = (n) => {
-		this.setState({ tab: n });
-	};
-
 	render() {
-		let currTab = this.state.tab;
-
 		return <div>
-			<Tabs className="pt-vertical" selectedTabIndex={currTab} onChange={this.handleTab}>
-				<TabList>
-					<Tab>Motors</Tab>
-					<Tab>NavX MXP</Tab>
-					<Tab>Devices</Tab>
-				</TabList>
-				<TabPanel>
-					<Talons />
-				</TabPanel>
-				<TabPanel>
-					<AHRS />
-				</TabPanel>
-				<TabPanel>
-					<Devices />
-				</TabPanel>
-			</Tabs>
+			<Tabs2 vertical renderActiveTabPanelOnly>
+				<Tab2 id="motors" title="Motors" panel={<Talons />} />
+				<Tab2 id="ahrs" title="NavX MXP" panel={<AHRS />} />
+				<Tab2 id="devices" title="Devices" panel={<Devices />} />
+			</Tabs2>
 		</div>
 	}
 }

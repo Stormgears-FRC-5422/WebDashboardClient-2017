@@ -1,6 +1,6 @@
 import Component from "inferno-component";
 import _ from "lodash";
-import {EditableText} from "@blueprintjs/core";
+import {EditableText} from "@blueprintjs/core/dist/components/editable-text/editableText";
 
 function isNumber(o) {
 	return !isNaN(o - 0) && o !== null && o !== "" && o !== false;
