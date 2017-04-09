@@ -140,7 +140,7 @@ module.exports = {
 			// Process JS with Babel.
 			{
 				test: /\.(js|jsx)$/,
-				include: paths.appSrc,
+				exclude: /node_modules\/(?!(deepstream.io-client-js)\/).*/,
 				loader: 'babel-loader',
 				options: {
 

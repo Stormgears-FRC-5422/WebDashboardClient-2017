@@ -139,9 +139,11 @@ module.exports = {
 			// Process JS with Babel.
 			{
 				test: /\.(js|jsx)$/,
-				include: paths.appSrc,
+				exclude: /node_modules\/(?!(deepstream.io-client-js)\/).*/,
 				loader: 'babel-loader',
-
+				options: {
+					cacheDirectory: true,
+				}
 			},
 			// The notation here is somewhat confusing.
 			// "postcss" loader applies autoprefixer to our CSS.

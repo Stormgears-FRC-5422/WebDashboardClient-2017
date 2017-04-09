@@ -1,5 +1,3 @@
-import "dom4"; // DOM Level 4 polyfill required for Blueprint
-
 import Inferno from "inferno";
 import App from './App';
 import './index.scss';
