@@ -95,9 +95,9 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
-anser@1.2.7:
-  version "1.2.7"
-  resolved "https://registry.yarnpkg.com/anser/-/anser-1.2.7.tgz#fb1a41a05ffdef5b9e33d5d64794765fd76524e0"
+anser@1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/anser/-/anser-1.2.5.tgz#5dcfc956eaa373b9c23010dd20dabec2ce19475b"
 
 ansi-align@^1.1.0:
   version "1.1.0"
@@ -486,12 +486,12 @@ babel-plugin-check-es2015-constants@^6.3.13:
   dependencies:
     babel-runtime "^6.22.0"
 
-babel-plugin-inferno@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-inferno/-/babel-plugin-inferno-3.1.0.tgz#7eb4ed85a578f22191c108c401aabcebaae27ae8"
+babel-plugin-inferno@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-inferno/-/babel-plugin-inferno-2.0.0.tgz#57c73b2a4f95119c44bea639e884187f9ee8d1a4"
   dependencies:
     babel-plugin-syntax-jsx "^6.18.0"
-    inferno-vnode-flags "1.5.1"
+    inferno-vnode-flags "1.3.0"
 
 babel-plugin-istanbul@^4.0.0:
   version "4.0.0"
@@ -814,7 +814,14 @@ babel-register@^6.23.0:
     mkdirp "^0.5.1"
     source-map-support "^0.4.2"
 
-babel-runtime@^6.18.0, babel-runtime@^6.20.0, babel-runtime@^6.22.0, babel-runtime@^6.23.0:
+babel-runtime@6.20.0:
+  version "6.20.0"
+  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.20.0.tgz#87300bdcf4cd770f09bf0048c64204e17806d16f"
+  dependencies:
+    core-js "^2.4.0"
+    regenerator-runtime "^0.10.0"
+
+babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.23.0:
   version "6.23.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.23.0.tgz#0a9489f144de70efb3ce4300accdb329e2fc543b"
   dependencies:
@@ -3044,49 +3051,49 @@ indexof@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/indexof/-/indexof-0.0.1.tgz#82dc336d232b9062179d05ab3293a66059fd435d"
 
-inferno-compat@^1.6.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/inferno-compat/-/inferno-compat-1.6.2.tgz#c7c5c06c57b5eadd9c8df6724980c308a1c631ff"
+inferno-compat@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/inferno-compat/-/inferno-compat-1.4.2.tgz#df21222eec8edc6bfa6a9b5e7b48088afeff1756"
   dependencies:
-    inferno "^1.6.2"
-    inferno-component "^1.6.2"
-    inferno-create-class "^1.6.2"
-    inferno-create-element "^1.6.2"
-    inferno-shared "^1.6.1"
+    inferno "^1.4.2"
+    inferno-component "^1.4.2"
+    inferno-create-class "^1.4.2"
+    inferno-create-element "^1.4.2"
+    inferno-shared "^1.4.1"
     inferno-transition-group "1.1.1"
-    inferno-vnode-flags "^1.6.2"
+    inferno-vnode-flags "^1.4.1"
     proptypes "0.14.4"
     rc-css-transition-group-modern "^2.1.6"
 
-inferno-component@^1.6.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/inferno-component/-/inferno-component-1.6.2.tgz#d9be05c66d7d81a2bc2f428ddf7596acdc888c3b"
+inferno-component@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/inferno-component/-/inferno-component-1.4.2.tgz#5411b54ec3cb2b5e4e7c40bb9dd9d925276f7c24"
   dependencies:
-    inferno "^1.6.2"
-    inferno-shared "^1.6.1"
-    inferno-vnode-flags "^1.6.2"
+    inferno "^1.4.2"
+    inferno-shared "^1.4.1"
+    inferno-vnode-flags "^1.4.1"
 
-inferno-create-class@^1.6.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/inferno-create-class/-/inferno-create-class-1.6.2.tgz#b5b37e872c5f84da5517014fbd85dca34fb5144f"
+inferno-create-class@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/inferno-create-class/-/inferno-create-class-1.4.2.tgz#525df670011f3d3f0a198424225e046d306f9fae"
   dependencies:
-    inferno-component "^1.6.2"
-    inferno-shared "^1.6.1"
+    inferno-component "^1.4.2"
+    inferno-shared "^1.4.1"
 
-inferno-create-element@^1.6.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/inferno-create-element/-/inferno-create-element-1.6.2.tgz#210c2e00a85048eeb150df7fe0c6e9d4da4e572e"
+inferno-create-element@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/inferno-create-element/-/inferno-create-element-1.4.2.tgz#af6fabd2ce76789e837adddeee964854f1e98f13"
   dependencies:
-    inferno "^1.6.2"
-    inferno-component "^1.6.2"
-    inferno-shared "^1.6.1"
-    inferno-vnode-flags "^1.6.2"
+    inferno "^1.4.2"
+    inferno-component "^1.4.2"
+    inferno-shared "^1.4.1"
+    inferno-vnode-flags "^1.4.1"
 
-inferno-dev-utils@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/inferno-dev-utils/-/inferno-dev-utils-2.0.0.tgz#fa90fa8efd3ab712a1ebcef06f533c245c592cbc"
+inferno-dev-utils@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/inferno-dev-utils/-/inferno-dev-utils-1.0.0.tgz#e2ab5bb050376f038528696da7a77b396f166ac3"
   dependencies:
-    anser "1.2.7"
+    anser "1.2.5"
     babel-code-frame "6.22.0"
     chalk "1.1.3"
     escape-string-regexp "1.0.5"
@@ -3096,21 +3103,21 @@ inferno-dev-utils@^2.0.0:
     opn "4.0.2"
     recursive-readdir "2.1.1"
     sockjs-client "1.1.2"
-    stack-frame-resolver "0.1.5"
+    stack-frame-resolver "0.1.3"
     strip-ansi "3.0.1"
 
-inferno-devtools@^1.6.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/inferno-devtools/-/inferno-devtools-1.6.2.tgz#073ddbc3143cf6e5ac88f285faf1eb61b0631f42"
+inferno-devtools@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/inferno-devtools/-/inferno-devtools-1.4.2.tgz#d18d915af010ef5c8d971df2226aac229f10fe9a"
   dependencies:
-    inferno "^1.6.2"
-    inferno-component "^1.6.2"
-    inferno-shared "^1.6.1"
-    inferno-vnode-flags "^1.6.2"
+    inferno "^1.4.2"
+    inferno-component "^1.4.2"
+    inferno-shared "^1.4.1"
+    inferno-vnode-flags "^1.4.1"
 
-inferno-shared@^1.6.1:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/inferno-shared/-/inferno-shared-1.6.1.tgz#6ff7a8eacc254b766c930720916130c3c0c62bf3"
+inferno-shared@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/inferno-shared/-/inferno-shared-1.4.1.tgz#7053cac8f9058bd8513cd113d66f3ba2197cd22a"
 
 inferno-transition-group@1.1.1:
   version "1.1.1"
@@ -3118,20 +3125,20 @@ inferno-transition-group@1.1.1:
   dependencies:
     inferno "^1.1.1"
 
-inferno-vnode-flags@1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/inferno-vnode-flags/-/inferno-vnode-flags-1.5.1.tgz#3b1b54ee5e9f167863b89e6bee1b19fd3941329f"
+inferno-vnode-flags@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/inferno-vnode-flags/-/inferno-vnode-flags-1.3.0.tgz#d2fca602325e276146f99ddcdfe97b3a2506426f"
 
-inferno-vnode-flags@^1.6.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/inferno-vnode-flags/-/inferno-vnode-flags-1.6.2.tgz#12410f4f26eda30a7a7374bba0cafaed495bcc19"
+inferno-vnode-flags@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/inferno-vnode-flags/-/inferno-vnode-flags-1.4.1.tgz#fc249a07da2a5a7a8380a3b78bc7e7f69905db85"
 
-inferno@^1.1.1, inferno@^1.6.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/inferno/-/inferno-1.6.2.tgz#355bd475d348143737f8197affb865aa9bc06ad5"
+inferno@^1.1.1, inferno@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/inferno/-/inferno-1.4.2.tgz#dcf2503b0aa4da7e6279febab894fc31377eb6ee"
   dependencies:
-    inferno-shared "^1.6.1"
-    inferno-vnode-flags "^1.6.2"
+    inferno-shared "^1.4.1"
+    inferno-vnode-flags "^1.4.1"
 
 inflight@^1.0.4:
   version "1.0.6"
@@ -5785,11 +5792,11 @@ sshpk@^1.7.0:
     jsbn "~0.1.0"
     tweetnacl "~0.14.0"
 
-stack-frame-resolver@0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/stack-frame-resolver/-/stack-frame-resolver-0.1.5.tgz#0ce89544ddb666b38d980e57443d43eedb3051f2"
+stack-frame-resolver@0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/stack-frame-resolver/-/stack-frame-resolver-0.1.3.tgz#d14ec03c6d18d74ad20cb55371567b3009df2251"
   dependencies:
-    babel-runtime "^6.20.0"
+    babel-runtime "6.20.0"
     error-stack-parser "2.0.0"
     source-map "0.5.6"
 

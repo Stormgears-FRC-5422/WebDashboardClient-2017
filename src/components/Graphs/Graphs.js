@@ -46,6 +46,6 @@ export default class Graphs extends Component {
 			windows.push(<Window key={keys[i]} path={keys[i]}/>)
 		}
 
-		return <div>{windows}</div>;
+		return <div>{windows}</div>
 	}
 }

@@ -1,18 +1,17 @@
-import {NonIdealState} from "@blueprintjs/core";
+import {Radio, NonIdealState} from "@blueprintjs/core";
 
 import SyncedComponent from "../../lib/SyncedComponent";
 import SyncedSlider from "./SyncedSlider";
 import SyncedRadio from "./SyncedRadio";
+import {Spinner} from "@blueprintjs/core/dist/components/spinner/spinner";
 import SyncedProgress from "./SyncedProgress";
 
 export default class GameView extends SyncedComponent {
 	constructor(props) {
 		super(props, "game", "controls", "config");
-
-		this.state = {};
 	}
 
-	render(props, { controls }) {
+	render(props, {controls}) {
         if (!controls || controls.length === 0) {
             return <NonIdealState title="No controls set." description="TODO: Write documentation for this." visual="help" />
         }

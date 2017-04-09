@@ -8,6 +8,8 @@ import ConnectionIndicator from "./components/ConnectionIndicator";
 
 import Graphs from "./components/Graphs/Graphs";
 
+import './App.css';
+
 global.dragging = false;
 document.onselectstart = function(e) {
 	if (global.dragging) {
@@ -96,7 +98,7 @@ class App extends SyncedComponent {
 						<ConnectionIndicator/>
 					</div>
 				</nav>
-				<div className="navbar-spacer"/>
+				<div style={{ marginBottom: "75px" }}></div>
 
 				{ currTab === 1 ? <GameView /> : null}
 				{ currTab === 2 ? <DiagnosticsDisplay /> : null }
