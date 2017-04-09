@@ -1,0 +1,2 @@
+require("./deepstream");
+require("./static");

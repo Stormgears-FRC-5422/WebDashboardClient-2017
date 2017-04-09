@@ -13,7 +13,7 @@ Prerequisites:
 ## Development
 - Start Deepstream server:
 ```bash
-$ node server.js
+$ [npm|yarn]run deepstream
 ```
 - Start Webpack:
 ```
