@@ -1,6 +1,5 @@
 import Component from "inferno-component";
 import _ from "lodash";
-import debounce from "lodash/debounce";
 
 export default class SyncedComponent extends Component {
 	path;
