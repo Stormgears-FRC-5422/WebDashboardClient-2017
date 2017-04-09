@@ -148,7 +148,7 @@ export default class Window extends Component {
                 data={this.state.data}
                 onNearestX={this.handleHoverNear}
             />
-            <XAxis title="Time" tickFormat={graphDate} tickLabelAngle={30} height={80}/>
+            <XAxis title="Time" tickFormat={graphDate} tickLabelAngle={-30} height={80}/>
             <YAxis title={this.props.path}/>
         </XYPlot>);
 
