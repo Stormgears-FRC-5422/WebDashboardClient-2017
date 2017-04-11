@@ -1,3 +1,6 @@
+import {Tabs2} from "@blueprintjs/core/dist/components/tabs2/tabs2";
+import {Tab2} from "@blueprintjs/core/dist/components/tabs2/tab2";
+
 import SyncedComponent from "./lib/SyncedComponent";
 
 import DiagnosticsDisplay from "./components/Diagnostics/DiagnosticsDisplay";
@@ -32,7 +35,7 @@ class App extends SyncedComponent {
 				}
 			],
 			consoleLength: 1,
-			tab: 1
+			tab: "tab-game"
 		};
 	}
 
@@ -71,16 +74,13 @@ class App extends SyncedComponent {
 
 
 	handleTab = (n) => {
-		const _this = this;
-		return function() {
-			_this.setState({
-				tab: n
-			});
-		};
+		this.setState({
+			tab: n
+		});
 	};
 
-	render() {
-		let currTab = this.state.tab;
+	render(props, state) {
+		let currTab = state.tab;
 		return (
 			<div className="App">
 				<nav className="pt-navbar pt-fixed-top">
@@ -88,11 +88,13 @@ class App extends SyncedComponent {
 						<div className="pt-navbar-heading">
 							WebDashboard
 						</div>
-						<div className="pt-button-group pt-minimal">
-							<button onClick={this.handleTab(1)} className={"pt-button pt-icon-dashboard" + (currTab === 1 ? " pt-active" : "")}>Game</button>
-							<button onClick={this.handleTab(2)} className={"pt-button pt-icon-pulse" + (currTab === 2 ? " pt-active" : "")}>Diagnostics</button>
-							<button onClick={this.handleTab(3)} className={"pt-button pt-icon-database" + (currTab === 3 ? " pt-active" : "")}>Raw Data</button>
-						</div>
+					</div>
+					<div className="pt-navbar-group pt-align-left">
+						<Tabs2 className="pt-large" onChange={this.handleTab} selectedTabId={state.tab}>
+							<Tab2 id="tab-game" title="Game"/>
+							<Tab2 id="tab-diagnostics" title="Diagnostics"/>
+							<Tab2 id="tab-raw-data" title="Raw Data"/>
+						</Tabs2>
 					</div>
 					<div className="pt-navbar-group pt-align-right">
 						<ConnectionIndicator/>
@@ -100,13 +102,13 @@ class App extends SyncedComponent {
 				</nav>
 				<div className="navbar-spacer"/>
 
-				{ currTab === 1 ? <GameView /> : null}
-				{ currTab === 2 ? <DiagnosticsDisplay /> : null }
-				{ currTab === 3 ? <RawData /> : null}
+				{ currTab === "tab-game" ? <GameView /> : null}
+				{ currTab === "tab-diagnostics" ? <DiagnosticsDisplay /> : null }
+				{ currTab === "tab-raw-data" ? <RawData /> : null}
 
 				<br />
 				<h2>Logs</h2>
-				<Console data={this.state.console} dataLength={this.state.consoleLength} />
+				<Console data={state.console} dataLength={state.consoleLength} />
 				<Graphs/>
 			</div>
 		);
