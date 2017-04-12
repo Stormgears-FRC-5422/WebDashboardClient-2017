@@ -1,27 +1,28 @@
-import {Tabs2} from "@blueprintjs/core/dist/components/tabs2/tabs2";
 import {Tab2} from "@blueprintjs/core/dist/components/tabs2/tab2";
+import {Tabs2} from "@blueprintjs/core/dist/components/tabs2/tabs2";
 
 import SyncedComponent from "./lib/SyncedComponent";
 
-import DiagnosticsDisplay from "./components/Diagnostics/DiagnosticsDisplay";
-import Console from "./components/Console";
-import RawData from "./components/RawData";
-import GameView from "./components/Game/GameView";
 import ConnectionIndicator from "./components/ConnectionIndicator";
+import Console from "./components/Console";
+import DiagnosticsDisplay from "./components/Diagnostics/DiagnosticsDisplay";
+import GameView from "./components/Game/GameView";
+import RawData from "./components/RawData";
 
 import Graphs from "./components/Graphs/Graphs";
 
-import './App.css';
+import "./App.css";
 
-global.dragging = false;
+global["dragging"] = false;
 document.onselectstart = function(e) {
-	if (global.dragging) {
+	if (global["dragging"]) {
 		e.preventDefault();
 		return false;
 	}
 };
 
-class App extends SyncedComponent {
+class App extends SyncedComponent<any, any> {
+	public refs; // ???
 	constructor(props) {
 		super(props, "motor", "motor");
 
@@ -39,7 +40,7 @@ class App extends SyncedComponent {
 		};
 	}
 
-	componentWillMount() {
+	public componentWillMount() {
 		super.componentWillMount();
 
 		const ds = global.ds;
@@ -55,7 +56,7 @@ class App extends SyncedComponent {
 		});
 	}
 
-	handleLog = data => {
+	public handleLog = (data) => {
 		// console.log(data);
 		if (data) {
 			this.state.console.push(data);
@@ -64,23 +65,24 @@ class App extends SyncedComponent {
 				consoleLength: this.state.console.length
 			});
 		}
-	};
+	}
 
-	componentDidUnmount() {
+	public componentDidUnmount() {
 		super.componentDidUnmount();
 
 		global.ds.event.unsubscribe(this.handleLog);
 	}
 
-
-	handleTab = (n) => {
+	private handleTab = (n) => {
 		this.setState({
 			tab: n
 		});
-	};
+	}
 
-	render(props, state) {
-		let currTab = state.tab;
+	public render() {
+		const {state} = this;
+
+		const currTab = state.tab;
 		return (
 			<div className="App">
 				<nav className="pt-navbar pt-fixed-top">
@@ -90,7 +92,7 @@ class App extends SyncedComponent {
 						</div>
 					</div>
 					<div className="pt-navbar-group pt-align-left">
-						<Tabs2 className="pt-large" onChange={this.handleTab} selectedTabId={state.tab}>
+						<Tabs2 id="navbar-tabs" className="pt-large" onChange={this.handleTab} selectedTabId={state.tab}>
 							<Tab2 id="tab-game" title="Game"/>
 							<Tab2 id="tab-diagnostics" title="Diagnostics"/>
 							<Tab2 id="tab-raw-data" title="Raw Data"/>

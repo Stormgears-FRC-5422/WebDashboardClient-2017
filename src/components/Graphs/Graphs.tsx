@@ -2,7 +2,8 @@ import Component from "inferno-component";
 
 import Window from "./Window";
 
-export default class Graphs extends Component {
+export default class Graphs extends Component<any, any> {
+	public refs; // ???
 	constructor(props) {
 		super(props);
 
@@ -13,37 +14,37 @@ export default class Graphs extends Component {
 		};
 	}
 
-	componentWillMount() {
-		global.Graphs = this;
+	public componentWillMount() {
+		global["Graphs"] = this;
 	}
 
 	//noinspection JSMethodCanBeStatic
-	componentWillUnmount() {
-		delete global.Graphs;
+	public componentWillUnmount() {
+		delete global["Graphs"];
 	}
 
-	addGraph = (path) => {
+	public addGraph = (path) => {
 		this.setState({
 			graphs: {
 				...this.state.graphs,
 				[path]: true
 			}
 		});
-	};
+	}
 
-	delGraph = (path) => {
+	public delGraph = (path) => {
 		delete this.state.graphs[path];
 
 		this.setState(this.state);
-	};
+	}
 
-	render() {
-		let graphs = this.state.graphs;
-		let keys = Object.keys(graphs);
+	public render() {
+		const graphs = this.state.graphs;
+		const keys = Object.keys(graphs);
 
-		let windows = [];
+		const windows = [];
 		for (let i = 0; i < keys.length; i++) {
-			windows.push(<Window key={keys[i]} path={keys[i]}/>)
+			windows.push(<Window key={keys[i]} path={keys[i]}/>);
 		}
 
 		return <div>{windows}</div>;

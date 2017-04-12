@@ -1,6 +1,8 @@
-import Inferno from "inferno";
-import App from './App';
-import './index.scss';
+/// <reference path="index.d.ts" />
+
+import Inferno, {VNode} from 'inferno';
+import App from "./App";
+import "./index.scss";
 
 import {Intent} from "@blueprintjs/core/dist/common/intent";
 import {TopToaster} from "./components/Toasters";
@@ -13,39 +15,35 @@ if (process.env.NODE_ENV !== "production") {
 	// require('inferno-devtools');
 }
 
-// Inferno.render(<div>
-// 	<Spinner/>
-// 	Connecting...
-// </div>, document.getElementById("root"));
-
 const ds = deepstream(location.hostname + ":5802");
 
 let rendered = false;
 ds.login({username: "client"}, () => {
 	if (rendered) {
 		TopToaster.show({
-			message: "Reconnected.",
+			iconName: "tick",
 			intent: Intent.SUCCESS,
-			iconName: "tick"
+			message: "Reconnected."
 		});
 		return;
 	}
 	rendered = true;
 	Inferno.render(
-		<App dsRecord="webdashboard" />,
-		document.getElementById('root')
+		<App dsRecord="webdashboard" /> as VNode,
+		document.getElementById("root")
 	);
 });
 
 ds.on("error", function(error, event, topic) {
 	TopToaster.show({
-		message: "Error: " + event,
+		iconName: "error",
 		intent: Intent.DANGER,
-		iconName: "error"
+		message: "Error: " + event
 	});
 
 	console.log(error, event, topic);
 });
 
 DeepstreamMixin.setDeepstreamClient(ds);
+
 global.ds = ds;

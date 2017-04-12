@@ -7,6 +7,7 @@ const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const InterpolateHtmlPlugin = require('inferno-dev-utils/InterpolateHtmlPlugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 const WatchMissingNodeModulesPlugin = require('inferno-dev-utils/WatchMissingNodeModulesPlugin');
+// const { TsConfigPathsPlugin } = require('awesome-typescript-loader');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 
@@ -76,11 +77,12 @@ module.exports = {
 		// We also include JSX as a common component filename extension to support
 		// some tools, although we do not recommend using it, see:
 		// https://github.com/facebookincubator/create-react-app/issues/290
-		extensions: ['.js', '.json', '.jsx'],
+		extensions: ['.js', '.json', '.jsx', '.ts', '.tsx'],
 		alias: {
 			'react': 'inferno-compat',
 			'react-dom': 'inferno-compat',
 			'pure-render-decorator': paths.appSrc + "/lib/pureRenderDecorator",
+			'react-addons-css-transition-group': 'inferno-compat/lib/ReactCSSTransitionGroup'
 		}
 	},
 
@@ -114,6 +116,7 @@ module.exports = {
 				exclude: [
 					/\.html$/,
 					/\.(js|jsx)$/,
+					/\.tsx?$/,
 					/\.s?css$/,
 					/\.json$/,
 					/\.bmp$/,
@@ -149,6 +152,23 @@ module.exports = {
 					// directory for faster rebuilds.
 					cacheDirectory: true,
 				},
+			},
+			{
+				test: /\.tsx?$/,
+				use: [
+					{
+						loader: "babel-loader",
+						options: {
+							cacheDirectory: true,
+						},
+					},
+					{
+						loader: "ts-loader",
+						options: {
+							useBabel: true
+						}
+					}
+				]
 			},
 			// "postcss" loader applies autoprefixer to our CSS.
 			// "css" loader resolves paths in CSS and adds assets as dependencies.
@@ -225,6 +245,7 @@ module.exports = {
 
 	plugins: [
 		new DuplicatePackageCheckerPlugin(),
+		// new TsConfigPathsPlugin(/* { tsconfig, compiler } */),
 		// Makes some environment variables available in index.html.
 		// The public URL is available as %PUBLIC_URL% in index.html, e.g.:
 		// <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">

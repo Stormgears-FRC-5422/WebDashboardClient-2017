@@ -1,12 +1,12 @@
 import Component from "inferno-component";
 import _ from "lodash";
 
-export default class SyncedComponent extends Component {
-	path;
-	stateKey;
-	dsRecord;
+export default class SyncedComponent<P, S> extends Component<P, S> {
+	private path;
+	private stateKey;
+	private dsRecord;
 
-	constructor(props, path, stateKey, subRecord) {
+	constructor(props, path, stateKey, subRecord?) {
 		super(props);
 
 		this.path = path;
@@ -15,7 +15,7 @@ export default class SyncedComponent extends Component {
 		this.dsRecord = global.ds.record.getRecord(subRecord ? "webdashboard/" + subRecord : "webdashboard");
 	}
 
-	componentWillMount() {
+	public componentWillMount() {
 		if (this.path) {
 			this.dsRecord.subscribe(this.path, this._handleDsUpdate, true);
 		} else {
@@ -23,13 +23,13 @@ export default class SyncedComponent extends Component {
 		}
 	}
 
-	componentDidUnmount() {
-		this.dsRecord.unsubscribe(this._setState);
+	public componentDidUnmount() {
+		this.dsRecord.unsubscribe(this._handleDsUpdate);
 		this.dsRecord.discard();
 		this.dsRecord = null;
 	}
 
-	_handleDsUpdate = _.debounce((data) => {
+	private _handleDsUpdate = _.debounce((data) => {
 		this.setState({
 			[this.stateKey]: data
 		});
@@ -38,7 +38,7 @@ export default class SyncedComponent extends Component {
 		trailing: true
 	});
 
-	setRecord = (data, path = this.path) => {
+	public setRecord = (data, path = this.path) => {
 		this.dsRecord.set(path, data);
-	};
+	}
 }

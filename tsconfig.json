@@ -1,0 +1,33 @@
+{
+	"version": "2.2.2",
+	"compilerOptions": {
+		"target": "es6",
+		"module": "es6",
+		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
+		"preserveConstEnums": true,
+		"sourceMap": true,
+		"moduleResolution": "node",
+		"lib": [
+			"es6",
+			"es7",
+			"dom"
+		],
+		"types": [
+			"inferno",
+			"node",
+			"tether"
+		],
+		"jsx": "preserve",
+		"noUnusedLocals": true,
+		"strictNullChecks": false,
+		"removeComments": false
+	},
+	"include": [
+		"src/**/*"
+	],
+	"exclude": [
+		"node_modules"
+	],
+	"compileOnSave": false
+}

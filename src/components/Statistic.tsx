@@ -5,5 +5,5 @@ export default function(props) {
 		</div> : <div className="statistic">
 			<h1>{props.big}</h1>
 			{props.small}
-		</div>
+		</div>;
 }

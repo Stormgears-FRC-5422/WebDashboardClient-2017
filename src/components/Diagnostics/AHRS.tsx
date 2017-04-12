@@ -1,33 +1,34 @@
-import SyncedComponent from "../../lib/SyncedComponent";
 import {NonIdealState} from "@blueprintjs/core/dist/components/non-ideal-state/nonIdealState";
 
+import SyncedComponent from "../../lib/SyncedComponent";
 import GraphButton from "../GraphButton";
 // import AHRS3D from "./AHRS3D";
 
-export default class AHRS extends SyncedComponent {
+export default class AHRS extends SyncedComponent<any, any> {
+	public refs; // ???
 	constructor(props) {
 		super(props, "ahrs", "ahrs", "diagnostics");
 
 		this.state = {};
 	}
 
-	render() {
+	public render() {
 		const data = this.state.ahrs;
 
 		if (!data) {
-			return <NonIdealState title="No NavX found." visual="warning-sign"/>
+			return <NonIdealState title="No NavX found." visual="warning-sign"/>;
 		}
 
 		const keys = Object.keys(data);
 
 		if (keys.length === 0) {
-			return <NonIdealState title="No NavX found." visual="warning-sign"/>
+			return <NonIdealState title="No NavX found." visual="warning-sign"/>;
 		}
 
-		let display = [];
+		const display = [];
 		for (let i = 0; i < keys.length; i++) {
-			let key = keys[i];
-			let val = data[key];
+			const key = keys[i];
+			const val = data[key];
 
 			display.push(<li key={key} className="pt-tree-node">
 				<div className="pt-tree-node-content">
@@ -43,7 +44,7 @@ export default class AHRS extends SyncedComponent {
 						</div>
 				</span>
 				</div>
-			</li>)
+			</li>);
 		}
 
 		return <div className="row">
@@ -61,6 +62,6 @@ export default class AHRS extends SyncedComponent {
 			<div className="col-xs-6">
 				{/*<AHRS3D {...data} />*/}
 			</div>
-		</div>
+		</div>;
 	}
 }

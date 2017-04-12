@@ -1,7 +1,9 @@
 import Component from "inferno-component";
+
 import {Tree} from "@blueprintjs/core/dist/components/tree/tree";
 
-export default class deviceCard extends Component {
+export default class DeviceCard extends Component<any, any> {
+	public refs; // ???
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -9,20 +11,20 @@ export default class deviceCard extends Component {
 		};
 	}
 
-	devTree(dev) {
+	private devTree(dev) {
 		if (typeof dev.properties["437321728"] !== "undefined") {
 			dev.devID = dev.properties["437321728"].value;
 
 			// move properties to end
-			let properties = dev.properties;
+			const properties = dev.properties;
 			delete dev.properties;
 			dev.properties = properties;
 		}
 		const keys = Object.keys(dev);
 
-		let ret = [];
+		const ret = [];
 		for (let i = 0; i < keys.length; i++) {
-			let prop = keys[i];
+			const prop = keys[i];
 
 			if (prop === "properties") {
 				if (!this.state.propsExpanded) {
@@ -35,10 +37,10 @@ export default class deviceCard extends Component {
 					});
 					continue;
 				}
-				let childKeys = Object.keys(dev.properties);
-				let childNodes = [];
+				const childKeys = Object.keys(dev.properties);
+				const childNodes = [];
 				for (let i = 0; i < childKeys.length; i++) {
-					let property = childKeys[i];
+					const property = childKeys[i];
 					childNodes.push({
 						label: <span>
 							<div className="diag-wrap">
@@ -75,25 +77,25 @@ export default class deviceCard extends Component {
 		return ret;
 	}
 
-	handlePropExpand = () => {
+	private handlePropExpand = () => {
 		this.setState({
 			propsExpanded: true
 		});
-	};
-	handlePropCollapse = () => {
+	}
+	private handlePropCollapse = () => {
 		this.setState({
 			propsExpanded: false
-		})
-	};
+		});
+	}
 
-	render() {
-		let dev = this.props.dev;
+	public render() {
+		const dev = this.props.dev;
 
 		return <div key={dev.id} className="col-xs-6">
 			<div className="pt-card" style={{ marginBottom: "1em" }}>
 				<h3>{ dev.id }</h3>
 				<Tree contents={this.devTree(dev)} onNodeCollapse={this.handlePropCollapse} onNodeExpand={this.handlePropExpand} />
 			</div>
-		</div>
+		</div>;
 	}
 }

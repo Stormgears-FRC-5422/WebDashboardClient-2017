@@ -1,27 +1,31 @@
 import {NonIdealState} from "@blueprintjs/core/dist/components/non-ideal-state/nonIdealState";
 
 import SyncedComponent from "../../lib/SyncedComponent";
-import SyncedSlider from "./SyncedSlider";
-import SyncedRadio from "./SyncedRadio";
 import SyncedProgress from "./SyncedProgress";
+import SyncedRadio from "./SyncedRadio";
+import SyncedSlider from "./SyncedSlider";
 
-export default class GameView extends SyncedComponent {
+export default class GameView extends SyncedComponent<any, any> {
+	public refs; // ???
+
 	constructor(props) {
 		super(props, "game", "controls", "config");
 
 		this.state = {};
 	}
 
-	render(props, { controls }) {
-        if (!controls || controls.length === 0) {
-            return <NonIdealState title="No controls set." description="TODO: Write documentation for this." visual="help" />
-        }
+	public render() {
+		const {state} = this;
+		const controls = state.controls;
+		if (!controls || controls.length === 0) {
+			return <NonIdealState title="No controls set." description="TODO: Write documentation for this." visual="help" />;
+		}
 
-        let components = [];
-        for (let i = 0; i < controls.length; i++) {
-        	let c = controls[i];
-        	let a;
-        	switch (c.type) {
+		const components = [];
+		for (let i = 0; i < controls.length; i++) {
+			const c = controls[i];
+			let a;
+			switch (c.type) {
 				case "SLIDER":
 					a = <SyncedSlider {...c} />;
 					break;
@@ -40,10 +44,10 @@ export default class GameView extends SyncedComponent {
 				<div className="box game-control-box">
 					{a}
 				</div>
-			</div>)
+			</div>);
 		}
 
-        return <div>
+		return <div>
 			<div className="row">
 				{ components }
 			</div>

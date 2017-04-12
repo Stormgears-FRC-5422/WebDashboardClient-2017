@@ -1,27 +1,32 @@
 import {findDOMNode} from "inferno";
 import Component from "inferno-component";
 
-export default class Console extends Component {
+export default class Console extends Component<any, any> {
+	public refs; // ???
+	private dLength;
+	private shouldScroll = true;
+	private node;
+	private console;
+
 	constructor(props) {
 		super(props);
 		this.dLength = props.dataLength;
-		this.shouldScroll = true;
 	}
-	shouldComponentUpdate(nextProps) {
+	public shouldComponentUpdate(nextProps) {
 		// console updates manually for performance
 		return false;
 	}
 
-	componentDidMount() {
+	public componentDidMount() {
 		this.node = findDOMNode(this.console);
 	}
-	componentWillReceiveProps(nextProps) {
+	public componentWillReceiveProps(nextProps) {
 		if (nextProps.dataLength > this.dLength) {
 			for (let i = this.dLength; i < nextProps.dataLength; i++) {
-				let row = nextProps.data[i];
-				let el = document.createElement("div");
+				const row = nextProps.data[i];
+				const el = document.createElement("div");
 				el.classList.add("console-row");
-				let rowType = row.type.toLowerCase();
+				const rowType = row.type.toLowerCase();
 				if (rowType === "excep" || rowType === "err" || rowType === "stderr") {
 					el.classList.add("err");
 				}
@@ -29,7 +34,7 @@ export default class Console extends Component {
 				this.node.appendChild(el);
 				// this.node.insertBefore(el, this.node.firstChild);
 				if (this.shouldScroll) {
-					this.node.parentElement.scrollTop = this.node.parentElement.scrollHeight
+					this.node.parentElement.scrollTop = this.node.parentElement.scrollHeight;
 				}
 			}
 		} else if (nextProps.dataLength < this.dLength) {
@@ -38,15 +43,15 @@ export default class Console extends Component {
 
 		this.dLength = nextProps.dataLength;
 	}
-	render() {
-		let divs = this.props.data.map(function(row) {
+	public render() {
+		const divs = this.props.data.map(function(row) {
 			return <div className="console-row" key={row.key}>
 				[{row.timestamp}][{row.type}] {row.log}
-			</div>
+			</div>;
 		});
 
 		return <pre className="console">
-			<div className="console-logs" ref={el => { this.console = el }}>{
+			<div className="console-logs" ref={(el) => { this.console = el; }}>{
 				divs
 			}</div>
 		</pre>;

@@ -4,15 +4,17 @@ import {Slider} from "@blueprintjs/core/dist/components/slider/slider";
 
 function startDrag() {
 	document.body.style.userSelect = "none";
-	global.dragging = true;
+	global["dragging"] = true;
 }
 function stopDrag() {
 	document.body.style.userSelect = "";
-	global.dragging = false;
+	global["dragging"] = false;
 }
 
-export default class SyncedSlider extends SyncedComponent {
-	name = "SyncedSlider_" + (Math.round(Math.random() * 100000));
+export default class SyncedSlider extends SyncedComponent<any, any> {
+	public refs; // ???
+
+	private name = "SyncedSlider_" + (Math.round(Math.random() * 100000));
 
 	constructor(props) {
 		super(props, props.path, "data");
@@ -22,15 +24,17 @@ export default class SyncedSlider extends SyncedComponent {
 		};
 	}
 
-	handleSlider = (n) => {
+	private handleSlider = (n) => {
 		startDrag();
 		this.setRecord(n);
-	};
+	}
 
-	render(props, state) {
+	public render() {
+		const {props, state} = this;
+
 		return <div>
 			<label htmlFor={this.name} className="pt-label bold">{props.label}</label>
-			<Slider {...props} disabled={!props.enabled} id={this.name} value={state.data} onChange={this.handleSlider} onRelease={stopDrag}/>
+			<Slider {...props} disabled={!props.enabled} value={state.data} onChange={this.handleSlider} onRelease={stopDrag}/>
 		</div>;
 	}
 }

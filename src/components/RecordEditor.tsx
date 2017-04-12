@@ -1,16 +1,18 @@
+import {EditableText} from "@blueprintjs/core/dist/components/editable-text/editableText";
 import Component from "inferno-component";
 import _ from "lodash";
-import {EditableText} from "@blueprintjs/core/dist/components/editable-text/editableText";
 
 function isNumber(o) {
 	return !isNaN(o - 0) && o !== null && o !== "" && o !== false;
 }
 
 function isBoolean(o) {
-	return o === 'true' || o === 'false';
+	return o === "true" || o === "false";
 }
 
-export default class RecordEditor extends Component {
+export default class RecordEditor extends Component<any, any> {
+	public refs; // ???
+	private record: deepstreamIO.Record;
 	constructor(props) {
 		super(props);
 
@@ -20,7 +22,7 @@ export default class RecordEditor extends Component {
 		};
 	}
 
-	componentWillMount() {
+	public componentWillMount() {
 		this.record = global.ds.record.getRecord("webdashboard");
 		this.record.subscribe(this.props.path, this.handleRecordChange);
 		this.setState({
@@ -28,11 +30,11 @@ export default class RecordEditor extends Component {
 		});
 	}
 
-	componentWillUnmount() {
+	public componentWillUnmount() {
 		this.record.unsubscribe(this.handleRecordChange);
 	}
 
-	handleRecordChange = _.debounce((data) => {
+	private handleRecordChange = _.debounce((data) => {
 		if (!this.state.editing) {
 			this.setState({
 				contents: data
@@ -43,7 +45,7 @@ export default class RecordEditor extends Component {
 		trailing: true
 	});
 
-	handleConfirm = (value) => {
+	private handleConfirm = (value) => {
 		let a;
 		if (isNumber(value)) {
 			this.record.set(this.props.path, +value);
@@ -60,28 +62,28 @@ export default class RecordEditor extends Component {
 			contents: a,
 			editing: false
 		});
-	};
+	}
 
-	handleEdit = () => {
+	private handleEdit = () => {
 		this.setState({
 			editing: true
 		});
-	};
+	}
 
-	handleCancel = () => {
+	private handleCancel = () => {
 		this.setState({
 			editing: false,
 			contents: this.record.get(this.props.path)
 		});
-	};
+	}
 
-	handleChange = (d) => {
+	private handleChange = (d) => {
 		this.setState({
 			contents: d
 		});
-	};
+	}
 
-	render() {
+	public render() {
 		return <EditableText
 			value={this.state.contents}
 			selectAllOnFocus={true}
@@ -89,7 +91,7 @@ export default class RecordEditor extends Component {
 			onEdit={this.handleEdit}
 			isEditing={this.state.editing}
 			onCancel={this.handleCancel}
-		    onChange={this.handleChange}
-		/>
+			onChange={this.handleChange}
+		/>;
 	}
 }

@@ -1,16 +1,17 @@
 import {NonIdealState} from "@blueprintjs/core/dist/components/non-ideal-state/nonIdealState";
 
-import RecordEditor from "./RecordEditor";
 import SyncedComponent from "../lib/SyncedComponent";
 import GraphButton from "./GraphButton";
+import RecordEditor from "./RecordEditor";
 
 const blacklist = {
-	"local": true,
-	"talons": true,
-	"devices": true
+	local: true,
+	talons: true,
+	devices: true
 };
 
-export default class RawData extends SyncedComponent {
+export default class RawData extends SyncedComponent<any, any> {
+	public refs; // ???
 	constructor(props) {
 		super(props, undefined, "data");
 
@@ -19,13 +20,13 @@ export default class RawData extends SyncedComponent {
 		};
 	}
 
-	render() {
+	public render() {
 		const {data} = this.state;
 		const keys = Object.keys(data);
 
 		const rows = [];
 		for (let i = 0; i < keys.length; i++) {
-			let key = keys[i];
+			const key = keys[i];
 
 			if (blacklist[key] !== undefined || typeof data[key] === "object") {
 				continue;
@@ -50,6 +51,6 @@ export default class RawData extends SyncedComponent {
 			<div className="pt-callout">
 				Tip: Click on a value to edit.
 			</div>
-		</div>
+		</div>;
 	}
 }

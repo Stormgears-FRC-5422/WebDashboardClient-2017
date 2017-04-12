@@ -1,6 +1,6 @@
-import SyncedComponent from "../../lib/SyncedComponent";
 import {NonIdealState} from "@blueprintjs/core/dist/components/non-ideal-state/nonIdealState";
 
+import SyncedComponent from "../../lib/SyncedComponent";
 import GraphButton from "../GraphButton";
 
 // yes I know these are terrible icons
@@ -21,9 +21,9 @@ const icons = {
 function devTree(dev, talonPath) {
 	const keys = Object.keys(dev);
 
-	let ret = [];
+	const ret = [];
 	for (let i = 0; i < keys.length; i++) {
-		let prop = keys[i];
+		const prop = keys[i];
 
 		let num = dev[prop];
 		switch (prop) {
@@ -37,7 +37,7 @@ function devTree(dev, talonPath) {
 
 		}
 
-		let icon = icons[prop] || "standard";
+		const icon = icons[prop] || "standard";
 
 		ret.push(<li key={prop} className="pt-tree-node">
 			<div className="pt-tree-node-content">
@@ -54,16 +54,17 @@ function devTree(dev, talonPath) {
 						</div>
 				</span>
 			</div>
-		</li>)
+		</li>);
 	}
 	return <div className="pt-tree">
 		<ul className="pt-tree-node-list pt-tree-root">
 			{ ret }
 		</ul>
-	</div>
+	</div>;
 }
 
-export default class Talons extends SyncedComponent {
+export default class Talons extends SyncedComponent<any, any> {
+	public refs; // ???
 	constructor(props) {
 		super(props, "talons", "talons", "diagnostics");
 		this.state = {
@@ -71,16 +72,16 @@ export default class Talons extends SyncedComponent {
 		};
 	}
 
-	render() {
-		let talons = this.state.talons;
+	public render() {
+		const talons = this.state.talons;
 
 		if (!talons || talons.length === 0) {
-			return <NonIdealState title="No motors found." visual="warning-sign" />
+			return <NonIdealState title="No motors found." visual="warning-sign" />;
 		}
 
-		let cards = [];
+		const cards = [];
 		for (let i = 0; i < talons.length; i++) {
-			let dev = talons[i];
+			const dev = talons[i];
 			cards.push(<div key={i} className="col-xs-6">
 				<div className="pt-card" style={{ marginBottom: "1em" }}>
 					{devTree(dev, `talons[${i}]`)}
@@ -90,6 +91,6 @@ export default class Talons extends SyncedComponent {
 
 		return <div className="row">
 			{cards}
-		</div>
+		</div>;
 	}
 }

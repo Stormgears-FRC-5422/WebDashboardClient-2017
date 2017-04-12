@@ -1,9 +1,11 @@
 import Component from "inferno-component";
 
-import {Tooltip} from "@blueprintjs/core/dist/components/tooltip/tooltip";
 import {Position} from "@blueprintjs/core/dist/common/position";
+import {Tooltip} from "@blueprintjs/core/dist/components/tooltip/tooltip";
 
-export default class ConnectionIndicator extends Component {
+export default class ConnectionIndicator extends Component<any, any> {
+	public refs; // ???
+
 	constructor(props) {
 		super(props);
 
@@ -12,7 +14,7 @@ export default class ConnectionIndicator extends Component {
 		};
 	}
 
-	componentWillMount() {
+	public componentWillMount() {
 		global.ds.presence.subscribe((username) => {
 			if (username === "robot") {
 				global.ds.presence.getAll(this.updatePresence);
@@ -22,7 +24,7 @@ export default class ConnectionIndicator extends Component {
 		global.ds.presence.getAll(this.updatePresence);
 	}
 
-	updatePresence = (clients) => {
+	private updatePresence = (clients) => {
 		for (let i = 0; i < clients.length; i++) {
 			if (clients[i] === "robot") {
 				this.setState({
@@ -34,11 +36,11 @@ export default class ConnectionIndicator extends Component {
 		this.setState({
 			connected: false
 		});
-	};
+	}
 
-	render() {
+	public render() {
 		return <Tooltip inline={true} position={Position.LEFT} content={this.state.connected ? "Robot connected" : "Robot disconnected"}>
 			<button className={"pt-button pt-minimal pt-icon-ring " + (this.state.connected ? "pt-intent-success" : "pt-intent-danger")}/>
-		</Tooltip>
+		</Tooltip>;
 	}
 }
