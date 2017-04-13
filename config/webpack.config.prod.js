@@ -152,13 +152,7 @@ module.exports = {
 				test: /\.tsx?$/,
 				use: [
 					{
-						loader: "babel-loader",
-						options: {
-							cacheDirectory: true,
-						},
-					},
-					{
-						loader: "ts-loader",
+						loader: "awesome-typescript-loader",
 						options: {
 							useBabel: true
 						}
