@@ -2,7 +2,13 @@ import Component from "inferno-component";
 
 import {Tree} from "@blueprintjs/core/dist/components/tree/tree";
 
-export default class DeviceCard extends Component<any, any> {
+import {Device} from "./Devices";
+
+export interface DeviceCardProps {
+	dev: Device;
+}
+
+export default class DeviceCard extends Component<DeviceCardProps, any> {
 	constructor(props) {
 		super(props);
 		this.state = {

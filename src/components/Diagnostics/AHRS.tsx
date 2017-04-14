@@ -4,7 +4,7 @@ import SyncedComponent from "../../lib/SyncedComponent";
 import GraphButton from "../GraphButton";
 // import AHRS3D from "./AHRS3D";
 
-export default class AHRS extends SyncedComponent<any, any> {
+export default class AHRS extends SyncedComponent<{}, any> {
 	constructor(props) {
 		super(props, "ahrs", "ahrs", "diagnostics");
 
@@ -51,7 +51,7 @@ export default class AHRS extends SyncedComponent<any, any> {
 				<div className="box">
 					<div className="pt-card" style={{marginBottom: "1em"}}>
 						<div className="pt-tree">
-							<ul className="pt-tree-node-list pt-tree-root">
+							<ul className="pt-tree-node-list pt-tree-root" hasKeyedChildren>
 								{ display }
 							</ul>
 						</div>

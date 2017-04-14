@@ -3,7 +3,21 @@ import SyncedComponent from "../../lib/SyncedComponent";
 
 import DeviceCard from "./DeviceCard";
 
-export default class Devices extends SyncedComponent<any, any> {
+export interface Device {
+	description: string;
+	id: string;
+	idType: string;
+	manufacturer: string;
+	path: string;
+	properties: any;
+	type: string;
+}
+
+interface DevicesState {
+	devices: Device[];
+}
+
+export default class Devices extends SyncedComponent<{}, DevicesState> {
 	constructor(props) {
 		super(props, "devices", "devices", "diagnostics");
 		this.state = {
@@ -21,10 +35,10 @@ export default class Devices extends SyncedComponent<any, any> {
 		const devCards = [];
 		for (let i = 0; i < devices.length; i++) {
 			const dev = devices[i];
-			devCards.push(<DeviceCard dev={dev} />);
+			devCards.push(<DeviceCard dev={dev} key={dev.id} />);
 		}
 
-		return <div className="row">
+		return <div className="row" hasKeyedChildren>
 			{devCards}
 		</div>;
 	}
