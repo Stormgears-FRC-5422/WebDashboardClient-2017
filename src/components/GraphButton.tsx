@@ -1,5 +1,5 @@
 export interface GraphButtonProps {
-	disabled: boolean;
+	disabled?: boolean;
 	path: string;
 }
 

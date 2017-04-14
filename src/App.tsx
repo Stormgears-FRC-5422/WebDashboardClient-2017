@@ -7,7 +7,7 @@ import ConnectionIndicator from "./components/ConnectionIndicator";
 import Console from "./components/Console";
 import DiagnosticsDisplay from "./components/Diagnostics/DiagnosticsDisplay";
 import GameView from "./components/Game/GameView";
-import RawData from "./components/RawData";
+import RawData from "./components/RawData/RawData";
 
 import Graphs from "./components/Graphs/Graphs";
 

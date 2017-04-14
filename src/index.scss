@@ -126,3 +126,15 @@ table.rawdata {
 .navbar-spacer {
 	height: $pt-navbar-height + $pt-grid-size * 2;
 }
+
+.rawdata-editor {
+	.pt-editable-content {
+		text-align: right;
+	}
+}
+
+.rawdata {
+	.pt-tree-node-content {
+		height: 4 * $pt-grid-size;
+	}
+}

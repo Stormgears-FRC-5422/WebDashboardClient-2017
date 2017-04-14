@@ -115,7 +115,6 @@ export default class Window extends Component<any, any> {
 	}
 
 	private handleHoverOut = () => {
-		console.log();
 		this.setState({
 			hover: null
 		});
