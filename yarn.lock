@@ -23,23 +23,6 @@
   version "7.0.12"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.12.tgz#ae5f67a19c15f752148004db07cbbb372e69efc9"
 
-"@types/react-addons-css-transition-group@^15.0.1":
-  version "15.0.1"
-  resolved "https://registry.yarnpkg.com/@types/react-addons-css-transition-group/-/react-addons-css-transition-group-15.0.1.tgz#2fc47a444d754bce94f1b774bca490542de13874"
-  dependencies:
-    "@types/react" "*"
-    "@types/react-addons-transition-group" "*"
-
-"@types/react-addons-transition-group@*":
-  version "0.14.19"
-  resolved "https://registry.yarnpkg.com/@types/react-addons-transition-group/-/react-addons-transition-group-0.14.19.tgz#74053d3b1d30644644149343323e05570ccb9fd2"
-  dependencies:
-    "@types/react" "*"
-
-"@types/react@*":
-  version "15.0.21"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-15.0.21.tgz#29d849427237c1463abfb7b370755ee3e5b5b375"
-
 "@types/tether@^1.1.27":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@types/tether/-/tether-1.4.0.tgz#163da2117430b3a1b89550cc0b82255c036a87d2"

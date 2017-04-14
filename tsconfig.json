@@ -13,15 +13,15 @@
 			"es7",
 			"dom"
 		],
-		"types": [
-			"inferno",
-			"node",
-			"tether"
-		],
 		"jsx": "preserve",
 		"noUnusedLocals": true,
 		"strictNullChecks": false,
-		"removeComments": false
+		"removeComments": false,
+		"baseUrl": ".",
+		"paths": {
+			"react": ["./src/types/react"],
+			"react-dom": ["./src/types/react"]
+		}
 	},
 	"include": [
 		"src/**/*"

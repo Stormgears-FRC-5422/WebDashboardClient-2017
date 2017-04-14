@@ -1,0 +1,2 @@
+This directory contains typings for React in a place that won't interfere with TypeScript. These are required for Blueprint
+to compile properly.
