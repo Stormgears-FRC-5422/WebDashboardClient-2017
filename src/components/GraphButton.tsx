@@ -1,6 +1,6 @@
-function handleClick(props) {
+function handleClick(path) {
 	return function() {
-		global["Graphs"].addGraph(props.path);
+		global["Graphs"].addGraph(path);
 	};
 }
 

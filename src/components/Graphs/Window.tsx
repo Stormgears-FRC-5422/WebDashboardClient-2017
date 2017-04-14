@@ -1,10 +1,10 @@
 import Component from "inferno-component";
 
 import {Position} from "@blueprintjs/core/dist/common/position";
+import {Portal} from "@blueprintjs/core/dist/components/portal/portal";
 import {Tooltip} from "@blueprintjs/core/dist/components/tooltip/tooltip";
 
 import Draggable from "react-draggable";
-import Portal from "react-portal";
 import ResizableBox from "react-resizable/build/ResizableBox";
 
 import XAxis from "react-vis/dist/plot/axis/x-axis";
@@ -38,6 +38,8 @@ Object.defineProperty(MouseEvent.prototype, "nativeEvent", {
 		return this;
 	}
 });
+
+delete Draggable.prototype.componentWillUnmount; // TODO: port react-draggable to inferno so we don't have to do this
 
 export default class Window extends Component<any, any> {
 	public refs; // ???
@@ -177,32 +179,36 @@ export default class Window extends Component<any, any> {
 			</Hint>);
 		}
 
-		return <Portal isOpened={true}>
-			<Draggable handle=".pt-dialog-header">
-				<div className="graphwindow">
-					<ResizableBox width={400} height={280} onResize={this.handleResize} minConstraints={[200, 150]}>
-						<div className="pt-dialog">
-							<div className="pt-dialog-header graphwindow-handle">
-								<h5>{this.props.path}</h5>
-								<Tooltip inline position={Position.BOTTOM}
-								         content={this.state.limitDomain ? "Displaying last 10 seconds of data" : "Displaying all data"}>
-									<button
-										className={"pt-button pt-minimal pt-icon-arrows-horizontal" + (this.state.limitDomain ? " pt-active" : "")}
-										onClick={this.handleDomain}/>
-								</Tooltip>
-								<Tooltip inline position={Position.BOTTOM} content="Clear Data">
-									<button className="pt-button pt-minimal pt-icon-trash"
-									        onClick={this.handleClear}/>
-								</Tooltip>
-								<button aria-label="Close" className="pt-dialog-close-button pt-icon-small-cross"
-								        onClick={this.handleClose}/>
-							</div>
-							<div className="pt-dialog-body">
-								{plot}
-							</div>
-						</div>
-					</ResizableBox>
+		const dragChildren = (<div className="graphwindow">
+			<ResizableBox width={400} height={280} onResize={this.handleResize} minConstraints={[200, 150]}>
+				<div className="pt-dialog">
+					<div className="pt-dialog-header graphwindow-handle">
+						<h5>{this.props.path}</h5>
+						<Tooltip position={Position.BOTTOM}
+						         content={this.state.limitDomain ? "Displaying last 10 seconds of data" : "Displaying all data"}>
+							<button
+								className={"pt-button pt-minimal pt-icon-arrows-horizontal" + (this.state.limitDomain ? " pt-active" : "")}
+								onClick={this.handleDomain}/>
+						</Tooltip>
+						<Tooltip position={Position.BOTTOM} content="Clear Data">
+							<button className="pt-button pt-minimal pt-icon-trash"
+							        onClick={this.handleClear}/>
+						</Tooltip>
+						<button aria-label="Close" className="pt-dialog-close-button pt-icon-small-cross"
+						        onClick={this.handleClose}/>
+					</div>
+					<div className="pt-dialog-body">
+						{plot}
+					</div>
 				</div>
+			</ResizableBox>
+		</div>);
+
+		dragChildren.props.className = "graphwindow";
+
+		return <Portal>
+			<Draggable handle=".pt-dialog-header">
+				{dragChildren}
 			</Draggable>
 		</Portal>;
 	}

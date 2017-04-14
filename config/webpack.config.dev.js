@@ -82,7 +82,8 @@ module.exports = {
 			'react': 'inferno-compat',
 			'react-dom': 'inferno-compat',
 			'pure-render-decorator': paths.appSrc + "/lib/pureRenderDecorator",
-			'react-addons-css-transition-group': 'inferno-compat/lib/ReactCSSTransitionGroup'
+			// 'react-addons-css-transition-group': 'inferno-compat/lib/ReactCSSTransitionGroup',
+			// 'react-css-transition-group': 'inferno-transition-group'
 		}
 	},
 

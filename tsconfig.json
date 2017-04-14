@@ -21,7 +21,13 @@
 		"jsx": "preserve",
 		"noUnusedLocals": true,
 		"strictNullChecks": false,
-		"removeComments": false
+		"removeComments": false,
+		"experimentalDecorators": true,
+		"baseUrl": ".",
+		"paths": {
+			"react": ["inferno-compat"],
+			"react-dom": ["inferno-compat"]
+		}
 	},
 	"include": [
 		"src/**/*"

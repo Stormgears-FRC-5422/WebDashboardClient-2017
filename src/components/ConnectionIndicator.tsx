@@ -1,7 +1,8 @@
 import Component from "inferno-component";
 
-import {Position} from "@blueprintjs/core/dist/common/position";
-import {Tooltip} from "@blueprintjs/core/dist/components/tooltip/tooltip";
+// import {Position} from "@blueprintjs/core/dist/common/position";
+// import {Tooltip} from "@blueprintjs/core/dist/components/tooltip/tooltip";
+import {Tooltip} from "./Tooltip";
 
 export default class ConnectionIndicator extends Component<any, any> {
 	public refs; // ???
@@ -39,7 +40,7 @@ export default class ConnectionIndicator extends Component<any, any> {
 	}
 
 	public render() {
-		return <Tooltip inline={true} position={Position.LEFT} content={this.state.connected ? "Robot connected" : "Robot disconnected"}>
+		return <Tooltip inline={true} content={this.state.connected ? "Robot connected" : "Robot disconnected"}>
 			<button className={"pt-button pt-minimal pt-icon-ring " + (this.state.connected ? "pt-intent-success" : "pt-intent-danger")}/>
 		</Tooltip>;
 	}
