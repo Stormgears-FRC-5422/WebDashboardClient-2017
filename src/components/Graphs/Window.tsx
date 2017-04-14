@@ -40,7 +40,6 @@ Object.defineProperty(MouseEvent.prototype, "nativeEvent", {
 });
 
 export default class Window extends Component<any, any> {
-	public refs; // ???
 	private record;
 	private subRecord;
 	private path;

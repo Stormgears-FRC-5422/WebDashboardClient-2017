@@ -2,7 +2,6 @@ import {findDOMNode} from "inferno";
 import Component from "inferno-component";
 
 export default class Console extends Component<any, any> {
-	public refs; // ???
 	private dLength;
 	private shouldScroll = true;
 	private node;

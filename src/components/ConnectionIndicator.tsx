@@ -4,8 +4,6 @@ import {Position} from "@blueprintjs/core/dist/common/position";
 import {Tooltip} from "@blueprintjs/core/dist/components/tooltip/tooltip";
 
 export default class ConnectionIndicator extends Component<any, any> {
-	public refs; // ???
-
 	constructor(props) {
 		super(props);
 

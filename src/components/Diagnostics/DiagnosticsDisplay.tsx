@@ -12,5 +12,5 @@ export default function DiagnosticsDisplay() {
 			<Tab2 id="ahrs" title="NavX MXP" panel={<AHRS />} />
 			<Tab2 id="devices" title="Devices" panel={<Devices />} />
 		</Tabs2>
-	</div>
+	</div>;
 }

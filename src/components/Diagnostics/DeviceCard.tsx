@@ -3,7 +3,6 @@ import Component from "inferno-component";
 import {Tree} from "@blueprintjs/core/dist/components/tree/tree";
 
 export default class DeviceCard extends Component<any, any> {
-	public refs; // ???
 	constructor(props) {
 		super(props);
 		this.state = {

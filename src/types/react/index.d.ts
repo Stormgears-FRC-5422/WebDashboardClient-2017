@@ -181,7 +181,7 @@ declare namespace React {
         props: Readonly<{ children?: ReactNode }> & Readonly<P>;
         state: Readonly<S>;
         context: any;
-        refs: {
+        refs?: { // HACK: This question mark fixes compilation of Inferno components
             [key: string]: ReactInstance
         };
     }

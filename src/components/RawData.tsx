@@ -11,7 +11,6 @@ const blacklist = {
 };
 
 export default class RawData extends SyncedComponent<any, any> {
-	public refs; // ???
 	constructor(props) {
 		super(props, undefined, "data");
 

@@ -11,7 +11,6 @@ function isBoolean(o) {
 }
 
 export default class RecordEditor extends Component<any, any> {
-	public refs; // ???
 	private record: deepstreamIO.Record;
 	constructor(props) {
 		super(props);

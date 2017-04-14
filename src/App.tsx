@@ -22,7 +22,6 @@ document.onselectstart = function(e) {
 };
 
 class App extends SyncedComponent<any, any> {
-	public refs; // ???
 	constructor(props) {
 		super(props, "motor", "motor");
 

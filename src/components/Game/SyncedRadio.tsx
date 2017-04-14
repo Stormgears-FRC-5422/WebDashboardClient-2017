@@ -1,8 +1,6 @@
 import SyncedComponent from "../../lib/SyncedComponent";
 
 export default class SyncedRadio extends SyncedComponent<any, any> {
-	public refs; // ???
-
 	private name = "SyncedRadio_" + (Math.round(Math.random() * 100000));
 
 	constructor(props) {

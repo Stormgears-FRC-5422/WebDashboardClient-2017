@@ -3,7 +3,6 @@ import Component from "inferno-component";
 import Window from "./Window";
 
 export default class Graphs extends Component<any, any> {
-	public refs; // ???
 	constructor(props) {
 		super(props);
 

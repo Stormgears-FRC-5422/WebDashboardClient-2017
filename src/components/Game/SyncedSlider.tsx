@@ -12,8 +12,6 @@ function stopDrag() {
 }
 
 export default class SyncedSlider extends SyncedComponent<any, any> {
-	public refs; // ???
-
 	private name = "SyncedSlider_" + (Math.round(Math.random() * 100000));
 
 	constructor(props) {

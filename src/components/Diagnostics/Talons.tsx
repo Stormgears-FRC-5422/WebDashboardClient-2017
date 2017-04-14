@@ -64,7 +64,6 @@ function devTree(dev, talonPath) {
 }
 
 export default class Talons extends SyncedComponent<any, any> {
-	public refs; // ???
 	constructor(props) {
 		super(props, "talons", "talons", "diagnostics");
 		this.state = {

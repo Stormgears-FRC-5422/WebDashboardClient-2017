@@ -4,7 +4,6 @@ import SyncedComponent from "../../lib/SyncedComponent";
 import DeviceCard from "./DeviceCard";
 
 export default class Devices extends SyncedComponent<any, any> {
-	public refs; // ???
 	constructor(props) {
 		super(props, "devices", "devices", "diagnostics");
 		this.state = {

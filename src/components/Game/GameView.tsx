@@ -6,8 +6,6 @@ import SyncedRadio from "./SyncedRadio";
 import SyncedSlider from "./SyncedSlider";
 
 export default class GameView extends SyncedComponent<any, any> {
-	public refs; // ???
-
 	constructor(props) {
 		super(props, "game", "controls", "config");
 

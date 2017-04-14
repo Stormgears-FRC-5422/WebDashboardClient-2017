@@ -5,7 +5,6 @@ import GraphButton from "../GraphButton";
 // import AHRS3D from "./AHRS3D";
 
 export default class AHRS extends SyncedComponent<any, any> {
-	public refs; // ???
 	constructor(props) {
 		super(props, "ahrs", "ahrs", "diagnostics");
 
