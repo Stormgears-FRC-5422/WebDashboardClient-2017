@@ -1,28 +1,28 @@
 import SyncedComponent from "../../lib/SyncedComponent";
 import {ToggleType} from "./ToggleType";
 
-export interface Radio {
+export interface Checkbox {
 	value: string;
 	label: string;
 	enabled: boolean;
 }
 
-export interface SyncedRadioProps {
+export interface SyncedCheckboxesProps {
 	label: string;
 	path: string;
 	width: number;
 	large: boolean;
 	enabled: boolean;
-	entries: Radio[];
+	entries: Checkbox[];
 	toggleType: string;
 }
 
-interface SyncedRadioState {
-	data: string;
+interface SyncedCheckboxesState {
+	data: any;
 }
 
-export default class SyncedRadio extends SyncedComponent<SyncedRadioProps, SyncedRadioState> {
-	private name = "SyncedRadio_" + (Math.round(Math.random() * 100000));
+export default class SyncedCheckboxes extends SyncedComponent<SyncedCheckboxesProps, SyncedCheckboxesState> {
+	private name = "SyncedCheckboxes_" + (Math.round(Math.random() * 100000));
 
 	constructor(props) {
 		super(props, props.path, "data");
@@ -34,9 +34,9 @@ export default class SyncedRadio extends SyncedComponent<SyncedRadioProps, Synce
 
 	public componentDidUpdate() {
 		// FIXME: This appears to be a bug in Inferno's reconciler
-		for (let i = 0; i < this.inputs.length; i++) {
-			this.inputs[i].checked = this.state.data === this.inputs[i].value;
-		}
+		// for (let i = 0; i < this.inputs.length; i++) {
+		// 	this.inputs[i].checked = this.state.data === this.inputs[i].value;
+		// }
 	}
 
 	private inputs = [];
@@ -48,7 +48,13 @@ export default class SyncedRadio extends SyncedComponent<SyncedRadioProps, Synce
 	}
 
 	private handleChange = (event) => {
-		this.setRecord(event.target.value);
+		if (typeof this.state.data !== "object") {
+			this.setRecord({
+				[event.target.value]: event.target.checked
+			});
+		} else {
+			this.setRecord(event.target.checked, `${this.path}.${event.target.value}`);
+		}
 	}
 
 	public render() {
@@ -56,15 +62,17 @@ export default class SyncedRadio extends SyncedComponent<SyncedRadioProps, Synce
 
 		const buttons = [];
 
+		const data = state.data || {};
+
 		for (let i = 0; i < props.entries.length; i++) {
 			const child = props.entries[i];
 
-			buttons.push(<label htmlFor={name + "_" + i} className={"pt-control" + (props.large ? " pt-large" : "") + (ToggleType[props.toggleType as string] === ToggleType.SWITCH ? " pt-switch" : " pt-radio")} key={child.value}>
+			buttons.push(<label htmlFor={name + "_" + i} className={"pt-control" + (props.large ? " pt-large" : "") + (ToggleType[props.toggleType as string] === ToggleType.SWITCH ? " pt-switch" : " pt-checkbox")} key={child.value}>
 				<input
 					ref={inputRef(i)}
-					checked={state.data === child.value}
+					checked={data[child.value]}
 					id={name + "_" + i}
-					type="radio"
+					type="checkbox"
 					value={child.value}
 					label={child.label}
 					name={name}

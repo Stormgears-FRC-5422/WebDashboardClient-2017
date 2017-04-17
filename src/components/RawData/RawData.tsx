@@ -1,4 +1,3 @@
-// import {NonIdealState} from "@blueprintjs/core/dist/components/non-ideal-state/nonIdealState";
 import {Tree} from "@blueprintjs/core/dist/components/tree/tree";
 import {ITreeNode} from "@blueprintjs/core/dist/components/tree/treeNode";
 
@@ -73,6 +72,18 @@ export default class RawData extends SyncedComponent<{}, any> {
 		// });
 	}
 
+	private handleContext = (nodeData: ITreeNode, a, event) => {
+		// TODO: Figure out how to fix the context menu in Blueprint
+		// event.preventDefault();
+		//
+		// const menu = MenuFactory({
+		// 	children: [
+		// 		MenuItemFactory({ onClick: console.log, text: "Delete" })
+		// 	]
+		// });
+		// ContextMenu.show(menu, { left: event.clientX, top: event.clientY }, console.log);
+	}
+
 	public render() {
 		const {data} = this.state;
 
@@ -81,6 +92,7 @@ export default class RawData extends SyncedComponent<{}, any> {
 				onNodeExpand={this.handleNodeExpand}
 				onNodeCollapse={this.handleNodeCollapse}
 				onNodeClick={this.handleNodeSelect}
+				onNodeContextMenu={this.handleContext}
 				contents={this.createTreeNodes(data)}
 			/>
 			<br/>

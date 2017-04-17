@@ -50,7 +50,7 @@ export default class RecordEditor extends Component<any, any> {
 			this.record.set(this.props.path, +value);
 			a = +value;
 		} else if (isBoolean(value)) {
-			this.record.set(this.props.path, Boolean(value));
+			this.record.set(this.props.path, value === "true");
 			a = Boolean(value);
 		} else {
 			this.record.set(this.props.path, value);
@@ -84,7 +84,7 @@ export default class RecordEditor extends Component<any, any> {
 
 	public render() {
 		return <EditableText
-			value={this.state.contents}
+			value={typeof this.state.contents === "undefined" ? "" : this.state.contents.toString()}
 			selectAllOnFocus={true}
 			onConfirm={this.handleConfirm}
 			onEdit={this.handleEdit}

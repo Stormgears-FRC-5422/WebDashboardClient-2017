@@ -2,9 +2,9 @@ import Component from "inferno-component";
 import _ from "lodash";
 
 export default class SyncedComponent<P, S> extends Component<P, S> {
-	private path;
+	protected path;
 	private stateKey;
-	private dsRecord;
+	private dsRecord: deepstreamIO.Record;
 
 	constructor(props, path, stateKey, subRecord?) {
 		super(props);

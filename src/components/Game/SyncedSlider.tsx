@@ -11,7 +11,21 @@ function stopDrag() {
 	global["dragging"] = false;
 }
 
-export default class SyncedSlider extends SyncedComponent<any, any> {
+export interface SyncedSliderProps {
+	path: string;
+	width: number;
+	enabled: boolean;
+	min: number;
+	max: number;
+	stepSize: number;
+	labelStepSize: number;
+}
+
+interface SyncedSliderState {
+	data: number;
+}
+
+export default class SyncedSlider extends SyncedComponent<SyncedSliderProps, SyncedSliderState> {
 	private name = "SyncedSlider_" + (Math.round(Math.random() * 100000));
 
 	constructor(props) {
@@ -32,7 +46,13 @@ export default class SyncedSlider extends SyncedComponent<any, any> {
 
 		return <div>
 			<label htmlFor={this.name} className="pt-label bold">{props.label}</label>
-			<Slider {...props} disabled={!props.enabled} value={state.data} onChange={this.handleSlider} onRelease={stopDrag}/>
+			<Slider
+				disabled={!props.enabled}
+				min={props.min} max={props.max}
+				stepSize={props.stepSize} labelStepSize={props.labelStepSize}
+				value={state.data}
+				onChange={this.handleSlider} onRelease={stopDrag}
+			/>
 		</div>;
 	}
 }
