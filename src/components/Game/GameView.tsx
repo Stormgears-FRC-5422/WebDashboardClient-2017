@@ -1,11 +1,12 @@
 import {NonIdealState} from "@blueprintjs/core/dist/components/non-ideal-state/nonIdealState";
 
 import SyncedComponent from "../../lib/SyncedComponent";
+import SyncedCheckboxes from "./SyncedCheckboxes";
 import SyncedDropdown from "./SyncedDropdown";
 import SyncedProgress from "./SyncedProgress";
 import SyncedRadio from "./SyncedRadio";
-import SyncedCheckboxes from "./SyncedCheckboxes";
 import SyncedSlider, {SyncedSliderProps} from "./SyncedSlider";
+import SyncedText from "./SyncedText";
 
 export default class GameView extends SyncedComponent<any, any> {
 	constructor(props) {
@@ -40,6 +41,12 @@ export default class GameView extends SyncedComponent<any, any> {
 					break;
 				case "CHECKBOXES":
 					a = <SyncedCheckboxes {...c} />;
+					break;
+				case "SPACER":
+					a = <div style={{ height: c.height + "em" }}/>;
+					break;
+				case "TEXT":
+					a = <SyncedText {...c} />;
 					break;
 				default:
 					a = <div>Unknown component type</div>;
