@@ -2,11 +2,11 @@ import Component from "inferno-component";
 import _ from "lodash";
 
 export default class SyncedComponent<P, S> extends Component<P, S> {
-	protected path;
-	private stateKey;
+	protected path: string;
+	private stateKey: string;
 	private dsRecord: deepstreamIO.Record;
 
-	constructor(props, path, stateKey, subRecord?) {
+	constructor(props: P, path: string, stateKey: string, subRecord?: string) {
 		super(props);
 
 		this.path = path;
@@ -38,7 +38,7 @@ export default class SyncedComponent<P, S> extends Component<P, S> {
 		trailing: true
 	});
 
-	public setRecord = (data, path = this.path) => {
+	public setRecord = (data: any, path: string = this.path) => {
 		this.dsRecord.set(path, data);
 	}
 }
