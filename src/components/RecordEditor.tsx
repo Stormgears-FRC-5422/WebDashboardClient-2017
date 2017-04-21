@@ -10,6 +10,8 @@ function isBoolean(o) {
 	return o === "true" || o === "false";
 }
 
+const multiline = /\n/;
+
 export default class RecordEditor extends Component<any, any> {
 	private record: deepstreamIO.Record;
 	constructor(props) {
@@ -83,12 +85,18 @@ export default class RecordEditor extends Component<any, any> {
 	}
 
 	public render() {
+		const {state} = this;
+		const ml = multiline.test(state.contents);
+		if (ml) {
+			return <div>{typeof state.contents === "undefined" ? "" : state.contents.toString()}</div>;
+		}
+
 		return <EditableText
-			value={typeof this.state.contents === "undefined" ? "" : this.state.contents.toString()}
+			value={typeof state.contents === "undefined" ? "" : state.contents.toString()}
 			selectAllOnFocus={true}
 			onConfirm={this.handleConfirm}
 			onEdit={this.handleEdit}
-			isEditing={this.state.editing}
+			isEditing={state.editing}
 			onCancel={this.handleCancel}
 			onChange={this.handleChange}
 		/>;
