@@ -7,6 +7,8 @@ import SyncedProgress from "./SyncedProgress";
 import SyncedRadio from "./SyncedRadio";
 import SyncedSlider, {SyncedSliderProps} from "./SyncedSlider";
 import SyncedText from "./SyncedText";
+import SyncedTextArea from "./SyncedTextArea";
+import SyncedTextField from "./SyncedTextField";
 
 export default class GameView extends SyncedComponent<any, any> {
 	constructor(props) {
@@ -47,6 +49,12 @@ export default class GameView extends SyncedComponent<any, any> {
 					break;
 				case "TEXT":
 					a = <SyncedText {...c} />;
+					break;
+				case "TEXTFIELD":
+					a = <SyncedTextField {...c} />;
+					break;
+				case "TEXTAREA":
+					a = <SyncedTextArea {...c} />;
 					break;
 				default:
 					a = <div>Unknown component type</div>;
