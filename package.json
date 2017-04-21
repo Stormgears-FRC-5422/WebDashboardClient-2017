@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "@blueprintjs/core": "^1.14.0",
+    "@types/lodash": "^4.14.62",
     "@types/node": "^7.0.12",
     "autoprefixer": "~6.7.6",
     "awesome-typescript-loader": "^3.1.2",

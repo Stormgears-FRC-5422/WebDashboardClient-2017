@@ -1,4 +1,5 @@
 import Component from "inferno-component";
+import _ from "lodash";
 
 import {Tree} from "@blueprintjs/core/dist/components/tree/tree";
 
@@ -14,6 +15,10 @@ export default class DeviceCard extends Component<DeviceCardProps, any> {
 		this.state = {
 			propsExpanded: false
 		};
+	}
+
+	public shouldComponentUpdate(nP: DeviceCardProps, nS) {
+		return nS.propsExpanded !== this.state.propsExpanded || !_.isEqual(nP.dev, this.props.dev);
 	}
 
 	private devTree(dev) {

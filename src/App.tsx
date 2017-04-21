@@ -39,6 +39,11 @@ class App extends SyncedComponent<any, any> {
 		};
 	}
 
+	public shouldComponentUpdate(nextProps, nextState) {
+		const {state} = this;
+		return (state.consoleLength !== nextState.consoleLength) || (state.tab !== nextState.tab);
+	}
+
 	public componentWillMount() {
 		super.componentWillMount();
 

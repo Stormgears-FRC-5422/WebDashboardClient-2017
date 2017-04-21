@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 import SyncedComponent from "../../lib/SyncedComponent";
 
 import {Slider} from "@blueprintjs/core/dist/components/slider/slider";
@@ -34,6 +36,10 @@ export default class SyncedSlider extends SyncedComponent<SyncedSliderProps, Syn
 		this.state = {
 			data: 0
 		};
+	}
+
+	public shouldComponentUpdate(nP: SyncedSliderProps, nS: SyncedSliderState) {
+		return this.state.data !== nS.data || !_.isEqual(this.props, nP);
 	}
 
 	private handleSlider = (n) => {

@@ -3,13 +3,21 @@ import Component from "inferno-component";
 import {Position} from "@blueprintjs/core/dist/common/position";
 import {Tooltip} from "@blueprintjs/core/dist/components/tooltip/tooltip";
 
-export default class ConnectionIndicator extends Component<any, any> {
+interface ConnectionIndicatorState {
+	connected: boolean;
+}
+
+export default class ConnectionIndicator extends Component<{}, ConnectionIndicatorState> {
 	constructor(props) {
 		super(props);
 
 		this.state = {
 			connected: false
 		};
+	}
+
+	public shouldComponentUpdate(nP: {}, nS: ConnectionIndicatorState) {
+		return this.state.connected !== nS.connected;
 	}
 
 	public componentWillMount() {

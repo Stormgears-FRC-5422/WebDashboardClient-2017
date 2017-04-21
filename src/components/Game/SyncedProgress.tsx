@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 import SyncedComponent from "../../lib/SyncedComponent";
 
 import {Intent} from "@blueprintjs/core/dist/common/intent";
@@ -25,6 +27,10 @@ export default class SyncedProgress extends SyncedComponent<SyncedProgressProps,
 		this.state = {
 			data: 0
 		};
+	}
+
+	public shouldComponentUpdate(nP: SyncedProgressProps, nS: SyncedProgressState) {
+		return this.state.data !== nS.data || !_.isEqual(nP, this.props);
 	}
 
 	public render() {

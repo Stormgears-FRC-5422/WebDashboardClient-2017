@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 import SyncedComponent from "../../lib/SyncedComponent";
 
 import {EditableText} from "@blueprintjs/core/dist/components/editable-text/editableText";
@@ -16,7 +18,7 @@ interface SyncedTextState {
 	editingValue: string;
 }
 
-export default class SyncedProgress extends SyncedComponent<SyncedTextProps, SyncedTextState> {
+export default class SyncedText extends SyncedComponent<SyncedTextProps, SyncedTextState> {
 	constructor(props) {
 		super(props, props.path, "data");
 
@@ -25,6 +27,11 @@ export default class SyncedProgress extends SyncedComponent<SyncedTextProps, Syn
 			isEditing: false,
 			editingValue: ""
 		};
+	}
+
+	public shouldComponentUpdate(nP: SyncedTextProps, nS: SyncedTextState) {
+		const {props, state} = this;
+		return state.data !== nS.data || state.isEditing !== nS.isEditing || state.editingValue !== nS.editingValue || !_.isEqual(props, nP);
 	}
 
 	private handleChange = (value: string) => {

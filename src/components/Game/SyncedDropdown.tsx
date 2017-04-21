@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 import SyncedComponent from "../../lib/SyncedComponent";
 
 export interface Option {
@@ -27,6 +29,11 @@ export default class SyncedDropdown extends SyncedComponent<SyncedDropdownProps,
 		this.state = {
 			data: ""
 		};
+	}
+
+	public shouldComponentUpdate(nP: SyncedDropdownProps, nS: SyncedDropdownState) {
+		const {props, state} = this;
+		return state.data !== nS.data || !_.isEqual(props, nP);
 	}
 
 	private handleChange = (event) => {

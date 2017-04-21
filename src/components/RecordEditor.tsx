@@ -12,7 +12,16 @@ function isBoolean(o) {
 
 const multiline = /\n/;
 
-export default class RecordEditor extends Component<any, any> {
+export interface RecordEditorProps {
+	path: string;
+}
+
+interface RecordEditorState {
+	contents: string;
+	editing: boolean;
+}
+
+export default class RecordEditor extends Component<RecordEditorProps, RecordEditorState> {
 	private record: deepstreamIO.Record;
 	constructor(props) {
 		super(props);
@@ -21,6 +30,11 @@ export default class RecordEditor extends Component<any, any> {
 			contents: "",
 			editing: false
 		};
+	}
+
+	public shouldComponentUpdate(nextProps: RecordEditorProps, nextState: RecordEditorState) {
+		const {props, state} = this;
+		return (state.contents !== nextState.contents) || (state.editing !== nextState.editing) || (props.path !== nextProps.path);
 	}
 
 	public componentWillMount() {

@@ -1,8 +1,13 @@
 import Component from "inferno-component";
+import _ from "lodash";
 
 import Window from "./Window";
 
-export default class Graphs extends Component<any, any> {
+interface GraphsState {
+	graphs: any;
+}
+
+export default class Graphs extends Component<{}, GraphsState> {
 	constructor(props) {
 		super(props);
 
@@ -11,6 +16,10 @@ export default class Graphs extends Component<any, any> {
 
 			}
 		};
+	}
+
+	public shouldComponentUpdate(nP: {}, nS: GraphsState) {
+		return this.state.graphs !== nS.graphs;
 	}
 
 	public componentWillMount() {
@@ -32,9 +41,9 @@ export default class Graphs extends Component<any, any> {
 	}
 
 	public delGraph = (path) => {
-		delete this.state.graphs[path];
-
-		this.setState(this.state);
+		this.setState({
+			graphs: _.omit(this.state.graphs, path)
+		});
 	}
 
 	public render() {

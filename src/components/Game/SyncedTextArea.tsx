@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 import SyncedComponent from "../../lib/SyncedComponent";
 
 export interface SyncedTextAreaProps {
@@ -14,7 +16,7 @@ interface SyncedTextAreaState {
 	editingValue: string;
 }
 
-export default class SyncedProgress extends SyncedComponent<SyncedTextAreaProps, SyncedTextAreaState> {
+export default class SyncedTextArea extends SyncedComponent<SyncedTextAreaProps, SyncedTextAreaState> {
 	private name = "SyncedTextArea_" + (Math.round(Math.random() * 100000));
 
 	constructor(props) {
@@ -25,6 +27,11 @@ export default class SyncedProgress extends SyncedComponent<SyncedTextAreaProps,
 			isEditing: false,
 			editingValue: ""
 		};
+	}
+
+	public shouldComponentUpdate(nP: SyncedTextAreaProps, nS: SyncedTextAreaState) {
+		const {props, state} = this;
+		return state.data !== nS.data || state.isEditing !== nS.isEditing || state.editingValue !== nS.editingValue || !_.isEqual(nP, props);
 	}
 
 	private handleChange = (e) => {

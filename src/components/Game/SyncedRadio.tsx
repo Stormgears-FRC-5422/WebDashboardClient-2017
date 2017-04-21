@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 import SyncedComponent from "../../lib/SyncedComponent";
 import {ToggleType} from "./ToggleType";
 
@@ -30,6 +32,10 @@ export default class SyncedRadio extends SyncedComponent<SyncedRadioProps, Synce
 		this.state = {
 			data: ""
 		};
+	}
+
+	public shouldComponentUpdate(nP: SyncedRadioProps, nS: SyncedRadioState) {
+		return this.state.data !== nS.data || !_.isEqual(this.props, nP);
 	}
 
 	public componentDidUpdate() {

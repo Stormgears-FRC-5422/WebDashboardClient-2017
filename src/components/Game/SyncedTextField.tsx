@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 import SyncedComponent from "../../lib/SyncedComponent";
 
 export interface SyncedTextFieldProps {
@@ -15,7 +17,7 @@ interface SyncedTextFieldState {
 	editingValue: string;
 }
 
-export default class SyncedProgress extends SyncedComponent<SyncedTextFieldProps, SyncedTextFieldState> {
+export default class SyncedTextField extends SyncedComponent<SyncedTextFieldProps, SyncedTextFieldState> {
 	private name = "SyncedTextField_" + (Math.round(Math.random() * 100000));
 
 	constructor(props) {
@@ -26,6 +28,11 @@ export default class SyncedProgress extends SyncedComponent<SyncedTextFieldProps
 			isEditing: false,
 			editingValue: ""
 		};
+	}
+
+	public shouldComponentUpdate(nP: SyncedTextFieldProps, nS: SyncedTextFieldState) {
+		const {props, state} = this;
+		return state.data !== nS.data || state.isEditing !== nS.isEditing || state.editingValue !== nS.editingValue || _.isEqual(props, nP);
 	}
 
 	private handleChange = (e) => {
