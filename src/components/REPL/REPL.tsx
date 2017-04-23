@@ -67,7 +67,7 @@ export default class REPL extends Component<REPLProps, REPLState> {
 	private completionCache;
 	private completionCacheKey;
 
-	private doNotAutocomplete = /[)"']/; // heuristic to stop autocompletion
+	private doNotAutocomplete = /[)"'+\-*\/\]]/; // heuristic to stop autocompletion
 	private validIdentifier = /[a-zA-Z_$][0-9a-zA-Z_$]*/; // Yes I know this is wrong but it's good enough for these purposes
 	private handleInput = (e) => {
 		let value = e.target.value;
@@ -88,7 +88,7 @@ export default class REPL extends Component<REPLProps, REPLState> {
 			console.log(c.left);
 		}
 
-		const parsed = value.split(/(?:['"();=]|\s+)/);
+		const parsed = value.split(/(?:[\[\]'"();=]|\s+)/);
 		value = parsed[parsed.length - 1];
 
 		// calculate autocompletion
@@ -116,6 +116,9 @@ export default class REPL extends Component<REPLProps, REPLState> {
 
 		if (!this.validIdentifier.test(prev) && prev !== "") {
 			// this is not valid!
+			this.setState({
+				autoCompletion: []
+			});
 			return;
 		}
 
@@ -189,13 +192,13 @@ export default class REPL extends Component<REPLProps, REPLState> {
 				if (autoCompletion[selected]) {
 					e.preventDefault();
 
-					const newValue = state.value.split(".");
+					const newValue = state.value.split(/(['"();=.\[\]]|\s+)/);
 					newValue[newValue.length - 1] = autoCompletion[selected].name;
 
 					return this.setState({
 						autoCompletion: [],
 						selected: 0,
-						value: newValue.join(".")
+						value: newValue.join("")
 					});
 				}
 		}
