@@ -138,3 +138,21 @@ table.rawdata {
 		height: 4 * $pt-grid-size;
 	}
 }
+
+.autocompleter {
+	max-height: 10em;
+	overflow: scroll;
+}
+
+.autocompleter-inner {
+	position: absolute;
+}
+
+.autocompleter-wrapper {
+	position: relative;
+
+}
+
+.autocompleter-padding {
+	height: 11em;
+}

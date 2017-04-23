@@ -25,11 +25,22 @@ export default class Console extends Component<any, any> {
 				const row = nextProps.data[i];
 				const el = document.createElement("div");
 				el.classList.add("console-row");
-				const rowType = row.type.toLowerCase();
-				if (rowType === "excep" || rowType === "err" || rowType === "stderr") {
-					el.classList.add("err");
+				let text = "";
+				if (row.timestamp) {
+					text += `[${row.timestamp}]`;
 				}
-				el.innerText = `[${row.timestamp}][${row.type}] ${row.log}`;
+				if (row.type) {
+					const rowType = row.type.toLowerCase();
+					if (rowType === "excep" || rowType === "err" || rowType === "stderr") {
+						el.classList.add("err");
+					}
+					text += `[${row.type}]`;
+				}
+				if (text.length > 0) {
+					text += " ";
+				}
+
+				el.innerText = `${text}${row.log}`;
 				this.node.appendChild(el);
 				// this.node.insertBefore(el, this.node.firstChild);
 				if (this.shouldScroll) {

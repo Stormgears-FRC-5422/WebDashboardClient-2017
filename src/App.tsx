@@ -8,6 +8,7 @@ import Console from "./components/Console";
 import DiagnosticsDisplay from "./components/Diagnostics/DiagnosticsDisplay";
 import GameView from "./components/Game/GameView";
 import RawData from "./components/RawData/RawData";
+import REPL from "./components/REPL/REPL";
 
 import Graphs from "./components/Graphs/Graphs";
 
@@ -115,6 +116,7 @@ class App extends SyncedComponent<any, any> {
 				<br />
 				<h2>Logs</h2>
 				<Console data={state.console} dataLength={state.consoleLength} />
+				<REPL handleLog={this.handleLog} />
 				<Graphs/>
 			</div>
 		);
