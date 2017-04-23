@@ -67,7 +67,7 @@ export default class REPL extends Component<REPLProps, REPLState> {
 	private completionCache;
 	private completionCacheKey;
 
-	private doNotAutocomplete = /[)"']|var|let|const/; // heuristic to stop autocompletion
+	private doNotAutocomplete = /[)"']/; // heuristic to stop autocompletion
 	private validIdentifier = /[a-zA-Z_$][0-9a-zA-Z_$]*/; // Yes I know this is wrong but it's good enough for these purposes
 	private handleInput = (e) => {
 		let value = e.target.value;
