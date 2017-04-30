@@ -130,7 +130,7 @@
       [
         "inferno",
         {
-          "imports": true
+          "imports": false
         }
       ],
       "transform-class-properties",

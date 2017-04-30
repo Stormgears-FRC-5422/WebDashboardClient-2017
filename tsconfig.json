@@ -21,7 +21,8 @@
 		"paths": {
 			"react": ["./src/types/react"],
 			"react-dom": ["./src/types/react"]
-		}
+		},
+		"reactNamespace": "Inferno"
 	},
 	"include": [
 		"src/**/*"

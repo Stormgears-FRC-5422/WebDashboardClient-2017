@@ -1,3 +1,5 @@
+import Inferno from "inferno";
+
 import {Menu} from "@blueprintjs/core/dist/components/menu/menu";
 import {MenuItem} from "@blueprintjs/core/dist/components/menu/menuItem";
 

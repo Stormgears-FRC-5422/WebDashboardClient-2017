@@ -154,7 +154,8 @@ module.exports = {
 					{
 						loader: "awesome-typescript-loader",
 						options: {
-							useBabel: true
+							useBabel: true,
+							useCache: true
 						}
 					}
 				]

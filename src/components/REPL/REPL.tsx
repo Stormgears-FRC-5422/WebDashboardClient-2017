@@ -1,3 +1,5 @@
+import Inferno from "inferno";
+
 import Fuse from "fuse.js";
 import Component from "inferno-component";
 import getCaretCoordinates from "textarea-caret";

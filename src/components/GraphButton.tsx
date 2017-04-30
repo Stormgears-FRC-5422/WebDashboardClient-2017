@@ -1,3 +1,5 @@
+import Inferno from "inferno";
+
 export interface GraphButtonProps {
 	disabled?: boolean;
 	path: string;

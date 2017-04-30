@@ -1,3 +1,5 @@
+import Inferno from "inferno";
+
 export default function(props) {
 	return props.reverse ? <div className="statistic">
 			{props.small}

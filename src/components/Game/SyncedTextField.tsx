@@ -1,3 +1,5 @@
+import Inferno from "inferno";
+
 import _ from "lodash";
 
 import SyncedComponent from "../../lib/SyncedComponent";

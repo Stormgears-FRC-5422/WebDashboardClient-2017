@@ -1,3 +1,5 @@
+import Inferno from "inferno";
+
 import {Tab2} from "@blueprintjs/core/dist/components/tabs2/tab2";
 import {Tabs2} from "@blueprintjs/core/dist/components/tabs2/tabs2";
 

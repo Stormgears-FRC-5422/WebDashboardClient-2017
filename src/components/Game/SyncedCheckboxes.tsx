@@ -1,3 +1,5 @@
+import Inferno from "inferno";
+
 import SyncedComponent from "../../lib/SyncedComponent";
 import {ToggleType} from "./ToggleType";
 

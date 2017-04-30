@@ -1,3 +1,5 @@
+import Inferno from "inferno";
+
 import {Tree} from "@blueprintjs/core/dist/components/tree/tree";
 import {ITreeNode} from "@blueprintjs/core/dist/components/tree/treeNode";
 

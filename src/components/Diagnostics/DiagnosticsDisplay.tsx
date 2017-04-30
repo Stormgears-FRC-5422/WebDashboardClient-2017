@@ -1,3 +1,5 @@
+import Inferno from "inferno";
+
 import AHRS from "./AHRS";
 import Devices from "./Devices";
 import Talons from "./Talons";

@@ -1,3 +1,5 @@
+import Inferno from "inferno";
+
 import {EditableText} from "@blueprintjs/core/dist/components/editable-text/editableText";
 import Component from "inferno-component";
 import _ from "lodash";

@@ -1,3 +1,5 @@
+import Inferno from "inferno";
+
 import {NonIdealState} from "@blueprintjs/core/dist/components/non-ideal-state/nonIdealState";
 import Component from "inferno-component";
 import _ from "lodash";

@@ -1,4 +1,4 @@
-import {findDOMNode} from "inferno";
+import Inferno, {findDOMNode} from "inferno";
 import Component from "inferno-component";
 
 export default class Console extends Component<any, any> {
