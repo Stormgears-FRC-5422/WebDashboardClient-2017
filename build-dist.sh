@@ -7,6 +7,7 @@ yarn run build
 cp package.json webdashboard-client
 cp -r build webdashboard-client
 cp -r server webdashboard-client
+cp yarn.lock webdashboard-client
 
 cd webdashboard-client
 mkdir windows-tools
