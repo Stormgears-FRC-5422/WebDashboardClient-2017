@@ -1,3 +1,4 @@
+import Inferno from "inferno";
 import Component from "inferno-component";
 
 import {Position} from "@blueprintjs/core/dist/common/position";
