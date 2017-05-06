@@ -5,7 +5,7 @@ const app = superstatic({
 	port: 5803,
 	host: "0.0.0.0",
 	gzip: true,
-	cwd: path.join(__dirname, "../build")
+	cwd: "build"
 });
 
 const server = app.listen(function() {
