@@ -169,6 +169,9 @@ jspm_packages
 
 # End of https://www.gitignore.io/api/windows,macos,linux,webstorm,node
 
-webdashboard-client.zip
+webdashboard-client-*.zip
+webdashboard-client-*.tar.gz
+webdashboard-client-*.tar.xz
 /build
-.awcache
+/.awcache
+/build-server

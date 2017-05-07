@@ -89,9 +89,10 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
+    "build:server": "webpack --config config/webpack.config.server.js",
     "serve": "node server/static.js",
     "deepstream": "node server/deepstream.js",
-    "prod": "node server/production.js",
+    "prod": "node build-server/server.js",
     "test": "node scripts/test.js --env=jsdom"
   },
   "jest": {

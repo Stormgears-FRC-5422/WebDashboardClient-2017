@@ -1,7 +1,8 @@
 module.exports = {
 	entry: "./server/production.js",
 	output: {
-		filename: "server/server-bundle.js"
+		path: "build-server",
+		filename: "server.js",
 	},
 	module: {
 		rules: [
@@ -14,6 +15,9 @@ module.exports = {
 				use: 'node-native-loader'
 			}
 		]
+	},
+	resolve: {
+		extensions: [".js", ".json", ".node"]
 	},
 	target: "node",
 	externals: {
